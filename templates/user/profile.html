@@ -1,0 +1,43 @@
+{% extends "_base.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="/static/css/form-elements.css" type="text/css">
+{% endblock %}
+
+{% block content %}
+
+<div class="col-sm-6 col-sm-offset-3 profile">
+<h1>Your Profile</h1>
+{% if current_user.is_authenticated() %}
+  <p>Email: {{current_user.email}}</p>
+  <p>Username: {{current_user.nickname}}</p>
+{% endif %}
+{% for category, message in get_flashed_messages(with_categories=true) %}
+  <h4 class="flash-{{category}}"><b>Message</b>: {{ message }}</h4>
+{% endfor %}
+<div class="col-sm-8 col-sm-offset-2 form-box">
+<div class="form-top">
+  <div class="form-top-left">
+    <h3>Change password</h3>
+    <p>Enter a new password to change current password...</p>
+  </div>
+  <div class="form-top-right">
+    <i class="fa fa-cogs"></i>
+  </div>
+</div>
+<div class="form-bottom">
+    <form role="form" action="" method="post" class="registration-form">
+      <div class="form-group">
+        <label class="sr-only" for="form-password">Password</label>
+        <input type="password" name="password" placeholder="New password..." class="form-password form-control" id="form-password">
+      </div>
+      <div class="form-group">
+        <label class="sr-only" for="form-confirm">Confirm password</label>
+        <input type="password" name="confirm" placeholder="Password confirmation..." class="form-confirm form-control" id="form-confirm">
+      </div>
+      <button type="submit" class="btn">Change password</button>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">User Analysis</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      {% if current_user.is_authenticated %}
+      <li><a href="{{ url_for('user.profile') }}">{{ current_user.nickname }}</a></li>
+      <li><img src="/static/img/user-clipart.png" class="user-clipart"></li>
+      <li><a href="{{ url_for('user.logout') }}">Logout</a></li>
+      {% else %}
+      <li><a href="{{ url_for('user.register') }}">Sign up</a></li>
+      <li><a href="{{ url_for('user.login') }}"><span class="glyphicon glyphicon-user"></span>&nbsp;Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

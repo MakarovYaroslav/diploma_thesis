@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class='error_page'>
+    <div class='number'>500</div>
+    <hr>
+    <div class='title1'>SOMETHING`S WRONG!</div>
+    <div class='title2'>WE ARE ON THE JOB.</div>
+    <a class='btn' href="{{url_for('main.home')}}">RETURN HOME</a>
+</div>
+{% endblock %}

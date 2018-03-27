@@ -1,0 +1,42 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-2"></div>
+  <div class="col-xs-3 text-center">
+    <h3>Social network:</h3>
+    <h4><em>{{ network }}</em></h4>
+  </div>
+  <div class="col-xs-2"></div>
+  <div class="col-xs-3 text-center">
+    <h3>Username:</h3>
+    <h4><em>{{ user }}</em></h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 text-center">
+    <h2>Graphical results:</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    {{ graph|safe }}
+  </div>
+  <div class="col-xs-1"></div>
+</div>
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    {{ graph2|safe }}
+  </div>
+  <div class="col-xs-1"></div>
+</div>
+<div class="row">
+  <div class="col-xs-1"></div>
+  <div class="col-xs-10">
+    {{ graph3|safe }}
+  </div>
+  <div class="col-xs-1"></div>
+</div>
+{% endblock %}

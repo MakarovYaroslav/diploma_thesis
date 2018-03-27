@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class='error_page'>
+    <div class='number'>403</div>
+    <hr>
+    <div class='title1'>PAGE FORBIDDEN</div>
+    <div class='title2'>YOU DON`T HAVE ACCESS TO THE PAGE YOU REQUESTED</div>
+    <a class='btn' href="{{url_for('main.home')}}">RETURN HOME</a>
+</div>
+{% endblock %}

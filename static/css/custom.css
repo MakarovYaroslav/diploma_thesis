@@ -1,0 +1,216 @@
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css";
+
+.socialNetworksWrap {
+	padding: 40px;
+}
+
+.socialNetworksWrap .socialBtnGroup {
+	max-width: 270px;
+	margin: auto;
+}
+
+.socialNetworksWrap .socialBtnGroup .socialNetwork {
+	padding: 40px;
+	box-shadow: none;
+	position: relative;
+}
+
+.socialNetworksWrap .socialBtnGroup .socialNetwork.active {
+	outline: none !important;
+}
+
+.socialNetworksWrap .socialBtnGroup .socialNetwork.active .network {
+	border-color: #11b99a;
+	outline: none !important;
+	box-shadow: 0px 5px 22px 0px #f3f2f2;
+}
+
+.socialNetworksWrap .socialBtnGroup .socialNetwork .network {
+	position: absolute;
+	right: 3px;
+	top: 3px;
+	bottom: 3px;
+	left: 3px;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: 2px solid transparent;
+	transition: all 0.5s;
+}
+
+.socialNetworksWrap .socialBtnGroup .socialNetwork .network.reddit {
+	background-image: url("../img/reddit.png");
+}
+
+.socialNetworksWrap .socialBtnGroup .socialNetwork .network.twitter {
+	background-image: url("../img/twitter2.jpg");
+}
+
+.socialNetworksWrap .socialBtnGroup .socialNetwork .network:hover {
+	border-color: #51adad;
+	outline: none !important;
+}
+
+
+body{
+	background: linear-gradient(to right, #00E096, #00C9CE);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 30px;
+    text-align: center;
+}
+
+.navbar-header{
+	padding-left: 100px;
+}
+
+.navbar-header a{
+	color: #FFF;
+	font-size:24px;
+}
+
+.navbar-right{
+	padding-right:100px;
+}
+
+.navbar-right a{
+	color: #FFF;
+	font-size:16px;
+}
+
+.user-clipart{
+	width:30px;
+}
+
+.network-select{
+	font-size:24px;
+	font-style:italic;
+	padding-bottom:20px;
+}
+
+.username-label, .topic-select{
+	font-size:24px;
+	font-style:italic;
+	padding-bottom:20px;
+}
+
+.username-clipart{
+	width:20px;
+}
+
+.checkbox{
+  display:inline-block;
+  margin-right:10px;
+  text-align:center;
+}
+.label-text{
+	font-size:18px;
+	font-weight:600;
+	font-style:italic;
+}
+.checkbox label {
+  cursor:pointer;
+}
+
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox input[type="checkbox"] + .label-text:before {
+  content: "\f096";
+  font-family: "FontAwesome";
+  font-size: 30px;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  width: 1em;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.checkbox input[type="checkbox"]:checked + .label-text:before {
+  content: "\f14a";
+  font-size:30px;
+  -webkit-animation:tick 180ms ease-in;
+  animation:tick 180ms ease-in;
+}
+
+.checkbox input[type="checkbox"]:disabled + .label-text {
+  color: #aaa;
+}
+
+.checkbox input[type="checkbox"]:disabled + .label-text:before {
+  content: "\f0c8";
+  color: #ccc;
+}
+
+@-webkit-keyframes tick {
+  0%   {-webkit-transform: scale(0); }
+  90%  {-webkit-transform: scale(1.4); }
+  100%  {-webkit-transform: scale(1); }
+}
+
+@keyframes tick {
+  0%   {transform: scale(0); }
+  90%  {transform: scale(1.4); }
+  100%  {transform: scale(1); }
+}
+
+.button{
+	padding-top: 40px;
+}
+
+.flash-error{
+	color:#ff0000;
+}
+.flash-success{
+	color: #02ff0e;
+}
+
+.unconfirmed{
+	padding-top:70px;
+}
+
+.unconfirmed p{
+	font-size:18px;
+	font-style:italic;
+	font-weight:bold;
+}
+
+.error_page{
+	text-align: center;
+	width:80%;
+	margin: 0 auto;
+}
+.error_page .number{
+	margin-top: 100px;
+	font-size: 220px;
+	height: 150px;
+	letter-spacing: 15px;
+}
+.error_page .title1{
+	text-align:center;
+	letter-spacing: 12px;
+	font-size: 4em;
+	line-height: 80%;
+	padding-top:30px;
+}
+.error_page .title2{
+	text-align:center;
+	font-size: 30px;
+	padding-top:30px;
+}
+.error_page .btn{
+	background-color: rgb( 255, 255, 255 );
+    width: 250px;
+    font-size: 25px;
+    margin:40px auto;
+    margin-right: 10px;
+    color:#00C9CE;
+}

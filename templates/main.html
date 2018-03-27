@@ -1,0 +1,80 @@
+{% extends "_base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-xs-0 col-lg-2"></div>
+    <div class="col-xs-12 col-lg-8">
+        <form method="POST">
+            <div class="socialNetworksWrap">
+                <div class="row text-center network-select">
+                    <label>Select social network for analysis</label>
+                </div>
+                <div class="btn-group socialBtnGroup btn-group-justified" data-toggle="buttons">
+                    {% if network == "reddit"%}
+                    <label class="btn socialNetwork active">
+                        <div class="network reddit"></div>
+                        <input type="radio" name="options" value="reddit" checked>
+                    </label>
+                    {% else %}
+                    <label class="btn socialNetwork">
+                        <div class="network reddit"></div>
+                        <input type="radio" name="options" value="reddit">
+                    </label>
+                    {% endif %}
+                    {% if network == "twitter"%}
+                    <label class="btn socialNetwork active">
+                        <div class="network twitter"></div>
+                        <input type="radio" name="options" value="twitter" checked>
+                    </label>
+                    {% else %}
+                    <label class="btn socialNetwork">
+                        <div class="network twitter"></div>
+                        <input type="radio" name="options" value="twitter">
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="text-center username-label">
+                <label>Enter Username:</label>
+            </div>
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-1 text-right">
+                    <img src="/static/img/username.png" class="username-clipart">
+                </div>
+                <div class="col-lg-6">
+                    {% if user_error %}
+                    <div class="form-group has-error">
+                        <input name="username" class="form-control" placeholder="Username for analysis" maxlength="20" autofocus/>
+                        <label class="control-label">Введено некорректное имя пользователя</label>
+                    </div>
+                    {% else %}
+                    <div class="form-group">
+                        <input name="username" class="form-control" placeholder="Username for analysis" maxlength="20" autofocus/>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+            <div class="text-center topic-select">
+                <label>Select topics for analysis:</label>
+            </div>
+            <div class="text-center">
+                {% for topic in topics %}
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="{{ topic }}" checked>
+                        <span class="label-text"><br>{{ topic }}</span>
+                    </label>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="form-group text-center button">
+                <button class="btn btn-primary" type="submit">Start analysis</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-0 col-lg-2"></div>
+</div>
+{% endblock %}

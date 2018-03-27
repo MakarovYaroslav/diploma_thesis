@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+{% block content %}
+<div class='error_page'>
+    <div class='number'>404</div>
+    <hr>
+    <div class='title1'>THE PAGE</div>
+    <div class='title2'>WAS NOT FOUND</div>
+    <a class='btn' href="{{url_for('main.home')}}">RETURN HOME</a>
+</div>
+{% endblock %}
