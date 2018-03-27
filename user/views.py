@@ -4,7 +4,6 @@ from flask_login import login_user, logout_user, \
     login_required, current_user
 import datetime
 from models.models import User
-# from project.email import send_email
 from .user_forms import LoginForm, RegisterForm, ChangePasswordForm
 from .user_token import generate_confirmation_token, confirm_token
 from .user_email import send_email
@@ -32,7 +31,8 @@ def register():
         db.session.commit()
 
         token = generate_confirmation_token(user.email)
-        confirm_url = url_for('user.confirm_email', token=token, _external=True)
+        confirm_url = url_for('user.confirm_email',
+                              token=token, _external=True)
         html = render_template('user/activate.html', confirm_url=confirm_url)
         subject = "Please confirm your email"
         send_email(user.email, subject, html)
@@ -81,7 +81,7 @@ def oauth_callback(provider):
 
 
 @user_blueprint.route('/confirm/<token>')
-#@login_required
+@login_required
 def confirm_email(token):
     from server import db
     try:
@@ -103,7 +103,7 @@ def confirm_email(token):
 
 
 @user_blueprint.route('/unconfirmed')
-#@login_required
+@login_required
 def unconfirmed():
     if current_user.confirmed:
         return redirect(url_for('main.home'))
@@ -135,7 +135,7 @@ def login():
 
 
 @user_blueprint.route('/logout')
-#@login_required
+@login_required
 def logout():
     logout_user()
     flash('You were logged out.', 'success')
@@ -143,8 +143,8 @@ def logout():
 
 
 @user_blueprint.route('/profile', methods=['GET', 'POST'])
-#@login_required
-#@check_confirmed
+@login_required
+@check_confirmed
 def profile():
     from server import db, bcrypt
     form = ChangePasswordForm(request.form)
@@ -167,7 +167,7 @@ def profile():
 
 
 @user_blueprint.route('/resend')
-#@login_required
+@login_required
 def resend_confirmation():
     token = generate_confirmation_token(current_user.email)
     confirm_url = url_for('user.confirm_email', token=token, _external=True)

@@ -3,7 +3,8 @@ from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from flask_mail import Mail
 from flask_debugtoolbar import DebugToolbarExtension
-from models.models import db, RedditComments, TwitterComments, User, AnalysisResults
+from models.models import db, RedditComments, TwitterComments,\
+    User, AnalysisResults
 from sqlalchemy import func
 from config import DevelopmentConfig
 from flask_admin import Admin
@@ -52,7 +53,8 @@ def server_error_page():
 
 def get_last_timestamp(table, username):
     with app.app_context():
-        last_timestamp = db.session.query(func.max(table.timestamp)).filter_by(user=username).first()[0]
+        last_timestamp = db.session.query(func.max(table.timestamp))\
+            .filter_by(user=username).first()[0]
     if last_timestamp is None:
         last_timestamp = 0.0
     return last_timestamp
@@ -60,9 +62,12 @@ def get_last_timestamp(table, username):
 
 admin = Admin(app, name='User Analysis', template_mode='bootstrap3')
 admin.add_view(UserView(User, db.session, name='Users', endpoint="users"))
-admin.add_view(CommentView(RedditComments, db.session, name='Reddit Comments', endpoint="reddit"))
-admin.add_view(CommentView(TwitterComments, db.session, name='Twitter Comments', endpoint="twitter"))
-admin.add_view(ResultView(AnalysisResults, db.session, name='Analysis Results', endpoint="result"))
+admin.add_view(CommentView(RedditComments, db.session,
+                           name='Reddit Comments', endpoint="reddit"))
+admin.add_view(CommentView(TwitterComments, db.session,
+                           name='Twitter Comments', endpoint="twitter"))
+admin.add_view(ResultView(AnalysisResults, db.session,
+                          name='Analysis Results', endpoint="result"))
 
 
 if __name__ == '__main__':

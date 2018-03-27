@@ -11,7 +11,8 @@ negative_train_file = config['tone_analyse']['negative_train_file']
 positive_train_file = config['tone_analyse']['positive_train_file']
 dataset_folder = config['tone_analyse']['dataset_folder_name']
 
-dataset_url = "https://archive.ics.uci.edu/ml/machine-learning-databases/00331/sentiment%20labelled%20sentences.zip"
+dataset_url = "https://archive.ics.uci.edu/ml/machine-learning-databases/" \
+              "00331/sentiment%20labelled%20sentences.zip"
 os.mkdir('./%s/' % dataset_folder)
 urllib.request.urlretrieve(dataset_url, "./%s/dataset.zip" % dataset_folder)
 
@@ -24,7 +25,8 @@ os.remove('%s/readme.txt' % data_path)
 os.remove('%s/.DS_Store' % data_path)
 
 with open('./%s/%s' % (dataset_folder, negative_train_file), 'w') as neg_file:
-    with open('./%s/%s' % (dataset_folder, positive_train_file), 'w') as pos_file:
+    with open('./%s/%s' % (dataset_folder, positive_train_file),
+              'w') as pos_file:
         for filename in os.listdir(data_path):
             with open(os.path.join(data_path, filename), 'r') as file:
                 for line in file:

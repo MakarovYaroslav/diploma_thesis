@@ -1,6 +1,6 @@
 import datetime
 from server import app, db
-from models import User
+from models.models import User
 
 
 if __name__ == "__main__":

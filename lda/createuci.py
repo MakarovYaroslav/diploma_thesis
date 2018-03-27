@@ -81,7 +81,8 @@ class WikiText(Text):
             for theme, pageid in themes:
                 try:
                     page = wikipedia.page(pageid=pageid)
-                    with open('./%s/%s.wiki.txt' % (category_path, theme), 'w') as file:
+                    with open('./%s/%s.wiki.txt' % (
+                            category_path, theme), 'w') as file:
                         file.write(page.content)
                 except AttributeError:
                     pass
@@ -124,7 +125,9 @@ class WikiText(Text):
                 with open('./%s/%s' % (category_path, file_name), 'r') as file:
                     for line in file.readlines():
                         documents.append(line)
-        texts = [[lmtzr.lemmatize(word) for word in re.findall('\w+', document.lower()) if self.is_word_correct(word)]
+        texts = [[lmtzr.lemmatize(word) for word in
+                  re.findall('\w+', document.lower())
+                  if self.is_word_correct(word)]
                  for document in documents]
         frequency = defaultdict(int)
         for text in texts:
@@ -133,10 +136,12 @@ class WikiText(Text):
         texts = [[token for token in text if frequency[token] > 3]
                  for text in texts]
         dictionary = corpora.Dictionary(texts)
-        dictionary.save_as_text('./%s/%s.dict' % (self.uci_folder, corpus_name))
+        dictionary.save_as_text('./%s/%s.dict' % (self.uci_folder,
+                                                  corpus_name))
         corpus = [dictionary.doc2bow(text) for text in texts]
         corpora.UciCorpus.save_corpus(
-            './%s/%s.txt' % (self.uci_folder, corpus_name), corpus, id2word=dictionary)
+            './%s/%s.txt' % (self.uci_folder, corpus_name),
+            corpus, id2word=dictionary)
         return
 
 
@@ -152,8 +157,8 @@ if __name__ == '__main__':
     try:
         wiki.get_textfiles_from_wiki()
         wiki.save_corpus_from_textfiles()
-        print('UCI корпус для обучения успешно скачан!\n Для обучения LDA модели -'
-              ' используйте команду "python3 lda/trainmodel.py --count COUNT"')
+        print('UCI корпус для обучения успешно скачан!\n Для обучения LDA '
+              'модели - используйте команду "python3 lda/trainmodel.py '
+              '--count COUNT"')
     except FileExistsError:
         print("Корпус уже был скачан!")
-

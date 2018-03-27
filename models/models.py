@@ -13,8 +13,10 @@ class AnalysisResults(db.Model):
     medicine = db.Column(db.Float, nullable=False)
     politics = db.Column(db.Float, nullable=False)
     program = db.Column(db.Float, nullable=False)
-    reddit_comment = db.relationship("RedditComments", uselist=False, back_populates="result")
-    twitter_comment = db.relationship("TwitterComments", uselist=False, back_populates="result")
+    reddit_comment = db.relationship("RedditComments", uselist=False,
+                                     back_populates="result")
+    twitter_comment = db.relationship("TwitterComments", uselist=False,
+                                      back_populates="result")
 
     def __repr__(self):
         return str(self.id)
@@ -26,7 +28,8 @@ class RedditComments(db.Model):
     user = db.Column(db.String(100), index=True, nullable=False)
     timestamp = db.Column(db.Float, index=True, nullable=False)
     result_id = db.Column(db.Integer, db.ForeignKey('result.id'))
-    result = db.relationship("AnalysisResults", back_populates="reddit_comment")
+    result = db.relationship("AnalysisResults",
+                             back_populates="reddit_comment")
 
     def __repr__(self):
         return "%s - %s" % (self.id, self.user)
@@ -38,7 +41,8 @@ class TwitterComments(db.Model):
     user = db.Column(db.String(100), index=True, nullable=False)
     timestamp = db.Column(db.Float, index=True, nullable=False)
     result_id = db.Column(db.Integer, db.ForeignKey('result.id'))
-    result = db.relationship("AnalysisResults", back_populates="twitter_comment")
+    result = db.relationship("AnalysisResults",
+                             back_populates="twitter_comment")
 
     def __repr__(self):
         return "%s - %s" % (self.id, self.user)

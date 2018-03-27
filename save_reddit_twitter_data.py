@@ -33,8 +33,11 @@ class User:
                 pos = tone_with_time['pos']
                 neg = tone_with_time['neg']
                 timestamp = tone_with_time['timestamp']
-                result = AnalysisResults(pos=pos, neg=neg, medicine=medicine, politics=politics, program=program)
-                new_line = table(user=username, timestamp=timestamp, result=result)
+                result = AnalysisResults(pos=pos, neg=neg,
+                                         medicine=medicine, politics=politics,
+                                         program=program)
+                new_line = table(user=username, timestamp=timestamp,
+                                 result=result)
                 db.session.add(new_line)
             db.session.commit()
 
@@ -61,7 +64,8 @@ class RedditUser(User):
     @staticmethod
     def user_is_exist(username):
         r = requests.get(
-            'http://www.reddit.com/user/%s' % username, headers={'User-agent': 'request bot 0.1'})
+            'http://www.reddit.com/user/%s' % username,
+            headers={'User-agent': 'request bot 0.1'})
         return True if r.status_code == 200 else False
 
     def get_user_data(self, last_timestamp):
@@ -78,7 +82,6 @@ class RedditUser(User):
                 break
             if comment.is_root:
                 new_comments.append(comment)
-        print("Получено %d новых комментов" % len(new_comments))
         self.data = new_comments
         return
 
@@ -101,7 +104,8 @@ class TwitterUser(User):
     @staticmethod
     def user_is_exist(username):
         r = requests.get(
-            'https://twitter.com/%s' % username, headers={'User-agent': 'request bot 0.1'})
+            'https://twitter.com/%s' % username,
+            headers={'User-agent': 'request bot 0.1'})
         if r.status_code == 200:
             return True
         else:
@@ -110,7 +114,8 @@ class TwitterUser(User):
     @asyncio.coroutine
     def check_tweet(self, tweet):
         loop = asyncio.get_event_loop()
-        future1 = loop.run_in_executor(None, self.get_status_text, tweet.in_reply_to_status_id)
+        future1 = loop.run_in_executor(None, self.get_status_text,
+                                       tweet.in_reply_to_status_id)
         status_text = yield from future1
         if not status_text:
             return
@@ -138,24 +143,25 @@ class TwitterUser(User):
         alltweets.extend(new_tweets)
         oldest = alltweets[-1].id - 1
         while len(new_tweets) > 0:
-            print(alltweets[-1].created_at, datetime.fromtimestamp(last_timestamp))
             if alltweets[-1].created_at <= datetime.fromtimestamp(last_timestamp):
                 break
-            new_tweets = api.user_timeline(screen_name=self.user_id, count=200, max_id=oldest)
+            new_tweets = api.user_timeline(screen_name=self.user_id,
+                                           count=200,
+                                           max_id=oldest)
             alltweets.extend(new_tweets)
             oldest = alltweets[-1].id - 1
-        print("Получено %d новых комментов" % len(alltweets))
-        tweets = [tweet for tweet in alltweets if tweet.created_at > datetime.fromtimestamp(last_timestamp)]
+        tweets = [tweet for tweet in alltweets if
+                  tweet.created_at > datetime.fromtimestamp(last_timestamp)]
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
         tasks = [asyncio.async(self.check_tweet(tweet)) for tweet in tweets]
         if tasks:
             done, _ = loop.run_until_complete(asyncio.wait(tasks))
-            comments = [result.result() for result in done if result.result() is not None]
+            comments = [result.result() for result in done
+                        if result.result() is not None]
         else:
             comments = []
         loop.close()
-        print("Из них подошли %d" % len(comments))
         self.data = comments
         return
 

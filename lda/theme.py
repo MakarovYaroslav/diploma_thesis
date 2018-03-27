@@ -25,4 +25,5 @@ if __name__ == '__main__':
     print("Текст для анализа: %s" % args.text)
     for topic, probability in topics:
         prob = probability * 100
-        print('Принадлежит к теме "' + topic + '" с вероятностью ' + str(prob) + '%')
+        print('Принадлежит к теме "' + topic +
+              '" с вероятностью ' + str(prob) + '%')

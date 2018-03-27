@@ -24,7 +24,8 @@ class LdaModelClass:
         self.uci_folder_name = uci_folder_name
         self.topics_count = len(self.categories)
         try:
-            self.ldamodel = models.ldamodel.LdaModel.load('./%s/%s' % (self.uci_folder_name, self.name))
+            self.ldamodel = models.ldamodel.LdaModel.load(
+                './%s/%s' % (self.uci_folder_name, self.name))
         except FileNotFoundError:
             self.ldamodel = None
         try:
@@ -47,7 +48,8 @@ class LdaModelClass:
             passes=passes_count, alpha='auto', eta='auto')
         ldamodel.save('./%s/%s' % (self.uci_folder_name, self.name))
         print("Модель успешно обучена!")
-        self.ldamodel = models.ldamodel.LdaModel.load('./%s/%s' % (self.uci_folder_name, self.name))
+        self.ldamodel = models.ldamodel.LdaModel.load(
+            './%s/%s' % (self.uci_folder_name, self.name))
         return
 
     def print_model_topics(self):
@@ -62,7 +64,9 @@ class LdaModelClass:
     def get_topic_names(self):
         wordcount_in_category = {}
         for category in self.categories:
-            with open('./%s/%s/%s.wiki.txt' % (self.uci_folder_name, category, WikiText.get_main_article(category)), 'r') as f:
+            with open('./%s/%s/%s.wiki.txt' % (
+                    self.uci_folder_name, category,
+                    WikiText.get_main_article(category)), 'r') as f:
                 wordcount = Counter(f.read().split())
                 wordcount_in_category[category] = wordcount
         topic_names = []
@@ -92,7 +96,9 @@ class LdaModelClass:
     def test_model(self):
         probabilities = 0.0
         for category in self.categories:
-            with open('./%s/%s/%s.test.txt' % (self.uci_folder_name, category, category), 'r') as file:
+            with open('./%s/%s/%s.test.txt' % (
+                    self.uci_folder_name, category,
+                    category), 'r') as file:
                 list_of_topics = self.create_list_with_themes(file.read())
             for topic_name, probability in list_of_topics:
                 if topic_name == category:
@@ -113,6 +119,5 @@ if __name__ == '__main__':
     else:
         LdaForTrain.train_model()
     LdaForTrain.get_topic_names()
-    #LdaForTrain.bayes_get_topic_names()
     LdaForTrain.print_model_topics()
     LdaForTrain.test_model()

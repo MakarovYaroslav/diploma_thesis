@@ -38,13 +38,12 @@ def save_user_data_to_db(network, username, last_timestamp):
         user = TwitterUser(username)
     user.get_user_data(last_timestamp)
     if len(user.data) == 0:
-        print("PUSTO")
         return
     comments_and_posts = user.get_comments_and_posts()
     pool = mp.Pool(5)
-    tone_dict = dict(zip(comments_and_posts, pool.map(user.get_tone_dict, comments_and_posts.values())))
-    #tone_dict = user.get_tone_dict(comments_and_posts)
+    tone_dict = dict(zip(comments_and_posts,
+                         pool.map(user.get_tone_dict,
+                                  comments_and_posts.values())))
     topics_with_tone = replace_posts_with_topics(tone_dict)
     user.save_data_to_db(username, topics_with_tone, network)
-    print("saved")
     return

@@ -100,7 +100,8 @@ class TwitterSignIn(OAuthSignIn):
             request_token[1],
             data={'oauth_verifier': request.args['oauth_verifier']}
         )
-        me = oauth_session.get('account/verify_credentials.json', params={'include_email': 'true'}).json()
+        me = oauth_session.get('account/verify_credentials.json',
+                               params={'include_email': 'true'}).json()
         social_id = 'twitter$' + str(me.get('id'))
         username = me.get('screen_name')
         email = me.get('email')
@@ -111,15 +112,16 @@ class TwitterSignIn(OAuthSignIn):
 class GoogleSignIn(OAuthSignIn):
     def __init__(self):
         super(GoogleSignIn, self).__init__('google')
-        googleinfo = urllib2.urlopen('https://accounts.google.com/.well-known/openid-configuration')
+        googleinfo = urllib2.urlopen(
+            'https://accounts.google.com/.well-known/openid-configuration')
         google_params = json.loads(googleinfo.read().decode())
         self.service = OAuth2Service(
-                name='google',
-                client_id=self.consumer_id,
-                client_secret=self.consumer_secret,
-                authorize_url=google_params.get('authorization_endpoint'),
-                base_url=google_params.get('userinfo_endpoint'),
-                access_token_url=google_params.get('token_endpoint')
+            name='google',
+            client_id=self.consumer_id,
+            client_secret=self.consumer_secret,
+            authorize_url=google_params.get('authorization_endpoint'),
+            base_url=google_params.get('userinfo_endpoint'),
+            access_token_url=google_params.get('token_endpoint')
         )
 
     def authorize(self):
@@ -135,11 +137,11 @@ class GoogleSignIn(OAuthSignIn):
         if 'code' not in request.args:
             return None, None, None
         oauth_session = self.service.get_auth_session(
-                data={'code': request.args['code'],
-                      'grant_type': 'authorization_code',
-                      'redirect_uri': self.get_callback_url()
-                      },
-                decoder=decode_json
+            data={'code': request.args['code'],
+                  'grant_type': 'authorization_code',
+                  'redirect_uri': self.get_callback_url()
+                  },
+            decoder=decode_json
         )
         me = oauth_session.get('').json()
         return ('google$' + me['sub'],

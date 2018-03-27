@@ -50,7 +50,8 @@ def save_to_file(filepath, open_mode, data):
     return
 
 
-word_features = get_file_data('./%s/word_features5k.pickle' % algos_folder, "rb")
+word_features = get_file_data(
+    './%s/word_features5k.pickle' % algos_folder, "rb")
 
 
 class SemanticAnaliser(metaclass=ABCMeta):
@@ -72,7 +73,8 @@ class SemanticAnaliser(metaclass=ABCMeta):
         self.classifier.train(training_set)
         print("%s accuracy percent:" % self.name,
               (nltk.classify.accuracy(self.classifier, testing_set)) * 100)
-        save_to_file('./%s/%s' % (algos_folder, self.filename), "wb", self.classifier)
+        save_to_file(
+            './%s/%s' % (algos_folder, self.filename), "wb", self.classifier)
         return
 
 
@@ -95,7 +97,8 @@ class OriginalNBAnaliser(SemanticAnaliser):
               (nltk.classify.accuracy(self.classifier, testing_set)) * 100)
         self.classifier.show_most_informative_features(
             MOST_INFORMATIVE_WORDS_COUNT)
-        save_to_file('./%s/%s' % (algos_folder, self.filename), "wb", self.classifier)
+        save_to_file(
+            './%s/%s' % (algos_folder, self.filename), "wb", self.classifier)
 
 
 # Multinomial наивный байесовский классификатор
@@ -222,4 +225,5 @@ if __name__ == '__main__':
     tone, probability = sentiment(args.text)
     print("Текст для анализа: %s" % args.text)
     prob = probability * 100
-    print('Тональность текста "' + tone + '" с вероятностью ' + str(prob) + '%')
+    print('Тональность текста "' + tone +
+          '" с вероятностью ' + str(prob) + '%')
