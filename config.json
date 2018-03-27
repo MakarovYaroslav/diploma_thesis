@@ -1,0 +1,12 @@
+{
+  "topic_modeling": {
+    "categories": ["Politics", "Programming languages", "Medicine"],
+    "uci_folder_name": "uci_data",
+    "corpus_name": "lda_corpus",
+    "ldamodel_name": "ldamodel"},
+  "tone_analyse": {
+    "folder_for_algos": "pickled_algos",
+    "negative_train_file": "negative.txt",
+    "positive_train_file": "positive.txt",
+    "dataset_folder_name": "sentiment_dataset"}
+}
