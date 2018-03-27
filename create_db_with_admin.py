@@ -1,6 +1,7 @@
 import datetime
 from server import app, db
 from models.models import User
+import os
 
 
 if __name__ == "__main__":
@@ -8,10 +9,10 @@ if __name__ == "__main__":
         db.drop_all()
         db.create_all()
         db.session.add(User(
-            social_id="ad@min.com",
-            email="ad@min.com",
+            social_id=os.getenv('ADMIN_EMAIL'),
+            email=os.getenv('ADMIN_EMAIL'),
             nickname="ADMIN",
-            password="admin",
+            password=os.getenv('ADMIN_PASSWORD'),
             admin=True,
             confirmed=True,
             confirmed_on=datetime.datetime.now())
