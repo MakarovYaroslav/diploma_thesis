@@ -1,0 +1,61 @@
+Agda is a dependently typed functional programming language originally developed by Ulf Norell at Chalmers University of Technology with implementation described in his PhD thesis. The current version of Agda was originally known as Agda 2. The original Agda system was developed at Chalmers by Catarina Coquand in 1999. The current version is a full rewrite, which should be considered a new language that shares name and tradition.
+Agda is also a proof assistant, but unlike Coq, has no support for tactics, and proofs are written in a functional programming style. The language has ordinary programming constructs such as data types, pattern matching, records, let expressions and modules, and a Haskell-like syntax. The system has Emacs and Atom interfaces but can also be run in batch mode from the command line.
+Agda is based on Zhaohui Luo's Unified Theory of Dependent Types (UTT) a type theory similar to Martin-Löf type theory.
+
+
+== Features ==
+
+
+=== Inductive types ===
+The main way of defining data types in Agda is via inductive data types which are similar to algebraic data types in non-dependently typed programming languages.
+Here is a definition of Peano numbers in Agda:
+
+Basically, it means that there are two ways to construct a natural number. Zero is a natural number, and if n is a natural number, then suc n, the successor of n, is a natural number too.
+Here's a definition of the "less than or equal" relation:
+
+The first constructor allows us to state that zero is less than or equal to any number. The second constructor states that if n ≤ m then suc n ≤ suc m.
+
+
+=== Dependently typed pattern matching ===
+In core type theory, induction and recursion principles are used to prove theorems about inductive types. In Agda, dependently typed pattern matching is used instead. For example, natural number addition can be defined like this:
+
+This way of writing recursive functions/inductive proofs is more natural than applying raw induction principles. In Agda, dependently typed pattern matching is a primitive of the language; the core language lacks the induction/recursion principles that pattern matching translates to.
+
+
+=== Metavariables ===
+One of the distinctive features of Agda, when compared with other similar systems such as Coq, is heavy reliance on metavariables for program construction. For example, one can write functions like this in Agda:
+
+? here is a metavariable. When interacting with the system in emacs mode, it will show the user expected type and allow them to refine the metavariable, i.e., to replace it with more detailed code. This feature allows incremental program construction in a way similar to tactics-based proof assistants such as Coq.
+
+
+=== Proof automation ===
+Programming in pure type theory involves a lot of tedious and repetitive proofs, and Agda has no support for tactics. Instead, Agda has support for automation via reflection. The reflection mechanism allows one to quote program fragments into – or unquote them from – the abstract syntax tree. The way reflection is used is similar to the way Template Haskell works.
+Another mechanism for proof automation is proof search action in emacs mode. It enumerates possible proof terms (limited to 5 seconds), and if one of the terms fits the specification, it will be put in the meta variable where the action is invoked. This action accepts hints, e.g., which theorems and from which modules can be used, whether the action can use pattern matching, etc.
+
+
+=== Termination checking ===
+Agda is a total language, i.e., each program in it must terminate and all possible patterns must be matched. Without this feature, the logic behind the language becomes inconsistent, and it becomes possible to prove arbitrary statements. For termination checking, Agda uses the approach of the Foetus termination checker.
+
+
+=== Standard library ===
+Agda has an extensive de facto standard library, which includes many useful definitions and theorems about basic data structures, such as natural numbers, lists, and vectors. The library is in beta, and is under active development.
+
+
+=== Unicode ===
+One of the more notable features of Agda is a heavy reliance on Unicode in program source code. The standard emacs mode uses shortcuts for input, such as \Sigma for Σ.
+
+
+=== Backends ===
+There are three compiler backends, MAlonzo for Haskell, and one each for JavaScript, and Epic.
+
+
+== References ==
+
+
+== External links ==
+Official website
+Dependently Typed Programming in Agda, by Ulf Norell
+A Brief Overview of Agda, by Ana Bove, Peter Dybjer, and Ulf Norell
+Introduction to Agda, a five-part YouTube playlist by Daniel Peebles
+Brutal [Meta]Introduction to Dependent Types in Agda
+Agda Tutorial: "explore programming in Agda without theoretical background"

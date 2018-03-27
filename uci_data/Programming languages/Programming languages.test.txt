@@ -1,0 +1,1589 @@
+C# (/si: ʃɑːrp/) is a multi-paradigm programming language encompassing strong typing, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines. It was developed by Microsoft within its .NET initiative and later approved as a standard by Ecma (ECMA-334) and ISO (ISO/IEC 23270:2006). C# is one of the programming languages designed for the Common Language Infrastructure.
+ C# is a general-purpose, object-oriented programming language. Its development team is led by Anders Hejlsberg. The most recent version is C# 7.2, which was released in 2017 along with Visual Studio 2017 version 15.5.
+ 
+ 
+ == Design goals ==
+ The ECMA standard lists these design goals for C#:
+ The language is intended to be a simple, modern, general-purpose, object-oriented programming language.
+ The language, and implementations thereof, should provide support for software engineering principles such as strong type checking, array bounds checking, detection of attempts to use uninitialized variables, and automatic garbage collection. Software robustness, durability, and programmer productivity are important.
+ The language is intended for use in developing software components suitable for deployment in distributed environments.
+ Portability is very important for source code and programmers, especially those already familiar with C and C++.
+ Support for internationalization is very important.
+ C# is intended to be suitable for writing applications for both hosted and embedded systems, ranging from the very large that use sophisticated operating systems, down to the very small having dedicated functions.
+ Although C# applications are intended to be economical with regard to memory and processing power requirements, the language was not intended to compete directly on performance and size with C or assembly language.
+ 
+ 
+ == History ==
+ During the development of the .NET Framework, the class libraries were originally written using a managed code compiler system called Simple Managed C (SMC). In January 1999, Anders Hejlsberg formed a team to build a new language at the time called Cool, which stood for "C-like Object Oriented Language". Microsoft had considered keeping the name "Cool" as the final name of the language, but chose not to do so for trademark reasons. By the time the .NET project was publicly announced at the July 2000 Professional Developers Conference, the language had been renamed C#, and the class libraries and ASP.NET runtime had been ported to C#.
+ Hejlsberg is C#'s principal designer and lead architect at Microsoft, and was previously involved with the design of Turbo Pascal, Embarcadero Delphi (formerly CodeGear Delphi, Inprise Delphi and Borland Delphi), and Visual J++. In interviews and technical papers he has stated that flaws in most major programming languages (e.g. C++, Java, Delphi, and Smalltalk) drove the fundamentals of the Common Language Runtime (CLR), which, in turn, drove the design of the C# language itself.
+ James Gosling, who created the Java programming language in 1994, and Bill Joy, a co-founder of Sun Microsystems, the originator of Java, called C# an "imitation" of Java; Gosling further said that "[C# is] sort of Java with reliability, productivity and security deleted." Klaus Kreft and Angelika Langer (authors of a C++ streams book) stated in a blog post that "Java and C# are almost identical programming languages. Boring repetition that lacks innovation," "Hardly anybody will claim that Java or C# are revolutionary programming languages that changed the way we write programs," and "C# borrowed a lot from Java - and vice versa. Now that C# supports boxing and unboxing, we'll have a very similar feature in Java." In July 2000, Hejlsberg said that C# is "not a Java clone" and is "much closer to C++" in its design.
+ Since the release of C# 2.0 in November 2005, the C# and Java languages have evolved on increasingly divergent trajectories, becoming two very different languages. One of the first major departures came with the addition of generics to both languages, with vastly different implementations. C# makes use of reification to provide "first-class" generic objects that can be used like any other class, with code generation performed at class-load time. Furthermore, C# has added several major features to accommodate functional-style programming, culminating in the LINQ extensions released with C# 3.0 and its supporting framework of lambda expressions, extension methods, and anonymous types. These features enable C# programmers to use functional programming techniques, such as closures, when it is advantageous to their application. The LINQ extensions and the functional imports help developers reduce the amount of boilerplate code that is included in common tasks like querying a database, parsing an xml file, or searching through a data structure, shifting the emphasis onto the actual program logic to help improve readability and maintainability.
+ C# used to have a mascot called Andy (named after Anders Hejlsberg). It was retired on January 29, 2004.
+ C# was originally submitted to the ISO subcommittee JTC 1/SC 22 for review, under ISO/IEC 23270:2003, was withdrawn and was then approved under ISO/IEC 23270:2006.
+ 
+ 
+ === Name ===
+ 
+ The name "C sharp" was inspired by musical notation where a sharp indicates that the written note should be made a semitone higher in pitch. This is similar to the language name of C++, where "++" indicates that a variable should be incremented by 1. The sharp symbol also resembles a ligature of four "+" symbols (in a two-by-two grid), further implying that the language is an increment of C++.
+ Due to technical limitations of display (standard fonts, browsers, etc.) and the fact that the sharp symbol (U+266F ♯ MUSIC SHARP SIGN (HTML &#9839;)) is not present on most keyboard layouts, the number sign (U+0023 # NUMBER SIGN (HTML &#35;)) was chosen to approximate the sharp symbol in the written name of the programming language. This convention is reflected in the ECMA-334 C# Language Specification. However, when it is practical to do so (for example, in advertising or in box art), Microsoft uses the intended musical symbol.
+ The "sharp" suffix has been used by a number of other .NET languages that are variants of existing languages, including J# (a .NET language also designed by Microsoft that is derived from Java 1.1), A# (from Ada), and the functional programming language F#. The original implementation of Eiffel for .NET was called Eiffel#, a name retired since the full Eiffel language is now supported. The suffix has also been used for libraries, such as Gtk# (a .NET wrapper for GTK+ and other GNOME libraries) and Cocoa# (a wrapper for Cocoa).
+ 
+ 
+ === Versions ===
+ 
+ 
+ === New features ===
+ C# 2.0
+ Generics
+ Partial types
+ Anonymous methods
+ Iterators
+ Nullable types
+ Getter/setter separate accessibility
+ Method group conversions (delegates)
+ Co- and Contra-variance for delegates
+ Static classes
+ Delegate inference
+ C# 3.0
+ Implicitly typed local variables
+ Object and collection initializers
+ Auto-Implemented properties
+ Anonymous types
+ Extension methods
+ Query expressions
+ Lambda expression
+ Expression trees
+ Partial methods
+ C# 4.0
+ Dynamic binding
+ Named and optional arguments
+ Generic co- and contravariance
+ Embedded interop types ("NoPIA")
+ C# 5.0
+ Asynchronous methods
+ Caller info attributes
+ C# 6.0
+ Compiler-as-a-service (Roslyn)
+ Import of static type members into namespace
+ Exception filters
+ Await in catch/finally blocks
+ Auto property initializers
+ Default values for getter-only properties
+ Expression-bodied members
+ Null propagator (null-conditional operator, succinct null checking)
+ String interpolation
+ nameof operator
+ Dictionary initializer
+ C# 7.0
+ Out variables
+ Pattern matching
+ Tuples
+ Deconstruction
+ Local functions
+ Digit separators
+ Binary literals
+ Ref returns and locals
+ Generalized async return types
+ Expression bodied constructors and finalizers
+ Expression bodied getters and setters
+ Throw can also be used as expression
+ C# 7.1
+ Async main
+ Default literal expressions
+ Inferred tuple element names
+ C# 7.2
+ Reference semantics with value types
+ Non-trailing named arguments
+ Leading underscores in numeric literals
+ private protected access modifier
+ 
+ 
+ == Syntax ==
+ 
+ The core syntax of C# language is similar to that of other C-style languages such as C, C++ and Java. In particular:
+ Semicolons are used to denote the end of a statement.
+ Curly brackets are used to group statements. Statements are commonly grouped into methods (functions), methods into classes, and classes into namespaces.
+ Variables are assigned using an equals sign, but compared using two consecutive equals signs.
+ Square brackets are used with arrays, both to declare them and to get a value at a given index in one of them.
+ 
+ 
+ == Distinguishing features ==
+ 
+ Some notable features of C# that distinguish it from C, C++, and Java where noted, are:
+ 
+ 
+ === Portability ===
+ By design, C# is the programming language that most directly reflects the underlying Common Language Infrastructure (CLI). Most of its intrinsic types correspond to value-types implemented by the CLI framework. However, the language specification does not state the code generation requirements of the compiler: that is, it does not state that a C# compiler must target a Common Language Runtime, or generate Common Intermediate Language (CIL), or generate any other specific format. Theoretically, a C# compiler could generate machine code like traditional compilers of C++ or Fortran.
+ 
+ 
+ === Typing ===
+ C# supports strongly typed implicit variable declarations with the keyword var, and implicitly typed arrays with the keyword new[] followed by a collection initializer.
+ C# supports a strict Boolean data type, bool. Statements that take conditions, such as while and if, require an expression of a type that implements the true operator, such as the Boolean type. While C++ also has a Boolean type, it can be freely converted to and from integers, and expressions such as if(a) require only that a is convertible to bool, allowing a to be an int, or a pointer. C# disallows this "integer meaning true or false" approach, on the grounds that forcing programmers to use expressions that return exactly bool can prevent certain types of programming mistakes such as if (a = b) (use of assignment = instead of equality ==, which while not an error in C or C++, will be caught by the compiler anyway).
+ C# is more type safe than C++. The only implicit conversions by default are those that are considered safe, such as widening of integers. This is enforced at compile-time, during JIT, and, in some cases, at runtime. No implicit conversions occur between Booleans and integers, nor between enumeration members and integers (except for literal 0, which can be implicitly converted to any enumerated type). Any user-defined conversion must be explicitly marked as explicit or implicit, unlike C++ copy constructors and conversion operators, which are both implicit by default.
+ C# has explicit support for covariance and contravariance in generic types, unlike C++ which has some degree of support for contravariance simply through the semantics of return types on virtual methods.
+ Enumeration members are placed in their own scope.
+ The C# language does not allow for global variables or functions. All methods and members must be declared within classes. Static members of public classes can substitute for global variables and functions.
+ Local variables cannot shadow variables of the enclosing block, unlike C and C++.
+ 
+ 
+ === Metaprogramming ===
+ Metaprogramming via C# attributes is part of the language. Many of these attributes duplicate the functionality of GCC's and VisualC++'s platform-dependent preprocessor directives.
+ 
+ 
+ === Methods and functions ===
+ Methods in programming language are the members of a class in a project, some methods have signatures and some don't have signatures. Methods can be void or can return something like string, integer, double, decimal, float and bool. If a method is void it means that the method does not return any data type.
+ Like C++, and unlike Java, C# programmers must use the keyword virtual to allow methods to be overridden by subclasses.
+ Extension methods in C# allow programmers to use static methods as if they were methods from a class's method table, allowing programmers to add methods to an object that they feel should exist on that object and its derivatives.
+ The type dynamic allows for run-time method binding, allowing for JavaScript-like method calls and run-time object composition.
+ C# has support for strongly-typed function pointers via the keyword delegate. Like the Qt framework's pseudo-C++ signal and slot, C# has semantics specifically surrounding publish-subscribe style events, though C# uses delegates to do so.
+ C# offers Java-like synchronized method calls, via the attribute [MethodImpl(MethodImplOptions.Synchronized)], and has support for mutually-exclusive locks via the keyword lock.
+ 
+ 
+ === Property ===
+ C# provides properties as syntactic sugar for a common pattern in which a pair of methods, accessor (getter) and mutator (setter) encapsulate operations on a single attribute of a class. No redundant method signatures for the getter/setter implementations need be written, and the property may be accessed using attribute syntax rather than more verbose method calls.
+ 
+ 
+ === Namespace ===
+ A C# namespace provides the same level of code isolation as a Java package or a C++ namespace, with very similar rules and features to a package.
+ 
+ 
+ === Memory access ===
+ In C#, memory address pointers can only be used within blocks specifically marked as unsafe, and programs with unsafe code need appropriate permissions to run. Most object access is done through safe object references, which always either point to a "live" object or have the well-defined null value; it is impossible to obtain a reference to a "dead" object (one that has been garbage collected), or to a random block of memory. An unsafe pointer can point to an instance of a value-type, array, string, or a block of memory allocated on a stack. Code that is not marked as unsafe can still store and manipulate pointers through the System.IntPtr type, but it cannot dereference them.
+ Managed memory cannot be explicitly freed; instead, it is automatically garbage collected. Garbage collection addresses the problem of memory leaks by freeing the programmer of responsibility for releasing memory that is no longer needed.
+ 
+ 
+ === Exception ===
+ Checked exceptions are not present in C# (in contrast to Java). This has been a conscious decision based on the issues of scalability and versionability.
+ 
+ 
+ === Polymorphism ===
+ Unlike C++, C# does not support multiple inheritance, although a class can implement any number of interfaces. This was a design decision by the language's lead architect to avoid complication and simplify architectural requirements throughout CLI. When implementing multiple interfaces that contain a method with the same signature, C# allows implementing each method depending on which interface that method is being called through, or, like Java, allows implementing the method once, and have that be the one invocation on a call through any of the class's interfaces.
+ However, unlike Java, C# supports operator overloading. Only the most commonly overloaded operators in C++ may be overloaded in C#.
+ 
+ 
+ === Language Integrated Query - LINQ ===
+ C# has the ability to utilize LINQ through the Microsoft.NET Framework with the IEnumerable Interface a developer can query any .NET collection class, XML documents, ADO.NET datasets, and SQL databases. There are some advantages to using LINQ in C# and they are as follows: intellisense support, strong filtering capabilities, type safety with compile error checking ability, and brings consistency for querying data over a variety of sources. There are several different language structures that can be utilized with C# with LINQ and they are query expressions, lambda expressions, anonymous types, implicitly typed variables, extension methods, and object initializers. 
+ 
+ 
+ === Functional programming ===
+ Though primarily an imperative language, C# 2.0 offered limited support for functional programming through first-class functions and closures in the form of anonymous delegates. C# 3.0 expanded support for functional programming with the introduction of a lightweight syntax for lambda expressions, extension methods (an affordance for modules), and a list comprehension syntax in the form of a "query comprehension" language.
+ 
+ 
+ == Common type system ==
+ C# has a unified type system. This unified type system is called Common Type System (CTS).
+ A unified type system implies that all types, including primitives such as integers, are subclasses of the System.Object class. For example, every type inherits a ToString() method.
+ 
+ 
+ === Categories of data types ===
+ CTS separates data types into two categories:
+ Reference types
+ Value types
+ Instances of value types do not have referential identity nor referential comparison semantics - equality and inequality comparisons for value types compare the actual data values within the instances, unless the corresponding operators are overloaded. Value types are derived from System.ValueType, always have a default value, and can always be created and copied. Some other limitations on value types are that they cannot derive from each other (but can implement interfaces) and cannot have an explicit default (parameterless) constructor. Examples of value types are all primitive types, such as int (a signed 32-bit integer), float (a 32-bit IEEE floating-point number), char (a 16-bit Unicode code unit), and System.DateTime (identifies a specific point in time with nanosecond precision). Other examples are enum (enumerations) and struct (user defined structures).
+ In contrast, reference types have the notion of referential identity - each instance of a reference type is inherently distinct from every other instance, even if the data within both instances is the same. This is reflected in default equality and inequality comparisons for reference types, which test for referential rather than structural equality, unless the corresponding operators are overloaded (such as the case for System.String). In general, it is not always possible to create an instance of a reference type, nor to copy an existing instance, or perform a value comparison on two existing instances, though specific reference types can provide such services by exposing a public constructor or implementing a corresponding interface (such as ICloneable or IComparable). Examples of reference types are object (the ultimate base class for all other C# classes), System.String (a string of Unicode characters), and System.Array (a base class for all C# arrays).
+ Both type categories are extensible with user-defined types.
+ 
+ 
+ === Boxing and unboxing ===
+ Boxing is the operation of converting a value-type object into a value of a corresponding reference type. Boxing in C# is implicit.
+ Unboxing is the operation of converting a value of a reference type (previously boxed) into a value of a value type. Unboxing in C# requires an explicit type cast. A boxed object of type T can only be unboxed to a T (or a nullable T).
+ Example:
+ 
+ 
+ == Libraries ==
+ The C# specification details a minimum set of types and class libraries that the compiler expects to have available. In practice, C# is most often used with some implementation of the Common Language Infrastructure (CLI), which is standardized as ECMA-335 Common Language Infrastructure (CLI).
+ 
+ 
+ == Examples ==
+ The following is a very simple C# program, a version of the classic "Hello world" example:
+ 
+ What will display on the program is:
+ 
+ Hello, world!
+ 
+ Each line has a purpose:
+ 
+ The above line of code tells the compiler to use System as a candidate prefix for types used in the source code. In this case, when the compiler sees use of the Console type later in the source code, it tries to find a type named Console, first in the current assembly, followed by all referenced assemblies. In this case the compiler fails to find such a type, since the name of the type is actually System.Console. The compiler then attempts to find a type named System.Console by using the System prefix from the using statement, and this time it succeeds. The using statement allows the programmer to state all candidate prefixes to use during compilation instead of always using full type names.
+ 
+ Above is a class definition. Everything between the following pair of braces describes Program.
+ 
+ This declares the class member method where the program begins execution. The .NET runtime calls the Main method. (Note: Main may also be called from elsewhere, like any other method, e.g. from another method of Program.) The static keyword makes the method accessible without an instance of Program. Each console application's Main entry point must be declared static. Otherwise, the program would require an instance, but any instance would require a program. To avoid that irresolvable circular dependency, C# compilers processing console applications (like that above) report an error, if there is no static Main method. The void keyword declares that Main has no return value.
+ 
+ This line writes the output. Console is a static class in the System namespace. It provides an interface to the standard input, output, and error streams for console applications. The program calls the Console method WriteLine, which displays on the console a line with the argument, the string "Hello, world!".
+ A GUI example:
+ 
+ This example is similar to the previous example, except that it generates a dialog box that contains the message "Hello, World!" instead of writing it to the console.
+ 
+ 
+ == Standardization and licensing ==
+ In August 2001, Microsoft Corporation, Hewlett-Packard and Intel Corporation co-sponsored the submission of specifications for C# as well as the Common Language Infrastructure (CLI) to the standards organization Ecma International. In December 2001, ECMA released ECMA-334 C# Language Specification. C# became an ISO standard in 2003 (ISO/IEC 23270:2003 - Information technology — Programming languages — C#). ECMA had previously adopted equivalent specifications as the 2nd edition of C#, in December 2002.
+ In June 2005, ECMA approved edition 3 of the C# specification, and updated ECMA-334. Additions included partial classes, anonymous methods, nullable types, and generics (somewhat similar to C++ templates).
+ In July 2005, ECMA submitted to ISO/IEC JTC 1, via the latter's Fast-Track process, the standards and related TRs. This process usually takes 6–9 months.
+ The C# language definition and the CLI are standardized under ISO and Ecma standards that provide reasonable and non-discriminatory licensing protection from patent claims.
+ Microsoft has agreed not to sue open source developers for violating patents in non-profit projects for the part of the framework that is covered by the OSP. Microsoft has also agreed not to enforce patents relating to Novell products against Novell's paying customers with the exception of a list of products that do not explicitly mention C#, .NET or Novell's implementation of .NET (The Mono Project). However, Novell maintains that Mono does not infringe any Microsoft patents. Microsoft has also made a specific agreement not to enforce patent rights related to the Moonlight browser plugin, which depends on Mono, provided it is obtained through Novell.
+ 
+ 
+ == Implementations ==
+ Microsoft is leading the development of the open-source reference C# compiler and set of tools, previously codenamed "Roslyn". The compiler, which is entirely written in managed code (C#), has been opened up and functionality surfaced as APIs. It is thus enabling developers to create refactoring and diagnostics tools. While other implementations of C# exist, Visual C# is by far the one most commonly used. The Unity game engine uses C# as its primary scripting language.
+ Other C# compilers, which often including an implementation of the Common Language Infrastructure and the .NET class libraries up to .NET 2.0:
+ The Mono project provides an open-source C# compiler, a complete open-source implementation of the Common Language Infrastructure including the required framework libraries as they appear in the ECMA specification, and a nearly complete implementation of the Microsoft proprietary .NET class libraries up to .NET 3.5. As of Mono 2.6, no plans exist to implement WPF; WF is planned for a later release; and there are only partial implementations of LINQ to SQL and WCF.
+ The DotGNU project (now discontinued) also provided an open-source C# compiler, a nearly complete implementation of the Common Language Infrastructure including the required framework libraries as they appear in the ECMA specification, and subset of some of the remaining Microsoft proprietary .NET class libraries up to .NET 2.0 (those not documented or included in the ECMA specification, but included in Microsoft's standard .NET Framework distribution).
+ Microsoft's Shared Source Common Language Infrastructure, codenamed "Rotor", provides a shared source implementation of the CLR runtime and a C# compiler licensed for educational and research use only, and a subset of the required Common Language Infrastructure framework libraries in the ECMA specification (up to C# 2.0, and supported on Windows XP only).
+ 
+ 
+ == See also ==
+ 
+ 
+ == Notes ==
+ 
+ 
+ == References ==
+ 
+ 
+ == Further reading ==
+ Drayton, Peter; Albahari, Ben; Neward, Ted (2002). C# Language Pocket Reference. O'Reilly. ISBN 0-596-00429-X. 
+ Petzold, Charles (2002). Programming Microsoft Windows with C#. Microsoft Press. ISBN 0-7356-1370-2. 
+ 
+ 
+ == External links ==
+ C# Language Specification (from MSDN)
+ C# Programming Guide (MSDN)
+ Microsoft Visual Studio
+ ISO C# Language Specification.
+ C# 6 Features And Online C# Compiler
+ C# Interactive tutorial for complete beginners (online)
+ C# Compiler Platform ("Roslyn") source code
+ List of Key features introduced in #CSharp (1.0 to 6.0) - an Infographic Caml (originally an acronym for Categorical abstract machine language) is a multi-paradigm, general-purpose programming language which is a dialect of the ML programming language family. Caml was developed in France at INRIA and ENS.
+ Like many descendants of ML, Caml is statically typed, strictly evaluated, and uses automatic memory management.
+ OCaml, as of 2017 the main implementation of Caml, adds many features to the language, including an object layer.
+ 
+ 
+ == Examples ==
+ In the following, # represents the OCaml prompt.
+ 
+ 
+ === Hello World ===
+ 
+ 
+ === Factorial function (recursion and purely functional programming) ===
+ Many mathematical functions, such as factorial, are most naturally represented in a purely functional form. The following recursive, purely functional Caml function implements factorial:
+ 
+ The function can be written equivalently using pattern matching:
+ 
+ This latter form is the mathematical definition of factorial as a recurrence relation.
+ Note that the compiler inferred the type of this function to be int -> int, meaning that this function maps ints onto ints. For example, 12! is:
+ 
+ 
+ === Numerical derivative (higher-order functions) ===
+ Since OCaml is a functional programming language, it is easy to create and pass around functions in OCaml programs. This capability has an enormous number of applications. Calculating the numerical derivative of a function is one such application. The following Caml function d computes the numerical derivative of a given function f at a given point x:
+ 
+ This function requires a small value delta. A good choice for delta is the cube root of the machine epsilon.
+ The type of the function d indicates that it maps a float onto another function with the type (float -> float) -> float -> float. This allows us to partially apply arguments. This functional style is known as currying. In this case, it is useful to partially apply the first argument delta to d, to obtain a more specialised function:
+ 
+ Note that the inferred type indicates that the replacement d is expecting a function with the type float -> float as its first argument. We can compute a numerical approximation to the derivative of 
+   
+     
+       
+         
+           x
+           
+             3
+           
+         
+         −
+         x
+         −
+         1
+       
+     
+     {\displaystyle x^{3}-x-1}
+    at 
+   
+     
+       
+         x
+         =
+         3
+       
+     
+     {\displaystyle x=3}
+    with:
+ 
+ The correct answer is 
+   
+     
+       
+         
+           f
+           ′
+         
+         (
+         x
+         )
+         =
+         3
+         
+           x
+           
+             2
+           
+         
+         −
+         1
+         →
+         
+           f
+           ′
+         
+         (
+         3
+         )
+         =
+         27
+         −
+         1
+         =
+         26
+       
+     
+     {\displaystyle f'(x)=3x^{2}-1\rightarrow f'(3)=27-1=26}
+   .
+ The function d is called a "higher-order function" because it accepts another function (f) as an argument. We can go further and create the (approximate) derivative of f, by applying d while omitting the x argument:
+ 
+ The concepts of curried and higher-order functions are clearly useful in mathematical programs. In fact, these concepts are equally applicable to most other forms of programming and can be used to factor code much more aggressively, resulting in shorter programs and fewer bugs.
+ 
+ 
+ === Discrete wavelet transform (pattern matching) ===
+ The 1D Haar wavelet transform of an integer-power-of-two-length list of numbers can be implemented very succinctly in Caml and is an excellent example of the use of pattern matching over lists, taking pairs of elements (h1 and h2) off the front and storing their sums and differences on the lists s and d, respectively:
+ 
+ For example:
+ 
+ Pattern matching allows complicated transformations to be represented clearly and succinctly. Moreover, the OCaml compiler turns pattern matches into very efficient code, at times resulting in programs that are shorter and faster than equivalent code written with a case statement(Cardelli 1984, p. 210.).
+ 
+ 
+ == History ==
+ The first Caml implementation was written in Lisp, in 1987 by staff at French Institute for Research in Computer Science and Automation (INRIA)
+ Its successor, Caml Light, was implemented in C by Xavier Leroy and Damien Doligez - and the original was then retrospectively nicknamed "Heavy CAML" because of its higher memory and CPU requirements.
+ CAML Special Light was a further complete rewrite that added a powerful (applicative) module system to the core language.
+ OCaml is currently the main implementation of Caml, and adds many new features to the language including an object layer.
+ 
+ 
+ == See also ==
+ Categorical abstract machine
+ F#, an OCaml-like language for the .NET Framework
+ OCaml
+ Standard ML
+ Haskell (programming language)
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ Official website Caml language family
+ 
+ 
+ == Bibliography ==
+ The Functional Approach to Programming with Caml by Guy Cousineau and Michel Mauny.
+ Cardelli, Luca (1984). Compiling a functional language ACM Symposium on LISP and functional programming, Association of Computer Machinery. The D programming language is an object-oriented, imperative, multi-paradigm system programming language created by Walter Bright of Digital Mars and released in 2001. Bright was joined in the design and development effort in 2007 by Andrei Alexandrescu. Though it originated as a re-engineering of C++, D is a distinct language, having redesigned some core C++ features while also taking inspiration from other languages, notably Java, Python, Ruby, C#, and Eiffel.
+ D's design goals attempt to combine the performance and safety of compiled languages with the expressive power of modern dynamic languages. Idiomatic D code is commonly as fast as equivalent C++ code, while being shorter and memory-safe.
+ Type inference, automatic memory management and syntactic sugar for common types allow faster development, while bounds checking, design by contract features and a concurrency-aware type system help reduce the occurrence of bugs.
+ 
+ 
+ == Features ==
+ D is designed with lessons learned from practical C++ usage rather than from a purely theoretical perspective. Although it uses many C and C++ concepts it also discards some, and is as such not compatible with C and C++ source code. D has, however, been constrained in its design by the rule that any code that is legal in both C and D should behave in the same way. D gained some features before C++ did, for example closures, anonymous functions, and compile time function execution. D adds to the functionality of C++ by also implementing design by contract, unit testing, true modules, garbage collection, first class arrays, associative arrays, dynamic arrays, array slicing, nested functions, lazy evaluation, and a re-engineered template syntax. D retains C++'s ability to perform low-level coding and to add inline assembler. C++ multiple inheritance is replaced by Java-style single inheritance with interfaces and mixins. On the other hand, D's declaration, statement and expression syntax closely matches that of C++.
+ The inline assembler typifies the differences between D and application languages like Java and C#. An inline assembler lets programmers enter machine-specific assembly code within standard D code, a method often used by system programmers to access the low-level features of the processor needed to run programs that interface directly with the underlying hardware, such as operating systems and device drivers.
+ D has built-in support for documentation comments, allowing automatic documentation generation.
+ 
+ 
+ === Programming paradigms ===
+ D supports five main programming paradigms: imperative, object-oriented, metaprogramming, functional and concurrent (actor model).
+ 
+ 
+ ==== Imperative ====
+ Imperative programming in D is almost identical to that in C. Functions, data, statements, declarations and expressions work just as they do in C, and the C runtime library may be accessed directly. On the other hand, some notable differences between D and C in the area of imperative programming include D's foreach loop construct, which allows looping over a collection, and nested functions, which are functions that are declared inside of another and may access the enclosing function's local variables.
+ 
+ 
+ ==== Object-oriented ====
+ Object-oriented programming in D is based on a single inheritance hierarchy, with all classes derived from class Object. D does not support multiple inheritance; instead, it uses Java-style interfaces, which are comparable to C++'s pure abstract classes, and mixins, which separates common functionality from the inheritance hierarchy. D also allows the defining of static and final (non-virtual) methods in interfaces.
+ 
+ 
+ ==== Metaprogramming ====
+ Metaprogramming is supported by a combination of templates, compile time function execution, tuples, and string mixins. The following examples demonstrate some of D's compile-time features.
+ Templates in D can be written in a more imperative style compared to the C++ functional style for templates. This is a regular function that calculates the factorial of a number:
+ 
+ Here, the use of static if, D's compile-time conditional construct, is demonstrated to construct a template that performs the same calculation using code that is similar to that of the function above:
+ 
+ In the following two examples, the template and function defined above are used to compute factorials. The types of constants need not be specified explicitly as the compiler infers their types from the right-hand sides of assignments:
+ 
+ This is an example of compile time function execution. Ordinary functions may be used in constant, compile-time expressions provided they meet certain criteria:
+ 
+ The std.string.format function performs printf-like data formatting (also at compile-time, through CTFE), and the "msg" pragma displays the result at compile time:
+ 
+ String mixins, combined with compile-time function execution, allow generating D code using string operations at compile time. This can be used to parse domain-specific languages to D code, which will be compiled as part of the program:
+ 
+ 
+ ==== Functional ====
+ D supports functional programming features such as function literals, closures, recursively-immutable objects and the use of higher-order functions. There are two syntaxes for anonymous functions, including a multiple-statement form and a "shorthand" single-expression notation:
+ 
+ There are two built-in types for function literals, function, which is simply a pointer to a stack-allocated function, and delegate, which also includes a pointer to the surrounding environment. Type inference may be used with an anonymous function, in which case the compiler creates a delegate unless it can prove that an environment pointer is not necessary. Likewise, to implement a closure, the compiler places enclosed local variables on the heap only if necessary (for example, if a closure is returned by another function, and exits that function's scope). When using type inference, the compiler will also add attributes such as pure and nothrow to a function's type, if it can prove that they apply.
+ Other functional features such as currying and common higher-order functions such as map, filter, and reduce are available through the standard library modules std.functional and std.algorithm.
+ 
+ Alternatively, the above function compositions can be expressed using Uniform Function Call Syntax (UFCS) for more natural left-to-right reading:
+ 
+ 
+ ==== Parallel ====
+ 
+ 
+ ==== Concurrent ====
+ 
+ 
+ === Memory management ===
+ Memory is usually managed with garbage collection, but specific objects may be finalized immediately when they go out of scope. Explicit memory management is possible using the overloaded operators new and delete, and by simply calling C's malloc and free directly. Garbage collection can be controlled: programmers may add and exclude memory ranges from being observed by the collector, can disable and enable the collector and force either a generational or full collection cycle. The manual gives many examples of how to implement different highly optimized memory management schemes for when garbage collection is inadequate in a program.
+ 
+ 
+ === SafeD ===
+ SafeD is the name given to the subset of D that can be guaranteed to be memory safe (no writes to memory that were not allocated or that have already been recycled). Functions marked @safe are checked at compile time to ensure that they do not use any features that could result in corruption of memory, such as pointer arithmetic and unchecked casts, and any other functions called must also be marked as @safe or @trusted. Functions can be marked @trusted for the cases where the compiler cannot distinguish between safe use of a feature that is disabled in SafeD and a potential case of memory corruption .
+ 
+ 
+ === Interaction with other systems ===
+ C's application binary interface (ABI) is supported as well as all of C's fundamental and derived types, enabling direct access to existing C code and libraries. D bindings are available for many popular C libraries. Additionally, C's standard library is a part of standard D.
+ Because C++ does not have a single standard ABI, D can only fully access C++ code that is written to the C ABI. The D parser understands an extern (C++) calling convention for limited linking to C++ objects.
+ On Microsoft Windows, D can access Component Object Model (COM) code.
+ 
+ 
+ == History ==
+ Walter Bright decided to start working on a new language in 1999. D was first released in December 2001, and reached version 1.0 in January 2007. The first version of the language (D1) concentrated on the imperative, object oriented and metaprogramming paradigms, similar to C++.
+ Dissatisfied with Phobos, D's official runtime and standard library, members of the D community created an alternative runtime and standard library named Tango. The first public Tango announcement came within days of D 1.0's release. Tango adopted a different programming style, embracing OOP and high modularity. Being a community-led project, Tango was more open to contributions, which allowed it to progress faster than the official standard library. At that time, Tango and Phobos were incompatible due to different runtime support APIs (the garbage collector, threading support, etc.). This made it impossible to use both libraries in the same project. The existence of two libraries, both widely in use, has led to significant dispute due to some packages using Phobos and others using Tango.
+ In June 2007, the first version of D2 was released. The beginning of D2's development signalled the stabilization of D1; the first version of the language has been placed in maintenance, only receiving corrections and implementation bugfixes. D2 was to introduce breaking changes to the language, beginning with its first experimental const system. D2 later added numerous other language features, such as closures, purity, and support for the functional and concurrent programming paradigms. D2 also solved standard library problems by separating the runtime from the standard library. The completion of a D2 Tango port was announced in February 2012.
+ The release of Andrei Alexandrescu's book The D Programming Language on June 12, 2010 marked the stabilization of D2, which today is commonly referred to as just "D".
+ In January 2011, D development moved from a bugtracker / patch-submission basis to GitHub. This has led to a significant increase in contributions to the compiler, runtime and standard library.
+ In December 2011, Andrei Alexandrescu announced that D1, the first version of the language, would be discontinued on 31 December 2012. The final D1 release, D v1.076, was on 31 December 2012.
+ Code for the official D compiler, the Digital Mars D compiler by Walter Bright, was originally released under a custom license, qualifying as source available but not conforming to the open source definition. In 2014 the compiler front-end was re-licensed as open source under the Boost Software License. This re-licensed code excluded the back-end, which had been partially developed at Symantec. On April 7, 2017, the entire compiler was made available under the Boost license after Symantec gave permission to re-license the back-end, too. On June 21, 2017, the D Language was accepted for inclusion in GCC.
+ 
+ 
+ == Implementations ==
+ Most current D implementations compile directly into machine code for efficient execution.
+ DMD – The Digital Mars D compiler by Walter Bright is the official D compiler; open sourced under the Boost Software License.
+ GDC – A front-end for the GCC back-end, built using the open DMD compiler source code.
+ LDC – A compiler based on the DMD front-end that uses LLVM as its compiler back-end. The first release-quality version was published on 9 January 2009. It supports version 2.0.
+ D Compiler for .NET – A back-end for the D programming language 2.0 compiler. It compiles the code to Common Intermediate Language (CIL) bytecode rather than to machine code. The CIL can then be run via a Common Language Infrastructure (CLR) virtual machine.
+ SDC – A D compiler using a custom front-end and LLVM as its compiler back-end. It is written in D and uses a scheduler to handle symbol resolution in order to elegantly handle the compile-time features of D. This compiler currently supports a limited subset of the language.
+ 
+ 
+ == Development tools ==
+ Editors and integrated development environments (IDEs) supporting D include Eclipse, Microsoft Visual Studio, SlickEdit, Emacs, vim, SciTE, Smultron, TextMate, MonoDevelop, Zeus, and Geany among others.
+ Eclipse plug-ins for D include: DDT and Descent (dead project).
+ Visual Studio integration is provided by VisualD.
+ Visual Studio Code integration with extensions as Dlang-Vscode or Code-D.
+ Vim supports both syntax highlighting and code completion
+ A bundle is available for TextMate, and the Code::Blocks IDE includes partial support for the language. However, standard IDE features such as code completion or refactoring are not yet available, though they do work partially in Code::Blocks (due to D's similarity to C).
+ A plugin for Xcode 3 is available, D for Xcode, to enable D-based projects and development.
+ An AddIn for MonoDevelop is available, named Mono-D.
+ KDevelop (as well as its text editor backend, Kate) autocompletion plugin is available.
+ Coedit, an open source IDE dedicated to D.
+ Open source D IDEs for Windows exist, some written in D, such as Poseidon, D-IDE, and Entice Designer.
+ D applications can be debugged using any C/C++ debugger, like GDB or WinDbg, although support for various D-specific language features is extremely limited. On Windows, D programs can be debugged using Ddbg, or Microsoft debugging tools (WinDBG and Visual Studio), after having converted the debug information using cv2pdb. The ZeroBUGS debugger for Linux has experimental support for the D language. Ddbg can be used with various IDEs or from the command line; ZeroBUGS has its own graphical user interface (GUI).
+ 
+ 
+ == Examples ==
+ 
+ 
+ === Example 1 ===
+ This example program prints its command line arguments. The main function is the entry point of a D program, and args is an array of strings representing the command line arguments. A string in D is an array of characters, represented by char[] in D1, or immutable(char)[] in D2.
+ 
+ The foreach statement can iterate over any collection. In this case, it is producing a sequence of indexes (i) and values (arg) from the array args. The index i and the value arg have their types inferred from the type of the array args.
+ 
+ 
+ === Example 2 ===
+ The following shows several D capabilities and D design trade-offs in a very short program. It iterates over the lines of a text file named words.txt, which contains a different word on each line, and prints all the words that are anagrams of other words.
+ 
+ signs2words is a built-in associative array that maps dstring (32-bit / char) keys to arrays of dstrings. It is similar to defaultdict(list) in Python.
+ lines(File()) yields lines lazily, with the newline. It has to then be copied with idup to obtain a string to be used for the associative array values (the idup property of arrays returns an immutable duplicate of the array, which is required since the dstring type is actually immutable(dchar)[]). Built-in associative arrays require immutable keys.
+ The ~= operator appends a new dstring to the values of the associate dynamic array.
+ toLower, join and chomp are string functions that D allows the use of with a method syntax. The name of such functions is often very similar to Python string methods. The toLower converts a string to lower case, join(" ") joins an array of strings into a single string using a single space as separator, and chomp removes a newline from the end of the string if one is present.
+ The sort is an std.algorithm function that sorts the array in place, creating a unique signature for words that are anagrams of each other. The release() method on the return value of sort() is handy to keep the code as a single expression.
+ The second foreach iterates on the values of the associative array, it's able to infer the type of words.
+ key is assigned to an immutable variable, its type is inferred.
+ UTF-32 dchar[] is used instead of normal UTF-8 char[] otherwise sort() refuses to sort it. There are more efficient ways to write this program, that use just UTF-8.
+ 
+ 
+ == Uses ==
+ Notable organisations that use the D programming language for projects include Facebook , eBay , and Netflix .
+ D has been successfully used for AAA games , writing JavaScript Virtual Machines  , writing an OS Kernel , GPU programming , Web development  , Numerical analysis , GUI applications  , and in passenger information system .
+ 
+ 
+ == See also ==
+ 
+ Ddoc
+ D Language Foundation
+ 
+ 
+ == References ==
+ 
+ 
+ == Further reading ==
+ Alexandrescu, Andrei (4 January 2010). The D Programming Language (1 ed.). Addison-Wesley Professional. ISBN 978-0-321-63536-5. 
+ Alexandrescu, Andrei (15 June 2009). "The Case for D". Dr. Dobb's Journal. 
+ Bright, Walter (8 April 2014). "How I Came to Write D". Dr. Dobb's Journal. 
+ Çehreli, Ali (1 February 2012). "Programming in D".  (distributed under CC-BY-NC-SA license). This book teaches programming to novices but covers many advanced D topics as well.
+ Metz, Cade (7 July 2014). "The Next Big Programming Language You've Never Heard Of". Wired. 
+ Ruppe, Adam (May 2014). D Cookbook (1 ed.). PACKT Publishing. ISBN 978-1-783-28721-5. 
+ 
+ 
+ == External links ==
+ Official website
+ Digital Mars
+ Turkish Forum
+ Dlang on GitHub Agda is a dependently typed functional programming language originally developed by Ulf Norell at Chalmers University of Technology with implementation described in his PhD thesis. The current version of Agda was originally known as Agda 2. The original Agda system was developed at Chalmers by Catarina Coquand in 1999. The current version is a full rewrite, which should be considered a new language that shares name and tradition.
+ Agda is also a proof assistant, but unlike Coq, has no support for tactics, and proofs are written in a functional programming style. The language has ordinary programming constructs such as data types, pattern matching, records, let expressions and modules, and a Haskell-like syntax. The system has Emacs and Atom interfaces but can also be run in batch mode from the command line.
+ Agda is based on Zhaohui Luo's Unified Theory of Dependent Types (UTT) a type theory similar to Martin-Löf type theory.
+ 
+ 
+ == Features ==
+ 
+ 
+ === Inductive types ===
+ The main way of defining data types in Agda is via inductive data types which are similar to algebraic data types in non-dependently typed programming languages.
+ Here is a definition of Peano numbers in Agda:
+ 
+ Basically, it means that there are two ways to construct a natural number. Zero is a natural number, and if n is a natural number, then suc n, the successor of n, is a natural number too.
+ Here's a definition of the "less than or equal" relation:
+ 
+ The first constructor allows us to state that zero is less than or equal to any number. The second constructor states that if n ≤ m then suc n ≤ suc m.
+ 
+ 
+ === Dependently typed pattern matching ===
+ In core type theory, induction and recursion principles are used to prove theorems about inductive types. In Agda, dependently typed pattern matching is used instead. For example, natural number addition can be defined like this:
+ 
+ This way of writing recursive functions/inductive proofs is more natural than applying raw induction principles. In Agda, dependently typed pattern matching is a primitive of the language; the core language lacks the induction/recursion principles that pattern matching translates to.
+ 
+ 
+ === Metavariables ===
+ One of the distinctive features of Agda, when compared with other similar systems such as Coq, is heavy reliance on metavariables for program construction. For example, one can write functions like this in Agda:
+ 
+ ? here is a metavariable. When interacting with the system in emacs mode, it will show the user expected type and allow them to refine the metavariable, i.e., to replace it with more detailed code. This feature allows incremental program construction in a way similar to tactics-based proof assistants such as Coq.
+ 
+ 
+ === Proof automation ===
+ Programming in pure type theory involves a lot of tedious and repetitive proofs, and Agda has no support for tactics. Instead, Agda has support for automation via reflection. The reflection mechanism allows one to quote program fragments into – or unquote them from – the abstract syntax tree. The way reflection is used is similar to the way Template Haskell works.
+ Another mechanism for proof automation is proof search action in emacs mode. It enumerates possible proof terms (limited to 5 seconds), and if one of the terms fits the specification, it will be put in the meta variable where the action is invoked. This action accepts hints, e.g., which theorems and from which modules can be used, whether the action can use pattern matching, etc.
+ 
+ 
+ === Termination checking ===
+ Agda is a total language, i.e., each program in it must terminate and all possible patterns must be matched. Without this feature, the logic behind the language becomes inconsistent, and it becomes possible to prove arbitrary statements. For termination checking, Agda uses the approach of the Foetus termination checker.
+ 
+ 
+ === Standard library ===
+ Agda has an extensive de facto standard library, which includes many useful definitions and theorems about basic data structures, such as natural numbers, lists, and vectors. The library is in beta, and is under active development.
+ 
+ 
+ === Unicode ===
+ One of the more notable features of Agda is a heavy reliance on Unicode in program source code. The standard emacs mode uses shortcuts for input, such as \Sigma for Σ.
+ 
+ 
+ === Backends ===
+ There are three compiler backends, MAlonzo for Haskell, and one each for JavaScript, and Epic.
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ Official website
+ Dependently Typed Programming in Agda, by Ulf Norell
+ A Brief Overview of Agda, by Ana Bove, Peter Dybjer, and Ulf Norell
+ Introduction to Agda, a five-part YouTube playlist by Daniel Peebles
+ Brutal [Meta]Introduction to Dependent Types in Agda
+ Agda Tutorial: "explore programming in Agda without theoretical background" Ada is a structured, statically typed, imperative, wide-spectrum, and object-oriented high-level computer programming language, extended from Pascal and other languages. It has built-in language support for design-by-contract, extremely strong typing, explicit concurrency, offering tasks, synchronous message passing, protected objects, and non-determinism. Ada improves code safety and maintainability by using the compiler to find errors in favor of runtime errors. Ada is an international standard; the current version (known as Ada 2012) is defined by ISO/IEC 8652:2012.
+ Ada was originally designed by a team led by Jean Ichbiah of CII Honeywell Bull under contract to the United States Department of Defense (DoD) from 1977 to 1983 to supersede over 450 programming languages used by the DoD at that time. Ada was named after Ada Lovelace (1815–1852), who has been credited with being the first computer programmer.
+ 
+ 
+ == Features ==
+ Ada was originally targeted at embedded and real-time systems. The Ada 95 revision, designed by S. Tucker Taft of Intermetrics between 1992 and 1995, improved support for systems, numerical, financial, and object-oriented programming (OOP).
+ Features of Ada include: strong typing, modularity mechanisms (packages), run-time checking, parallel processing (tasks, synchronous message passing, protected objects, and nondeterministic select statements), exception handling, and generics. Ada 95 added support for object-oriented programming, including dynamic dispatch.
+ The syntax of Ada minimizes choices of ways to perform basic operations, and prefers English keywords (such as "or else" and "and then") to symbols (such as "||" and "&&"). Ada uses the basic arithmetical operators "+", "-", "*", and "/", but avoids using other symbols. Code blocks are delimited by words such as "declare", "begin", and "end", where the "end" (in most cases) is followed by the identifier of the block it closes (e.g., if … end if, loop … end loop). In the case of conditional blocks this avoids a dangling else that could pair with the wrong nested if-expression in other languages like C or Java.
+ Ada is designed for development of very large software systems. Ada packages can be compiled separately. Ada package specifications (the package interface) can also be compiled separately without the implementation to check for consistency. This makes it possible to detect problems early during the design phase, before implementation starts.
+ A large number of compile-time checks are supported to help avoid bugs that would not be detectable until run-time in some other languages or would require explicit checks to be added to the source code. For example, the syntax requires explicitly named closing of blocks to prevent errors due to mismatched end tokens. The adherence to strong typing allows detection of many common software errors (wrong parameters, range violations, invalid references, mismatched types, etc.) either during compile-time, or otherwise during run-time. As concurrency is part of the language specification, the compiler can in some cases detect potential deadlocks. Compilers also commonly check for misspelled identifiers, visibility of packages, redundant declarations, etc. and can provide warnings and useful suggestions on how to fix the error.
+ Ada also supports run-time checks to protect against access to unallocated memory, buffer overflow errors, range violations, off-by-one errors, array access errors, and other detectable bugs. These checks can be disabled in the interest of runtime efficiency, but can often be compiled efficiently. It also includes facilities to help program verification. For these reasons, Ada is widely used in critical systems, where any anomaly might lead to very serious consequences, e.g., accidental death, injury or severe financial loss. Examples of systems where Ada is used include avionics, ATC, railways, banking, military and space technology.
+ Ada's dynamic memory management is high-level and type-safe. Ada does not have generic or untyped pointers; nor does it implicitly declare any pointer type. Instead, all dynamic memory allocation and deallocation must take place through explicitly declared access types. Each access type has an associated storage pool that handles the low-level details of memory management; the programmer can either use the default storage pool or define new ones (this is particularly relevant for Non-Uniform Memory Access). It is even possible to declare several different access types that all designate the same type but use different storage pools. Also, the language provides for accessibility checks, both at compile time and at run time, that ensures that an access value cannot outlive the type of the object it points to.
+ Though the semantics of the language allow automatic garbage collection of inaccessible objects, most implementations do not support it by default, as it would cause unpredictable behaviour in real-time systems. Ada does support a limited form of region-based memory management; also, creative use of storage pools can provide for a limited form of automatic garbage collection, since destroying a storage pool also destroys all the objects in the pool.
+ A double-dash ("--"), resembling an em dash, denotes comment text. Comments stop at end of line, to prevent unclosed comments from accidentally voiding whole sections of source code. Prefixing each line (or column) with "--" will skip all that code, while being clearly denoted as a column of repeated "--" down the page.
+ The semicolon (";") is a statement terminator, and the null or no-operation statement is null;. A single ; without a statement to terminate is not allowed.
+ Unlike most ISO standards, the Ada language definition (known as the Ada Reference Manual or ARM, or sometimes the Language Reference Manual or LRM) is free content. Thus, it is a common reference for Ada programmers and not just programmers implementing Ada compilers. Apart from the reference manual, there is also an extensive rationale document which explains the language design and the use of various language constructs. This document is also widely used by programmers. When the language was revised, a new rationale document was written.
+ One notable free software tool that is used by many Ada programmers to aid them in writing Ada source code is the GNAT Programming Studio.
+ 
+ 
+ == History ==
+ In the 1970s, the US Department of Defense (DoD) was concerned by the number of different programming languages being used for its embedded computer system projects, many of which were obsolete or hardware-dependent, and none of which supported safe modular programming. In 1975, a working group, the High Order Language Working Group (HOLWG), was formed with the intent to reduce this number by finding or creating a programming language generally suitable for the department's and the UK Ministry of Defence requirements. After many iterations beginning with an original Straw man proposal the eventual programming language was named Ada. The total number of high-level programming languages in use for such projects fell from over 450 in 1983 to 37 by 1996.
+ The HOLWG working group crafted the Steelman language requirements, a series of documents stating the requirements they felt a programming language should satisfy. Many existing languages were formally reviewed, but the team concluded in 1977 that no existing language met the specifications.
+ Requests for proposals for a new programming language were issued and four contractors were hired to develop their proposals under the names of Red (Intermetrics led by Benjamin Brosgol), Green (CII Honeywell Bull, led by Jean Ichbiah), Blue (SofTech, led by John Goodenough) and Yellow (SRI International, led by Jay Spitzen). In April 1978, after public scrutiny, the Red and Green proposals passed to the next phase. In May 1979, the Green proposal, designed by Jean Ichbiah at CII Honeywell Bull, was chosen and given the name Ada—after Augusta Ada, Countess of Lovelace. This proposal was influenced by the programming language LIS that Ichbiah and his group had developed in the 1970s. The preliminary Ada reference manual was published in ACM SIGPLAN Notices in June 1979. The Military Standard reference manual was approved on December 10, 1980 (Ada Lovelace's birthday), and given the number MIL-STD-1815 in honor of Ada Lovelace's birth year. In 1981, C. A. R. Hoare took advantage of his Turing Award speech to criticize Ada for being overly complex and hence unreliable, but subsequently seemed to recant in the foreword he wrote for an Ada textbook.
+ Ada attracted much attention from the programming community as a whole during its early days. Its backers and others predicted that it might become a dominant language for general purpose programming and not just defense-related work. Ichbiah publicly stated that within ten years, only two programming languages would remain, Ada and Lisp. Early Ada compilers struggled to implement the large, complex language, and both compile-time and run-time performance tended to be slow and tools primitive. Compiler vendors expended most of their efforts in passing the massive, language-conformance-testing, government-required "ACVC" validation suite that was required in another novel feature of the Ada language effort.
+ The first validated Ada implementation was the NYU Ada/Ed translator, certified on April 11, 1983. NYU Ada/Ed is implemented in the high-level set language SETL. A number of commercial companies began offering Ada compilers and associated development tools, including Alsys, TeleSoft, DDC-I, Advanced Computer Techniques, Tartan Laboratories, TLD Systems, Verdix, and others.
+ 
+ In 1991, the US Department of Defense began to require the use of Ada (the Ada mandate) for all software, though exceptions to this rule were often granted. The Department of Defense Ada mandate was effectively removed in 1997, as the DoD began to embrace COTS technology. Similar requirements existed in other NATO countries: Ada was required for NATO systems involving command and control and other functions, and Ada was the mandated or preferred language for defense-related applications in countries such as Sweden, Germany, and Canada.
+ By the late 1980s and early 1990s, Ada compilers had improved in performance, but there were still barriers to full exploitation of Ada's abilities, including a tasking model that was different from what most real-time programmers were used to.
+ Because of Ada's safety-critical support features, it is now used not only for military applications, but also in commercial projects where a software bug can have severe consequences, e.g., avionics and air traffic control, commercial rockets such as the Ariane 4 and 5, satellites and other space systems, railway transport and banking. For example, the Airplane Information Management System, the fly-by-wire system software in the Boeing 777, was written in Ada. Developed by Honeywell Air Transport Systems in collaboration with consultants from DDC-I, it became arguably the best-known of any Ada project, civilian or military. The Canadian Automated Air Traffic System was written in 1 million lines of Ada (SLOC count). It featured advanced distributed processing, a distributed Ada database, and object-oriented design. Ada is also used in other air traffic systems, e.g., the UK’s next-generation Interim Future Area Control Tools Support (iFACTS) air traffic control system is designed and implemented using SPARK Ada. It is also used in the French TVM in-cab signalling system on the TGV high-speed rail system, and the metro suburban trains in Paris, London, Hong Kong and New York City.
+ 
+ 
+ == Standardization ==
+ The language became an ANSI standard in 1983 (ANSI/MIL-STD 1815A), and without any further changes became an ISO standard in 1987 (ISO-8652:1987). This version of the language is commonly known as Ada 83, from the date of its adoption by ANSI, but is sometimes referred to also as Ada 87, from the date of its adoption by ISO.
+ Ada 95, the joint ISO/ANSI standard (ISO-8652:1995) was published in February 1995, making Ada 95 the first ISO standard object-oriented programming language. To help with the standard revision and future acceptance, the US Air Force funded the development of the GNAT Compiler. Presently, the GNAT Compiler is part of the GNU Compiler Collection.
+ Work has continued on improving and updating the technical content of the Ada programming language. A Technical Corrigendum to Ada 95 was published in October 2001, and a major Amendment, ISO/IEC 8652:1995/Amd 1:2007 was published on March 9, 2007. At the Ada-Europe 2012 conference in Stockholm, the Ada Resource Association (ARA) and Ada-Europe announced the completion of the design of the latest version of the Ada programming language and the submission of the reference manual to the International Organization for Standardization (ISO) for approval. ISO/IEC 8652:2012 was published in December 2012.
+ Other related standards include ISO 8651-3:1988 Information processing systems—Computer graphics—Graphical Kernel System (GKS) language bindings—Part 3: Ada.
+ 
+ 
+ == Language constructs ==
+ Ada is an ALGOL-like programming language featuring control structures with reserved words such as if, then, else, while, for, and so on. However, Ada also has many data structuring facilities and other abstractions which were not included in the original ALGOL 60, such as type definitions, records, pointers, enumerations. Such constructs were in part inherited from or inspired by Pascal.
+ 
+ 
+ === "Hello, world!" in Ada ===
+ A common example of a language's syntax is the Hello world program: (hello.adb)
+ 
+ This program can be compiled by using the freely available open source compiler GNAT, by executing
+ 
+ 
+ === Data types ===
+ Ada's type system is not based on a set of predefined primitive types but allows users to declare their own types. This declaration in turn is not based on the internal representation of the type but on describing the goal which should be achieved. This allows the compiler to determine a suitable memory size for the type, and to check for violations of the type definition at compile time and run time (i.e., range violations, buffer overruns, type consistency, etc.). Ada supports numerical types defined by a range, modulo types, aggregate types (records and arrays), and enumeration types. Access types define a reference to an instance of a specified type; untyped pointers are not permitted. Special types provided by the language are task types and protected types.
+ For example, a date might be represented as:
+ 
+ Types can be refined by declaring subtypes:
+ 
+ Types can have modifiers such as limited, abstract, private etc. Private types can only be accessed and limited types can only be modified or copied within the scope of the package that defines them. Ada 95 adds additional features for object-oriented extension of types.
+ 
+ 
+ === Control structures ===
+ Ada is a structured programming language, meaning that the flow of control is structured into standard statements. All standard constructs and deep level early exit are supported so the use of the also supported 'go to' commands is seldom needed.
+ 
+ 
+ === Packages, procedures and functions ===
+ Among the parts of an Ada program are packages, procedures and functions.
+ Example: Package specification (example.ads)
+ 
+ Package body (example.adb)
+ 
+ This program can be compiled, e.g., by using the freely available open source compiler GNAT, by executing
+ 
+ Packages, procedures and functions can nest to any depth and each can also be the logical outermost block.
+ Each package, procedure or function can have its own declarations of constants, types, variables, and other procedures, functions and packages, which can be declared in any order.
+ 
+ 
+ === Concurrency ===
+ Ada has language support for task-based concurrency. The fundamental concurrent unit in Ada is a task, which is a built-in limited type. Tasks are specified in two parts – the task declaration defines the task interface (similar to a type declaration), the task body specifies the implementation of the task. Depending on the implementation, Ada tasks are either mapped to operating system threads or processes, or are scheduled internally by the Ada runtime.
+ Tasks can have entries for synchronisation (a form of synchronous message passing). Task entries are declared in the task specification. Each task entry can have one or more accept statements within the task body. If the control flow of the task reaches an accept statement, the task is blocked until the corresponding entry is called by another task (similarly, a calling task is blocked until the called task reaches the corresponding accept statement). Task entries can have parameters similar to procedures, allowing tasks to synchronously exchange data. In conjunction with select statements it is possible to define guards on accept statements (similar to Dijkstra's guarded commands).
+ Ada also offers protected objects for mutual exclusion. Protected objects are a monitor-like construct, but use guards instead of conditional variables for signaling (similar to conditional critical regions). Protected objects combine the data encapsulation and safe mutual exclusion from monitors, and entry guards from conditional critical regions. The main advantage over classical monitors is that conditional variables are not required for signaling, avoiding potential deadlocks due to incorrect locking semantics. Like tasks, the protected object is a built-in limited type, and it also has a declaration part and a body.
+ A protected object consists of encapsulated private data (which can only be accessed from within the protected object), and procedures, functions and entries which are guaranteed to be mutually exclusive (with the only exception of functions, which are required to be side effect free and can therefore run concurrently with other functions). A task calling a protected object is blocked if another task is currently executing inside the same protected object, and released when this other task leaves the protected object. Blocked tasks are queued on the protected object ordered by time of arrival.
+ Protected object entries are similar to procedures, but additionally have guards. If a guard evaluates to false, a calling task is blocked and added to the queue of that entry; now another task can be admitted to the protected object, as no task is currently executing inside the protected object. Guards are re-evaluated whenever a task leaves the protected object, as this is the only time when the evaluation of guards can have changed.
+ Calls to entries can be requeued to other entries with the same signature. A task that is requeued is blocked and added to the queue of the target entry; this means that the protected object is released and allows admission of another task.
+ The select statement in Ada can be used to implement non-blocking entry calls and accepts, non-deterministic selection of entries (also with guards), time-outs and aborts.
+ The following example illustrates some concepts of concurrent programming in Ada.
+ 
+ 
+ === Pragmas ===
+ A pragma is a compiler directive that conveys information to the compiler to allow specific manipulation of compiled output. Certain pragmas are built into the language while other are implementation-specific.
+ Examples of common usage of compiler pragmas would be to disable certain features, such as run-time type checking or array subscript boundary checking, or to instruct the compiler to insert object code in lieu of a function call (as C/C++ does with inline functions).
+ 
+ 
+ == See also ==
+ APSE – a specification for a programming environment to support software development in Ada
+ Ravenscar profile – a subset of the Ada tasking features designed for safety-critical hard real-time computing
+ SPARK (programming language) – a programming language consisting of a highly restricted subset of Ada, annotated with meta information describing desired component behavior and individual runtime requirements
+ 
+ 
+ == References ==
+ 
+ 
+ === International standards ===
+ ISO/IEC 8652: Information technology—Programming languages—Ada
+ ISO/IEC 15291: Information technology—Programming languages—Ada Semantic Interface Specification (ASIS)
+ ISO/IEC 18009: Information technology—Programming languages—Ada: Conformity assessment of a language processor (ACATS)
+ IEEE Standard 1003.5b-1996, the POSIX Ada binding
+ Ada Language Mapping Specification, the CORBA IDL to Ada mapping
+ 
+ 
+ === Rationale ===
+ (These documents have been published in various forms including print.)
+ Ichbiah, Jean D.; Barnes, John G. P.; Firth, Robert J.; Woodger, Mike (1986), Rationale for the Design of the Ada Programming Language, archived from the original on 2007-02-02 
+ Barnes, John G. P. (1995), Ada 95 rationale : the language : the standard libraries 
+ Barnes, John (2006) [2005], Rationale for Ada 2005 
+ 
+ 
+ === Books ===
+ 
+ 
+ === Archives ===
+ Ada Programming Language Materials, 1981–1990. Charles Babbage Institute, University of Minnesota. Includes literature on software products designed for the Ada language; U.S. government publications, including Ada 9X project reports, technical reports, working papers, newsletters; and user group information.
+ 
+ 
+ == External links ==
+ Ada programming language Ada (programming language) at Curlie (based on DMOZ)
+ ACM SIGAda
+ Ada-Europe Organization
+ ISO/IEC/JTC1/SC22/WG9 Home of Ada Standards
+ Interview with S.Tucker Taft, Maintainer of Ada Clipper is an xBase compiler, which is a computer programming language, that is used to create software programs that originally operated primarily under MS-DOS. Although it is a powerful general-purpose programming language, it was primarily used to create database/business programs.
+ 
+ 
+ == History ==
+ Clipper was created by Nantucket Corporation, a company that was started in 1984 by Barry ReBell (management) and Brian Russell (technical). In 1992, the company was sold to Computer Associates for 190 million dollars and the product was renamed to CA-Clipper.
+ Clipper was created as a replacement programming language for Ashton Tate's dBASE III, a very popular database language at the time. The advantage of Clipper over dBASE was that it could be compiled and executed under MS-DOS as a standalone application. In the years between 1985 and 1992 millions of Clipper applications were built, typically for small businesses dealing with databases concerning many aspects of client management and inventory management. For many smaller businesses, having a Clipper application designed to their specific needs was their first experience with software development. Also a lot of applications for banking and insurance companies were developed, here especially in those cases where the application was considered too small to be developed and run on traditional mainframes. In these environments Clipper also served as a front end for existing mainframe applications.
+ As the product matured, it remained a DOS tool for many years, but added elements of the C programming language and Pascal programming language, as well as OOP, and the code-block data-type (hybridizing the concepts of dBase macros, or string-evaluation, and function pointers), to become far more powerful than the original. Nantucket's Aspen project later matured into the Windows native-code Visual Objects compiler.
+ 
+ 
+ === Decline ===
+ Despite these efforts in the early nineties under its new ownership Clipper proved to be unable to make a smooth transition from the MS-DOS to the Microsoft Windows era. As a result, almost no new commercial applications were written in Clipper after 1995. Three of the more important languages that took over from Clipper were Visual Basic, Delphi and Powerbuilder. Some existing Clipper applications continued in use for ten or fifteen years, requiring regular maintenance, but around 2015 the number of Clipper applications that were still used commercially on a daily basis was very small.
+ 
+ 
+ === Revival by third-parties ===
+ The Clipper language is being actively implemented and extended by multiple organizations/vendors, like XBase++ from Alaska Software and FlagShip, as well as free (GPL-licensed) projects like Harbour and xHarbour.
+ Many of the current implementations are portable (DOS, Windows, Linux (32- and 64-bit), Unix (32- and 64-bit), and macOS), supporting many language extensions, and have greatly extended runtime libraries, as well as various Replaceable Database Drivers (RDD) supporting many popular database formats, like DBF, DBTNTX, DBFCDX (FoxPro, Apollo, Comix, and Advantage Database Server), MachSix (SIx Driver and Apollo), SQL, and more. These newer implementations all strive for full compatibility with the standard dBase/xBase syntax, while also offering OOP approaches and target-based syntax such as SQLExecute().
+ 
+ 
+ === Usenet ===
+ The Clipper Usenet newsgroups are comp.lang.clipper and comp.lang.clipper.visual-objects.
+ 
+ 
+ == Programming in Clipper ==
+ A simple hello world - application:
+ 
+ ? "Hello World!"
+ 
+ A simple data base input mask:
+ 
+ USE Customer SHARED NEW
+ clear
+ @  1, 0 SAY "CustNum" GET Customer->CustNum PICT "999999" VALID Customer->CustNum > 0
+ @  3, 0 SAY "Contact" GET Customer->Contact VALID !empty(Customer->Contact)
+ @  4, 0 SAY "Address" GET Customer->Address
+ READ
+ 
+ 
+ == Version history ==
+ The various versions of Clipper were
+ From Nantucket Corporation; the "seasonal versions", billed as "dBase compilers"
+ Nantucket Clipper Winter'84 - released May 25, 1985
+ Nantucket Clipper Summer'85 - released 1985
+ Nantucket Clipper Winter'85 - released January 29, 1986
+ Nantucket Clipper Autumn'86 - released October 31, 1986
+ Nantucket Clipper Summer'87 - released December 21, 1987
+ From Nantucket Corporation; Clipper 5
+ Nantucket Clipper 5.00 - released 1990
+ Nantucket Clipper 5.01 - released April 15, 1991
+ Nantucket Clipper 5.01 Rev.129 - released March 31, 1992
+ and from Computer Associates; CA-Clipper 5
+ CA Clipper 5.01a -
+ CA Clipper 5.20 - released February 15, 1993
+ CA-Clipper 5.2a - released March 15, 1993
+ CA Clipper 5.2b - released June 25, 1993
+ CA-Clipper 5.2c - released August 6, 1993
+ CA Clipper 5.2d - released March 25, 1994
+ CA-Clipper 5.2e - released February 7, 1995
+ CA Clipper 5.30 - released June 26, 1995
+ CA Clipper 5.3a - released May 20, 1996
+ CA Clipper 5.3b - released May 20, 1997
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ Alaska Software vendor of XBase++
+ Apollo database engine supports CA-Clipper and FoxPro data files
+ Free Open Source Graphic,GUI & Form Designer for CA-Clipper
+ mini Clipper FAQ
+ Print from Clipper to newest Windows printers article
+ The Oasis is the largest file archive for CA-Clipper and xBase on the web
+ Visual FlagShip Clipper compatible compiler for Linux, Unix and Windows
+ Xailer Integrated development environment for Windows
+ Harbour Project A 32/64 bit multiplatform Clipper compiler
+ From CA-Clipper to Windows in 5 minutes How to install Harbour MiniGUI and compile a windows-exe.
+ DBFree - Xbase/Clipper for the web :Active web pages using server-side Xbase scripts, embedded DBF data engine, freeware, based on MaxScript Xbase interpreter (adds xBase/Clipper server-side scripting to IIS / Apache / Xitami web servers).
+ DBMax - MaxScript Command Processor :the Xbase interpreter for desktop and web applications.
+ The NTK Project, WIN32 Gui Framework for (x)Harbour, backward compatible with Clipper and Clip4Win.
+ CA Clipper Overview, CA Clipper programming language history and overview. Factor is a stack-oriented programming language created by Slava Pestov. Factor is dynamically typed and has automatic memory management, as well as powerful metaprogramming features. The language has a single implementation featuring a self-hosted optimizing compiler and an interactive development environment. The Factor distribution includes a large standard library.
+ 
+ 
+ == History ==
+ Slava Pestov created Factor in 2003 as a scripting language for a video game. The initial implementation, now referred to as JFactor, was implemented in Java and ran on the Java Virtual Machine. Though the early language resembled modern Factor superficially in terms of syntax, the modern language is very different in practical terms and the current implementation is much faster.
+ The language has changed significantly over time. Originally, Factor programs centered on manipulating Java objects with Java's reflection capabilities. From the beginning, the design philosophy has been to modify the language to suit programs written in it. As the Factor implementation and standard libraries grew more detailed, the need for certain language features became clear, and they were added. JFactor did not have an object system where you could define your own classes, and early versions of native Factor were the same; the language was similar to Scheme in this way. Today, the object system is a central part of Factor. Other important language features such as tuple classes, combinator inlining, macros, user-defined parsing words and the modern vocabulary system were only added in a piecemeal fashion as their utility became clear.
+ The foreign function interface was present from very early versions to Factor, and an analogous system existed in JFactor. This was chosen over creating a plugin to the C part of the implementation for each external library that Factor should communicate with, and has the benefit of being more declarative, faster to compile and easier to write.
+ The Java implementation initially consisted of just an interpreter, but a compiler to Java bytecode was later added. This compiler only worked on certain procedures. The Java version of Factor was replaced by a version written in C and Factor. Initially, this consisted of just an interpreter, but the interpreter was replaced by two compilers, used in different situations. Over time, the Factor implementation has grown significantly faster.
+ 
+ 
+ == Programming paradigm ==
+ Factor is a dynamically typed, functional and object-oriented programming language. Code is structured around small procedures, called words. In typical code, these are 1-3 lines long, and a procedure more than 7 lines long is very rare. Something that would idiomatically be expressed with one procedure in another programming language would be written as several words in Factor.
+ Each word takes a fixed number of arguments and has a fixed number of return values. Arguments to words are passed on a data stack, using reverse Polish notation. The stack is used just to organize calls to words, and not as a datastructure. The stack in Factor is used in a similar way to the stack in Forth; for this, they are both considered stack languages. For example, below is a snippet of code that prints out "hello world" to the current output stream:
+ 
+ "hello world" print
+ 
+ print is a word in the io vocabulary that takes a string from the stack and returns nothing. It prints the string to the current output stream (by default, the terminal or the graphical listener).
+ Not all data has to be passed around only with the stack. Lexically scoped local variables let you store and access temporaries used within a procedure. Dynamically scoped variables are used to pass things between procedure calls without using the stack. For example, the current input and output streams are stored in dynamically scoped variables.
+ Factor emphasizes flexibility and the ability to extend the language. There is a system for macros, as well as for arbitrary extension of Factor syntax. Factor's syntax is often extended to allow for new types of word definitions and new types of literals for data structures. It is also used in the XML library to provide literal syntax for generating XML. For example, the following word takes a string and produces an XML document object which is an HTML document emphasizing the string:
+ 
+ The word dup duplicates the top item on the stack. The <-> stands for filling in that part of the XML document with an item from the stack.
+ 
+ 
+ == Implementation and libraries ==
+ Factor includes a large standard library, written entirely in the language. These include
+ A cross-platform GUI toolkit, built on top of OpenGL and various windowing systems, used for the development environment.
+ Bindings to several database libraries, including PostgreSQL and SQLite.
+ An HTTP server and client, with the Furnace web framework.
+ Efficient homogeneous arrays of integers, floats and C structs.
+ A library implementing regular expressions, generating machine code to do the matching.
+ A foreign function interface is built into Factor, allowing for communication with C, Objective-C and Fortran programs. There is also support for executing and communicating with shaders written in GLSL.
+ Factor is implemented in Factor and C++. It was originally bootstrapped from an earlier Java implementation. Today, the parser and the optimizing compiler are written in the language. Certain basic parts of the language are implemented in C++ such as the garbage collector and certain primitives.
+ Factor uses an image-based model, analogous to many Smalltalk implementations, where compiled code and data are stored in an image. To compile a program, the program is loaded into an image and the image is saved. A special tool assists in the process of creating a minimal image to run a particular program, packaging the result into something that can be deployed as a standalone application.
+ The Factor compiler implements many advanced optimizations and has been used as a target for research in new optimization techniques.
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ Official website
+ Slava Pestov (October 27, 2008). Factor: An Extensible Interactive Language (flv) (Tech talk). Google. 
+ Zed Shaw (2008). The ACL is Dead (flv) (CUSEC 2008). CUSEC.  – a presentation written in Factor which mentions and praises Factor AppleScript is a scripting language created by Apple Inc. that facilitates automated control over scriptable Mac applications. First introduced in System 7, it is currently included in all versions of macOS as part of a package of system automation tools. The term "AppleScript" may refer to the language itself, to an individual script written in the language, or, informally, to the macOS Open Scripting Architecture that underlies the language.
+ 
+ 
+ == Overview ==
+ AppleScript is primarily a scripting language developed by Apple to do inter-application communication (IAC) using Apple events. AppleScript is related to, but different from, Apple events. Apple events are designed to exchange data between and control other applications in order to automate repetitive tasks.
+ AppleScript has some processing abilities of its own, in addition to sending and receiving Apple events to applications. AppleScript can do basic calculations and text processing, and is extensible, allowing the use of scripting additions that add new functions to the language. Mainly, however, AppleScript relies on the functionality of applications and processes to handle complex tasks. As a structured command language, AppleScript can be compared to Unix shells, the Microsoft Windows Script Host, or IBM REXX in its purpose, but it is unique from all three. Essential to its functionality is the fact that Macintosh applications publish "dictionaries" of addressable objects and operations.
+ AppleScript has some elements of procedural programming, object-oriented programming (particularly in the construction of script objects), and natural language programming tendencies in its syntax, but does not strictly conform to any of these programming paradigms.
+ 
+ 
+ == History ==
+ In the late 1980s Apple considered using HyperCard's HyperTalk scripting language as the standard language for end-user development across the company and within its classic Mac OS operating system, and for interprocess communication between Apple and non-Apple products. HyperTalk could be used by novices to program a HyperCard stack. Apple engineers recognized that a similar, but more object-oriented scripting language could be designed to be used with any application, and the AppleScript project was born as a spin-off of a research effort to modernize the Macintosh as a whole and finally became part of System 7.
+ AppleScript was released in October 1993 as part of System 7.1.1 (System 7 Pro, the first major upgrade to System 7). QuarkXPress (ver. 3.2) was one of the first major software applications that supported AppleScript. This in turn led to AppleScript being widely adopted within the publishing and prepress world, often tying together complex workflows. This was a key factor in retaining the Macintosh's dominant position in publishing and prepress, even after QuarkXpress and other publishing applications were ported to Microsoft Windows.
+ After some uncertainty about the future of AppleScript on Apple's next generation OS, the move to Mac OS X (around 2002) and its Cocoa frameworks greatly increased the usefulness and flexibility of AppleScript. Cocoa applications allow application developers to implement basic scriptability for their apps with minimal effort, broadening the number of applications that are directly scriptable. At the same time, the shift to the Unix underpinnings and AppleScript's ability to run Unix commands directly (with the do shell script command) allowed AppleScripts much greater control over the operating system itself. AppleScript Studio, released with Mac OS X 10.2 as part of Xcode, and later AppleScriptObjC framework, released in Mac OS X 10.6, allowed users to build Cocoa applications using AppleScript.
+ In a 2013 article for Macworld, veteran Mac software developer and commentator John Gruber concluded his reflection on "the unlikely persistence of AppleScript" by noting: "In theory, AppleScript could be much better; in practice, though, it's the best thing we have that works. It exemplifies the Mac's advantages over iOS for tinkerers and advanced users."
+ In October 2016, longtime AppleScript product manager and automation evangelist Sal Soghoian left Apple when his position was eliminated "for business reasons". Veterans in the Mac community such as John Gruber and Andy Ihnatko generally responded with concern, questioning Apple's commitment to the developer community and pro users. Apple senior vice president of software engineering Craig Federighi responded in an email saying that "We have every intent to continue our support for the great automation technologies in macOS!", though Jeff Gamet at The Mac Observer opined that it did little to assuage his doubt about the future of Apple automation in general and AppleScript in particular. For the time being, AppleScript remains one component of macOS automation technologies, along with Services, Automator, and shell scripting.
+ 
+ 
+ == Basic concepts ==
+ AppleScript was designed to be used as an accessible end-user scripting language, offering users an intelligent mechanism to control applications, and to access and modify data and documents. AppleScript uses Apple events, a set of standardized data formats that the Macintosh operating system uses to send information to applications, roughly analogous to sending XPath queries over XML-RPC in the world of web services. Apple events allow a script to work with multiple applications simultaneously, passing data between them so that complex tasks can be accomplished without human interaction. For example, an AppleScript to create a simple web gallery might do the following:
+ Open a photo in a photo-editing application (by sending that application an Open File Apple event).
+ Tell the photo-editing application to manipulate the image (e.g. reduce its resolution, add a border, add a photo credit)
+ Tell the photo-editing application to save the changed image in a file in some different folder (by sending that application a Save and/or Close Apple event).
+ Send the new file path (via another Apple event) to a text editor or web editor application
+ Tell that editor application to write a link for the photo into an HTML file.
+ Repeat the above steps for an entire folder of images (hundreds or even thousands of photos).
+ Upload the HTML file and folder of revised photos to a website, by sending Apple events to a graphical FTP client, by using built-in AppleScript commands, or by sending Apple events to Unix FTP utilities.
+ For the user, hundreds or thousands of steps in multiple applications have been reduced to the single act of running the script, and the task is accomplished in much less time and with no possibility of random human error. A large complex script could be developed to run only once, while other scripts are used again and again.
+ An application's scriptable elements are visible in the application's Scripting Dictionary (distributed as part of the application), which can be viewed in any script editor. Elements are generally grouped into suites, according to loose functional relationships between them. There are two basic kinds of elements present in any suite: classes and commands.
+ Classes are scriptable objects—for example, a text editing application will almost certainly have classes for windows, documents, and texts—and these classes will have properties that can be changed (window size, document background color, text font size, etc.), and may contain other classes (a window will contain one or more documents, a document will contain text, a text object will contain paragraphs and words and characters).
+ Commands, by contrast, are instructions that can be given to scriptable objects. The general format for a block of AppleScript is to tell a scriptable object to run a command.
+ All scriptable applications share a few basic commands and objects, usually called the Standard Suite—commands to open, close or save a file, to print something, to quit, to set data to variables—as well as a basic application object that gives the scriptable properties of the application itself. Many applications have numerous suites capable of performing any task the application itself can perform. In exceptional cases, applications may support plugins which include their own scripting dictionaries.
+ AppleScript was designed with the ability to build scripts intuitively by recording user actions. When the AppleScript Editor (also called Script Editor) is open and the Record button clicked, any user actions on the computer—in any application that supports Apple events and AppleScript recording—are converted to their equivalent AppleScript commands and placed in the script editor window. The resulting script can be saved and re-run to duplicate the original actions, or modified to be more generally useful.
+ 
+ 
+ == Comments ==
+ Comments can be made multiple ways. A one-line comment can begin with 2 hyphens (-), or a number sign (#). Example:
+ 
+ For comment that take up multiple lines, AppleScript uses parentheses with asterisks inside. Example:
+ 
+ 
+ == Hello, world! ==
+ In AppleScript, the traditional "Hello, World!" program could be written in many different forms:
+ 
+ AppleScript has several user interface options, including dialogs, alerts, and list of choices. (The character ¬, produced by typing option-return in the Script Editor, denotes continuation of a single statement across multiple lines.)
+ 
+ Each user interaction method can return the values of buttons clicked, items chosen or text entered for further processing. For example:
+ 
+ 
+ == Natural language metaphor ==
+ Whereas Apple events are a way to send messages into applications, AppleScript is a particular language designed to send Apple events. In keeping with the objective of ease-of-use for beginners, the AppleScript language is designed on the natural language metaphor, just as the graphical user interface is designed on the desktop metaphor. A well-written AppleScript should be clear enough to be read and understood by anyone, and easily edited. The language is based largely on HyperCard's HyperTalk language, extended to refer not only to the HyperCard world of cards and stacks, but also theoretically to any document. To this end, the AppleScript team introduced the AppleEvent Object Model (AEOM), which specifies the objects any particular application "knows".
+ The heart of the AppleScript language is the use of terms that act as nouns and verbs that can be combined. For example, rather than a different verb to print a page, document or range of pages (such as printPage, printDocument, printRange), AppleScript uses a single "print" verb which can be combined with an object, such as a page, a document or a range of pages.
+ 
+ Generally, AEOM defines a number of objects—like "document" or "paragraph"—and corresponding actions—like "cut" and "close". The system also defines ways to refer to properties of objects, so one can refer to the "third paragraph of the document 'Good Day'", or the "color of the last word of the front window". AEOM uses an application dictionary to associate the Apple events with human-readable terms, allowing the translation back and forth between human-readable AppleScript and bytecode Apple events. To discover what elements of a program are scriptable, dictionaries for supported applications may be viewed. (In the Xcode and Script Editor applications, this is under File → Open Dictionary.)
+ To designate which application is meant to be the target of such a message, AppleScript uses a "tell" construct:
+ 
+ Alternatively, the tell may be expressed in one line by using an infinitive:
+ 
+ For events in the "Core Suite" (activate, open, reopen, close, print, and quit), the application may be supplied as the direct object to transitive commands:
+ 
+ The concept of an object hierarchy can be expressed using nested blocks:
+ 
+ The concept of an object hierarchy can also be expressed using nested prepositional phrases:
+ 
+ which in another programming language might be expressed as sequential method calls, like in this pseudocode:
+ 
+ AppleScript includes syntax for ordinal counting, "the first paragraph", as well as cardinal, "paragraph one". Likewise, the numbers themselves can be referred to as text or numerically, "five", "fifth" and "5" are all supported; they are synonyms in AppleScript. Also, the word "the" can legally be used anywhere in the script in order to enhance readability: it has no effect on the functionality of the script.
+ 
+ 
+ == Examples of scripts ==
+ A failsafe calculator:
+ 
+ A simple username and password dialog box sequence. Here, the username is John and password is app123:
+ 
+ 
+ == Development tools ==
+ 
+ 
+ === Script editors ===
+ Script editors provide a unified programing environment for AppleScripts, including tools for composing, validating, compiling, running, and debugging scripts. They also provide mechanisms for opening and viewing AppleScript dictionaries from scriptable applications, saving scripts in a number of formats (compiled script files, application packages, script bundles, and plain text files), and usually provide features such as syntax highlighting and prewritten code snippets.
+ 
+ 
+ ==== From Apple ====
+ AppleScript Editor (Script Editor)
+ The editor for AppleScript packaged with macOS, called AppleScript Editor in Mac OS X Snow Leopard (10.6) through OS X Mavericks (10.9) and Script Editor in all earlier and later versions of macOS. Scripts are written in document editing windows where they can be compiled and run, and these windows contain various panes in which logged information, execution results, and other information is available for debugging purposes. Access to scripting dictionaries and prewritten code snippets is available through the application menus. Since OS X Yosemite (10.10), Script Editor includes the ability to write in both AppleScript and JavaScript.
+ Xcode
+ A suite of tools for developing applications with features for editing AppleScripts or creating full-fledged applications written with AppleScript.
+ 
+ 
+ ==== From third parties ====
+ Script Debugger, from Late Night Software
+ A third-party commercial IDE for AppleScript. Script Debugger is a more advanced AppleScript environment that allows the script writer to debug AppleScripts via single stepping, breakpoints, stepping in and out of functions/subroutines, variable tracking, etc. Script Debugger also contains an advanced dictionary browser that allows the user to see the dictionary in action in real world situations. That is, rather than just a listing of what the dictionary covers, one can open a document in Pages, for example, and see how the dictionary's terms apply to that document, making it easier to determine which parts of the dictionary to use. Script Debugger is not designed to create scripts with a GUI, other than basic alerts and dialogs, but is focused more on the coding and debugging of scripts.
+ Smile and SmileLab
+ A third-party freeware/commercial IDE for AppleScript, itself written entirely in AppleScript. Smile is free, and primarily designed for AppleScript development. SmileLab is commercial software with extensive additions for numerical analysis, graphing, machine automation and web production. Smile and SmileLab use an assortment of different windows—AppleScript windows for running and saving full scripts, AppleScript terminals for testing code line-by-line, unicode windows for working with text and XML. Users can create complex interfaces—called dialogs—for situations where the built-in dialogs in AppleScript are insufficient.
+ ASObjC Explorer 4, from Shane Stanley
+ A discontinued third-party commercial IDE for AppleScript, especially for AppleScriptObjC. The main feature is Cocoa-object/event logging, debugging and code-completion. Users can read Cocoa events and objects like other scriptable applications. This tool was originally built for AppleScript Libraries (available in OS X Mavericks). AppleScript Libraries aims for re-usable AppleScript components and supports built-in AppleScript dictionary (sdef). ASObjC Explorer 4 can be an external Xcode script editor, too.
+ FaceSpan, from Late Night Software
+ A discontinued third-party commercial IDE for creating AppleScript applications with graphic user interfaces.
+ 
+ 
+ === Script launchers ===
+ AppleScripts can be run from a script editor, but it is usually more convenient to run scripts directly, without opening a script editor application. There are a number of options for doing so:
+ Applets
+ AppleScripts can be saved from a script editor as applications (called applets, or droplets when they accept input via drag and drop). Applets can be run from the Dock, from the toolbar of Finder windows, from Spotlight, from third-party application launchers, or from any other place where applications can be run.
+ Folder actions
+ Using AppleScript folder actions, scripts can be launched when specific changes occur in folders (such as adding or removing files). Folder actions can be assigned by clicking on a folder and choosing Folder Actions Setup... from the contextual menu; the location of this command differs slightly in Mac OS X 10.6.x from earlier versions. This same action can be achieved with third-party utilities such as Hazel.
+ Hotkey launchers
+ Keyboard shortcuts can be assigned to AppleScripts in the script menu using the Keyboard & Mouse Settings Preference Pane in System Preferences. In addition, various third-party utilities are available—Alfred, FastScripts, Keyboard Maestro, QuicKeys, Quicksilver, TextExpander—which can run AppleScripts on demand using key combinations.
+ Script menu
+ This system-wide menu provides access to AppleScripts from the macOS menu bar, visible no matter what application is running. (In addition, many Apple applications, some third party applications, and some add-ons provide their own script menus. These may be activated in different ways, but all function in essentially the same manner.) Selecting a script in the script menu launches it. Since Mac OS X 10.6.x, the system-wide script menu can be enabled from the preferences of Script Editor; in prior versions of Mac OS X, it could be enabled from the AppleScript Utility application. When first enabled, the script menu displays a default library of fairly generic, functional AppleScripts, which can also be opened in Script Editor and used as examples for learning AppleScript. Scripts can be organized so that they only appear in the menu when particular applications are in the foreground.
+ Unix command line and launchd
+ AppleScripts can be run from the Unix command line, or from launchd for scheduled tasks, by using the osascript command line tool. The osascript tool can run compiled scripts (.scpt files) and plain text files (.applescript files—these are compiled by the tool at runtime). Script applications can be run using the Unix open command.
+ 
+ 
+ === Related scripting issues ===
+ AppleScript Libraries
+ Re-usable AppleScript modules (available since OS X Mavericks), written in AppleScript or AppleScriptObjC and saved as script files or bundles in certain locations, that can be called from other scripts. When saved as a bundle, a library can include an AppleScript dictionary (sdef) file, thus functioning like a scripting addition but written in AppleScript or AppleScriptObjC.
+ AppleScript Studio
+ A framework for attaching Cocoa interfaces to AppleScript applications, part of the Xcode package in Mac OS X 10.4 and 10.5, now deprecated in favor of AppleScriptObjC.
+ AppleScriptObjC
+ A Cocoa development software framework, also called AppleScript/Objective-C or ASOC, part of the Xcode package since Mac OS X Snow Leopard. AppleScriptObjC allows AppleScripts to use Cocoa classes and methods directly. The following table shows the availability of AppleScriptObjC in various versions of macOS:
+ Automator
+ A graphical, modular editing environment in which workflows are built up from actions. It is intended to duplicate many of the functions of AppleScript without the necessity for programming knowledge. Automator has an action specifically designed to contain and run AppleScripts, for tasks that are too complex for Automator's simplified framework.
+ Scriptable core system applications
+ These background-only applications, packaged with macOS, are used to allow AppleScript to access features that would not normally be scriptable. As of Mac OS X 10.6.3 they include the scriptable applications for VoiceOver (scriptable auditory and braille screen reader package), System Events (control of non-scriptable applications and access to certain system functions and basic file operations), Printer Setup Utility (scriptable utility for handling print jobs), Image Events (core image manipulation), HelpViewer (scriptable utility for showing help displays), Database Events (minimal SQLite3 database interface), and AppleScript Utility (for scripting a few AppleScript related preferences), as well as a few utility applications used by the system.
+ Scripting Additions (OSAX)
+ Plug-ins for AppleScript developed by Apple or third parties. They are designed to extend the built-in command set, expanding AppleScript's features and making it somewhat less dependent on functionality provided by applications. macOS includes a collection of scripting additions referred to as Standard Additions (StandardAdditions.osax) that adds a set of commands and classes that are not part of AppleScript's core features, including user interaction dialogs, reading and writing files, file system commands, date functions, and text and mathematical operations; without this OSAX, AppleScript would have no capacity to perform many basic actions not directly provided by an application.
+ 
+ 
+ == Language essentials ==
+ 
+ 
+ === Classes (data types) ===
+ While applications can define specialized classes (or data types), AppleScript also has a number of built-in classes. These basic data classes are directly supported by the language and tend to be universally recognized by scriptable applications. The most common ones are as follows:
+ Basic objects
+ application: an application object, used mostly as a specifier for tell statements (tell application "Finder" …).
+ script: a script object. Script objects are containers for scripts. Every AppleScript creates a script object when run, and script objects may be created within AppleScripts.
+ class: a meta-object that specifies the type of other objects.
+ reference: an object that encapsulates an unevaluated object specifier that may or may not point to a valid object. Can be evaluated on-demand by accessing its contents property.
+ 
+ Standard data objects
+ constant: a constant value. There a number of language-defined constants, such as pi, tab, and linefeed.
+ boolean: a Boolean true/false value. Actually a subclass of constant.
+ number: a rarely used abstract superclass of integer and real.
+ integer: an integer. Can be manipulated with built-in mathematical operators.
+ real: a floating-point (real) number. Can be manipulated with built-in mathematical operators.
+ date: a date and time.
+ text: text. In versions of AppleScript before 2.0 (Mac OS X 10.4 and below) the text class was distinct from string and Unicode text, and the three behaved somewhat differently; in 2.0 (10.5) and later, they are all synonyms and all text is handled as being UTF-16 (“Unicode”)-encoded.
+ 
+ Containers
+ list: an ordered list of objects. Can contain any class, including other lists and classes defined by applications.
+ record: a keyed list of objects. Like a list, except structured as key-value pairs. Runtime keyed access is unsupported; all keys must be compile-time constant identifiers.
+ 
+ File system
+ alias: a reference to a file system object (file or folder). The alias will maintain its link to the object if the object is moved or renamed.
+ file: a reference to a file system object (file or folder). This is a static reference, and can point to an object that does not currently exist.
+ POSIX file: a reference to a file system object (file or folder), in plain text, using Unix (POSIX)-style slash (/) notation. Not a true data type, as AppleScript automatically converts POSIX files to ordinary files whenever they are used.
+ 
+ Miscellaneous
+ RGB color: specifies an RGB triplet (in 16-bit high color format), for use in commands and objects that work with colors.
+ unit types: class that converts between standard units. For instance, a value can be defined as square yards, then converted to square feet by casting between unit types (using the as operator).
+ 
+ 
+ === Language structures ===
+ Many AppleScript processes are managed by blocks of code, where a block begins with a command command and ends with an end command statement. The most important structures are described below.
+ 
+ 
+ ==== Conditionals ====
+ AppleScript offers two kinds of conditionals.
+ 
+ 
+ ==== Loops ====
+ The repeat loop of AppleScript comes in several slightly different flavors. They all execute the block between repeat and end repeat lines a number of times. The looping can be prematurely stopped with command exit repeat.
+ Repeat forever.
+ 
+ Repeat a given number of times.
+ 
+ Conditional loops. The block inside repeat while loop executes as long as the condition evaluates to true. The condition is re-evaluated after each execution of the block. The repeat until loop is otherwise identical, but the block is executed as long as the condition evaluates to false.
+ 
+ Loop with a variable. When starting the loop, the variable is assigned to the start value. After each execution of the block, the optional step value is added to the variable. Step value defaults to 1.
+ 
+ Enumerate a list. On each iteration set the loopVariable to a new item in the given list
+ 
+ One important variation on this block structure is in the form of on —end ... blocks that are used to define handlers (function-like subroutines). Handlers begin with on functionName() and ending with end functionName, and are not executed as part of the normal script flow unless called from somewhere in the script.
+ Handlers can also be defined using "to" in place of "on" and can be written to accept labeled parameters, not enclosed in parens.
+ There are four types of predefined handlers in AppleScript—run, open, idle, and quit—each of which is created in the same way as the run handler shown above.
+ Run handler
+ Defines the main code of the script, which is called when the script is run. Run handler blocks are optional, unless arguments are being passed to the script. If an explicit run handler block is omitted, then all code that is not contained inside handler blocks is executed as though it were in an implicit run handler.
+ Open handler
+ Defined using "on open theItems".
+ 
+ When a script containing an "open handler' is saved as an applet, the applet becomes a droplet. A droplet can be identified in the Finder by its icon, which includes an arrow, indicating items can be dropped onto the icon. The droplet's open handler is executed when files or folders are dropped onto droplet's icon. References to the items dropped on the droplet's icon are passed to the droplet's script as the parameter of the open handler. A droplet can also be launched the same way as an ordinary applet, executing its run handler.
+ Idle handler
+ A subroutine that is run periodically by the system when the application is idle.
+ 
+ An idle handler can be used in applets or droplets saved as stay-open applets, and is useful for scripts that watch for particular data or events. The length of the idle time is 30 seconds by default, but can be changed by including a 'return x' statement at the end of the subroutine, where x is the number of seconds the system should wait before running the handler again.
+ Quit handler
+ A handler that is run when the applet receives a Quit request. This can be used to save data or do other ending tasks before quitting.
+ 
+ Script objects
+ Script objects may be defined explicitly using the syntax:
+ 
+ Script objects can use the same 'tell' structures that are used for application objects, and can be loaded from and saved to files. Runtime execution time can be reduced in some cases by using script objects.
+ 
+ 
+ === Miscellaneous information ===
+ Variables are not strictly typed, and do not need to be declared. Variables can take any data type (including scripts and functions). The following commands are examples of the creation of variables:
+ 
+ Script objects are full objects—they can encapsulate methods and data and inherit data and behavior from a parent script.
+ Subroutines cannot be called directly from application tell blocks. Use the 'my' or 'of me' keywords to do so.
+ 
+ Using the same technique for scripting addition commands can reduce errors and improve performance.
+ 
+ 
+ == Open Scripting Architecture ==
+ An important aspect of the AppleScript implementation is the Open Scripting Architecture (OSA). Apple provides OSA for other scripting languages and third-party scripting/automation products such as QuicKeys and UserLand Frontier, to function on an equal status with AppleScript. AppleScript was implemented as a scripting component, and the basic specs for interfacing such components to the OSA were public, allowing other developers to add their own scripting components to the system. Public client APIs for loading, saving and compiling scripts would work the same for all such components, which also meant that applets and droplets could hold scripts in any of those scripting languages.
+ One feature of the OSA is scripting additions, or OSAX for Open Scripting Architecture eXtension, which were inspired by HyperCard's External Commands. Scripting additions are libraries that allow programmers to extend the function of AppleScript. Commands included as scripting additions are available system-wide, and are not dependent on an application (see also § AppleScript Libraries).
+ 
+ 
+ === JavaScript for Automation ===
+ Under OS X Yosemite and later versions of macOS, the JavaScript for Automation (JXA) component remains the only serious OSA language alternative to AppleScript, though the Macintosh versions of Perl, Python, Ruby, and Tcl all support native means of working with Apple events without being OSA components.
+ 
+ 
+ == See also ==
+ BBEdit — a highly scriptable text editor
+ 
+ 
+ == References ==
+ 
+ 
+ == Further reading ==
+ Munro, Mark Conway (2010). AppleScript. Developer Reference. Wiley. ISBN 978-0-470-56229-1. 
+ Rosenthal, Hanaan; Sanderson, Hamish (2010). Learn AppleScript: The Comprehensive Guide to Scripting and Automation on Mac OS X (Third ed.). Apress. ISBN 978-1-4302-2361-0. 
+ Soghoian, Sal; Cheeseman, Bill (2009). Apple Training Series: AppleScript 1-2-3. Peachpit Press. ISBN 0-321-14931-9. 
+ Cook, William (2007). "AppleScript" (pdf). History of programming languages (HOPL III). Proceedings of the third ACM SIGPLAN conference. ACM: 1–21. doi:10.1145/1238844.1238845. 
+ Ford Jr., Jerry Lee (2007). AppleScript Programming for the Absolute Beginner. Course Technology. ISBN 978-1-59863-384-9. 
+ Neuburg, Matt (2006). AppleScript: The Definitive Guide. O'Reilly Media. ISBN 0-596-10211-9. 
+ Goldstein, Adam (2005). AppleScript: The Missing Manual. O'Reilly Media. ISBN 0-596-00850-3. 
+ Trinko, Tom (2004). AppleScript for Dummies. For Dummies. ISBN 978-0-7645-7494-8. 
+ 
+ 
+ == External links ==
+ 
+ Official website
+ AppleScript at Curlie (based on DMOZ)
+ "AppleScript for Python Programmers (Comparison Chart)". aurelio.net. 2005. Retrieved 2017-05-09. 
+ "AppleScript Language Guide [html]". developer.apple.com. 2016. Retrieved 2017-05-09. 
+ "AppleScript Language Guide [pdf]". citeseerx.ist.psu.edu. CiteSeerX. 2015. Retrieved 2018-01-08. 
+ "Doug's AppleScripts for iTunes". dougscripts.com. Retrieved 2017-05-09. 
+ "Mac OS X Automation". macosautomation.com. Retrieved 2017-05-09. 
+ "MacScripter AppleScript community". macscripter.net. Retrieved 2017-05-09. Erlang ( ER-lang) is a general-purpose, concurrent, functional programming language, as well as a garbage-collected runtime system.
+ The term Erlang is used interchangeably with Erlang/OTP, or OTP, which consists of the Erlang runtime system, a number of ready-to-use components mainly written in Erlang, and a set of design principles for Erlang programs.
+ The Erlang runtime system is known for its designs that are well suited for systems with the following characteristics:
+ Distributed
+ Fault-tolerant
+ Soft real-time,
+ Highly available, non-stop applications
+ Hot swapping, where code can be changed without stopping a system.
+ The Erlang programming language is known for the following properties:
+ Immutable data
+ Pattern matching
+ Functional programming
+ The sequential subset of the Erlang language supports eager evaluation, single assignment, and dynamic typing.
+ It was originally a proprietary language within Ericsson, developed by Joe Armstrong, Robert Virding and Mike Williams in 1986, but was released as open source in 1998. Erlang/OTP is supported and maintained by the OTP product unit at Ericsson.
+ 
+ 
+ == History ==
+ The name "Erlang", attributed to Bjarne Däcker, has been presumed by those working on the telephony switches (for whom the language was designed) to be a reference to Danish mathematician and engineer Agner Krarup Erlang as well as a syllabic abbreviation of "Ericsson Language".
+ Erlang was designed with the aim of improving the development of telephony applications. The initial version of Erlang was implemented in Prolog and was influenced by the programming language PLEX used in earlier Ericsson exchanges. By 1988 Erlang had proven that it was suitable for prototyping telephone exchanges, but the Prolog interpreter was far too slow. One group within Ericsson estimated that it would need to be 40 times faster in order to be suitable for production use. In 1992 work began on the BEAM virtual machine which compiles Erlang to C using a mix of natively compiled code and threaded code to strike a balance between performance and disk space. According to Armstrong, the language went from lab product to real applications following the collapse of the next-generation AXE exchange named AXE-N in 1995. As a result, Erlang was chosen for the next ATM exchange AXD.
+ In 1998 Ericsson announced the AXD301 switch, containing over a million lines of Erlang and reported to achieve a high availability of nine "9"s. Shortly thereafter, Ericsson Radio Systems banned the in-house use of Erlang for new products, citing a preference for non-proprietary languages. The ban caused Armstrong and others to leave Ericsson. The implementation was open-sourced at the end of the year. Ericsson eventually lifted the ban; it re-hired Armstrong in 2004.
+ In 2006, native symmetric multiprocessing support was added to the runtime system and virtual machine.
+ 
+ 
+ === Erlang Worldview ===
+ The Erlang view of the world, as Joe Armstrong, co-inventor of Erlang, summarized in his PhD thesis:
+ Everything is a process.
+ Processes are strongly isolated.
+ Process creation and destruction is a lightweight operation.
+ Message passing is the only way for processes to interact.
+ Processes have unique names.
+ If you know the name of a process you can send it a message.
+ Processes share no resources.
+ Error handling is non-local.
+ Processes do what they are supposed to do or fail.
+ Joe Armstrong remarked in an interview with Rackspace in 2013: “If Java is 'write once, run anywhere', then Erlang is 'write once, run forever'.”
+ 
+ 
+ === Usage ===
+ Erlang has now been adopted by companies worldwide, including Nortel and T-Mobile. Erlang is used in Ericsson’s support nodes, and in GPRS, 3G and LTE mobile networks worldwide.
+ As Tim Bray, director of Web Technologies at Sun Microsystems, expressed in his keynote at OSCON in July 2008:
+ 
+ If somebody came to me and wanted to pay me a lot of money to build a large scale message handling system that really had to be up all the time, could never afford to go down for years at a time, I would unhesitatingly choose Erlang to build it in.
+ 
+ 
+ == Functional programming examples ==
+ An Erlang function that uses recursion to count to ten:
+ 
+ A factorial algorithm implemented in Erlang:
+ 
+ A Fibonacci algorithm implemented in Erlang (Note: This is only for demonstrating the Erlang syntax. This algorithm is rather slow.):
+ 
+ Quicksort in Erlang, using list comprehension:
+ 
+ The above example recursively invokes the function qsort until nothing remains to be sorted. The expression [Front || Front <- Rest, Front < Pivot] is a list comprehension, meaning "Construct a list of elements Front such that Front is a member of Rest, and Front is less than Pivot." ++ is the list concatenation operator.
+ A comparison function can be used for more complicated structures for the sake of readability.
+ The following code would sort lists according to length:
+ 
+ Here again, a Pivot is taken from the first parameter given to qsort() and the rest of Lists is named Rest. Note that the expression
+ 
+ is no different in form from
+ 
+ (in the previous example) except for the use of a comparison function in the last part, saying "Construct a list of elements X such that X is a member of Rest, and Smaller is true", with Smaller being defined earlier as
+ 
+ Note also that the anonymous function is named Smaller in the parameter list of the second definition of qsort so that it can be referenced by that name within that function. It is not named in the first definition of qsort, which deals with the base case of an empty list and thus has no need of this function, let alone a name for it.
+ 
+ 
+ == Data types ==
+ Erlang has eight primitive data types:
+ Integers
+ Integers are written as sequences of decimal digits, for example, 12, 12375 and -23427 are integers. Integer arithmetic is exact and only limited by available memory on the machine. (This is called arbitrary-precision arithmetic.)
+ Atoms
+ Atoms are used within a program to denote distinguished values. They are written as strings of consecutive alphanumeric characters, the first character being lowercase. Atoms can contain any character if they are enclosed within single quotes and an escape convention exists which allows any character to be used within an atom. Atoms are never garbage collected and should be used with caution, specially if using dynamic atom generation.
+ Floats
+ Floating point numbers use the IEEE 754 64-bit representation.
+ References
+ References are globally unique symbols whose only property is that they can be compared for equality. They are created by evaluating the Erlang primitive make_ref().
+ Binaries
+ A binary is a sequence of bytes. Binaries provide a space-efficient way of storing binary data. Erlang primitives exist for composing and decomposing binaries and for efficient input/output of binaries.
+ Pids
+ Pid is short for process identifier – a Pid is created by the Erlang primitive spawn(...) Pids are references to Erlang processes.
+ Ports
+ Ports are used to communicate with the external world. Ports are created with the built-in function open_port. Messages can be sent to and received from ports, but these messages must obey the so-called "port protocol."
+ Funs
+ Funs are function closures. Funs are created by expressions of the form: fun(...) -> ... end.
+ And three compound data types:
+ Tuples
+ Tuples are containers for a fixed number of Erlang data types. The syntax {D1,D2,...,Dn} denotes a tuple whose arguments are D1, D2, ... Dn. The arguments can be primitive data types or compound data types. Any element of a tuple can be accessed in constant time.
+ Lists
+ Lists are containers for a variable number of Erlang data types. The syntax [Dh|Dt] denotes a list whose first element is Dh, and whose remaining elements are the list Dt. The syntax [] denotes an empty list. The syntax [D1,D2,..,Dn] is short for [D1|[D2|..|[Dn|[]]]]. The first element of a list can be accessed in constant time. The first element of a list is called the head of the list. The remainder of a list when its head has been removed is called the tail of the list.
+ Maps
+ Maps contain a variable number of key-value associations. The syntax is#{Key1=>Value1,...,KeyN=>ValueN}.
+ Two forms of syntactic sugar are provided:
+ Strings
+ Strings are written as doubly quoted lists of characters. This is syntactic sugar for a list of the integer ASCII codes for the characters in the string. Thus, for example, the string "cat" is shorthand for [99,97,116]. It has partial support for Unicode strings.
+ Records
+ Records provide a convenient way for associating a tag with each of the elements in a tuple. This allows one to refer to an element of a tuple by name and not by position. A pre-compiler takes the record definition and replaces it with the appropriate tuple reference.
+ Erlang has no method of defining classes, although there are external libraries available.
+ 
+ 
+ == Concurrency and distribution orientation ==
+ Erlang's main strength is support for concurrency. It has a small but powerful set of primitives to create processes and communicate among them. Erlang is conceptually similar to the occam programming language, though it recasts the ideas of communicating sequential processes (CSP) in a functional framework and uses asynchronous message passing. Processes are the primary means to structure an Erlang application. They are neither operating system processes nor operating system threads, but lightweight processes that are scheduled by Erlang's BEAM VM. Like operating system processes (but unlike operating system threads), they share no state with each other. The estimated minimal overhead for each is 300 words. Thus, many processes can be created without degrading performance. A benchmark with 20 million processes has been successfully performed. Erlang has supported symmetric multiprocessing since release R11B of May 2006.
+ While threads require external library support in most languages, Erlang provides language-level features for creating and managing processes with the aim of simplifying concurrent programming. Though all concurrency is explicit in Erlang, processes communicate using message passing instead of shared variables, which removes the need for explicit locks (a locking scheme is still used internally by the VM).
+ Inter-process communication works via a shared-nothing asynchronous message passing system: every process has a "mailbox", a queue of messages that have been sent by other processes and not yet consumed. A process uses the receive primitive to retrieve messages that match desired patterns. A message-handling routine tests messages in turn against each pattern, until one of them matches. When the message is consumed and removed from the mailbox the process resumes execution. A message may comprise any Erlang structure, including primitives (integers, floats, characters, atoms), tuples, lists, and functions.
+ The code example below shows the built-in support for distributed processes:
+ 
+ As the example shows, processes may be created on remote nodes, and communication with them is transparent in the sense that communication with remote processes works exactly as communication with local processes.
+ Concurrency supports the primary method of error-handling in Erlang. When a process crashes, it neatly exits and sends a message to the controlling process which can then take action, such as for instance starting a new process that takes over the old process's task.
+ 
+ 
+ == Implementation ==
+ The official reference implementation of Erlang is called BEAM. It is included in the official distribution of Erlang, which is called Erlang/OTP. BEAM loads virtual machine bytecode which is converted to threaded code at load time. It also includes a native code compiler on most platforms, developed by the High Performance Erlang Project (HiPE) at Uppsala University. Since October 2001 the HiPE system is fully integrated in Ericsson's Open Source Erlang/OTP system. It also supports interpreting, directly from source code via abstract syntax tree, via script as of R11B-5 release of Erlang.
+ 
+ 
+ == Hot code loading and modules ==
+ Erlang supports language-level Dynamic Software Updating. To implement this, code is loaded and managed as "module" units; the module is a compilation unit. The system can keep two versions of a module in memory at the same time, and processes can concurrently run code from each. The versions are referred to as the "new" and the "old" version. A process will not move into the new version until it makes an external call to its module.
+ An example of the mechanism of hot code loading:
+ 
+ For the second version, we add the possibility to reset the count to zero.
+ 
+ Only when receiving a message consisting of the atom 'code_switch' will the loop execute an external call to codeswitch/1 (?MODULE is a preprocessor macro for the current module). If there is a new version of the "counter" module in memory, then its codeswitch/1 function will be called. The practice of having a specific entry-point into a new version allows the programmer to transform state to what is required in the newer version. In our example we keep the state as an integer.
+ In practice, systems are built up using design principles from the Open Telecom Platform which leads to more code upgradable designs. Successful hot code loading is a tricky subject; Code needs to be written with care to make use of Erlang's facilities.
+ 
+ 
+ == Distribution ==
+ In 1998, Ericsson released Erlang as open source to ensure its independence from a single vendor and to increase awareness of the language. Erlang, together with libraries and the real-time distributed database Mnesia, forms the Open Telecom Platform (OTP) collection of libraries. Ericsson and a few other companies offer commercial support for Erlang.
+ Since the open source release, Erlang has been used by several firms worldwide, including Nortel and T-Mobile. Although Erlang was designed to fill a niche and has remained an obscure language for most of its existence, its popularity is growing due to demand for concurrent services. Erlang has found some use in fielding MMORPG servers.
+ 
+ 
+ == Variants ==
+ Elixir: a functional, concurrent, general-purpose programming language that runs on the Erlang Virtual Machine (BEAM).
+ Lisp Flavored Erlang: a LISP based programming language that runs on the Erlang Virtual Machine (BEAM).
+ 
+ 
+ == References ==
+ 
+ 
+ == Further reading ==
+ 
+ 
+ == External links ==
+ Official website
+ Inside Erlang – creator Joe Armstrong tells his story – Ericsson APL (named after the book A Programming Language) is a programming language developed in the 1960s by Kenneth E. Iverson. Its central datatype is the multidimensional array. It uses a large range of special graphic symbols to represent most functions and operators, leading to very concise code. It has been an important influence on the development of concept modeling, spreadsheets, functional programming, and computer math packages. It has also inspired several other programming languages. As of 2018, it is still used for some applications.
+ 
+ 
+ == History ==
+ The mathematical notation for manipulating arrays which developed into the APL programming language was developed by Iverson at Harvard University starting in 1957, and published in his A Programming Language in 1962. The preface states its premise:
+ 
+ Applied mathematics is largely concerned with the design and analysis of explicit procedures for calculating the exact or approximate values of various functions. Such explicit procedures are called algorithms or programs. Because an effective notation for the description of programs exhibits considerable syntactic structure, it is called a programming language.
+ 
+ In 1960, he began work for IBM and, working with Adin Falkoff, created APL based on the notation he had developed. This notation was used inside IBM for short research reports on computer systems, such as the Burroughs B5000 and its stack mechanism when stack machines versus register machines were being evaluated by IBM for upcoming computers.
+ Also in 1960, Iverson used his notation in a draft of the chapter A Programming Language, written for a book he was writing with Fred Brooks, Automatic Data Processing, which would be published in 1963.
+ As early as 1962, the first attempt to use the notation to describe a complete computer system happened after Falkoff discussed with Dr. William C. Carter his work to standardize the instruction set for the machines that later became the IBM System/360 family.
+ In 1963, Herbert Hellerman, working at the IBM Systems Research Institute, implemented a part of the notation on an IBM 1620 computer, and it was used by students in a special high school course on calculating transcendental functions by series summation. Students tested their code in Hellerman's lab. This implementation of a part of the notation was called Personalized Array Translator (PAT).
+ In 1963, Falkoff, Iverson, and Edward H. Sussenguth Jr., all working at IBM, used the notation for a formal description of the IBM System/360 series machine architecture and functionality, which resulted in a paper published in IBM Systems Journal in 1964. After this was published, the team turned their attention to an implementation of the notation on a computer system. One of the motivations for this focus of implementation was the interest of John L. Lawrence who had new duties with Science Research Associates, an educational company bought by IBM in 1964. Lawrence asked Iverson and his group to help use the language as a tool to develop and use computers in education.
+ After Lawrence M. Breed and Philip S. Abrams of Stanford University joined the team at IBM Research, they continued their prior work on an implementation programmed in FORTRAN IV for a part of the notation which had been done for the IBM 7090 computer running on the IBSYS operating system. This work was finished in late 1965 and later named IVSYS (for Iverson system). The basis of this implementation was described in detail by Abrams in a Stanford University Technical Report, "An Interpreter for Iverson Notation" in 1966. this was formally supervised by Niklaus Wirth. Like Hellerman's PAT system earlier, this implementation did not include the APL character set but used special English reserved words for functions and operators. The system was later adapted for a time-sharing system and, by November 1966, it had been reprogrammed for the IBM System/360 Model 50 computer running in a time sharing mode and was used internally at IBM.
+ 
+ A key development in the ability to use APL effectively, before the wide use of cathode ray tube (CRT) terminals, was the development of a special IBM Selectric typewriter interchangeable typing element with all the special APL characters on it. This was used on paper printing terminal workstations using the Selectric typewriter and typing element mechanism, such as the IBM 1050 and IBM 2741 terminal. Keycaps could be placed over the normal keys to show which APL characters would be entered and typed when that key was struck. For the first time, a programmer could type in and see proper APL characters as used in Iverson's notation and not be forced to use awkward English keyword representations of them. Falkoff and Iverson had the special APL Selectric typing element, 987 and 988, designed in late 1964, although no APL computer system was available to use them. Iverson cited Falkoff as the inspiration for the idea of using an IBM Selectric typing element for the APL character set.
+ 
+ Some APL symbols, even with the APL characters on the Selectric typing element, still had to be typed in by over-striking two extant element characters. An example is the grade up character, which had to be made from a delta (shift-H) and a Sheffer stroke (shift-M). This was necessary because the APL character set was larger than the 88 characters allowed on the typing element.
+ The first APL interactive login and creation of an APL workspace was in 1966 by Larry Breed using an IBM 1050 terminal at the IBM Mohansic Labs near Thomas J. Watson Research Center, the home of APL, in Yorktown Heights, New York.
+ IBM was chiefly responsible for introducing APL to the marketplace. APL was first available in 1967 for the IBM 1130 as APL\1130. It would run in as little as 8k 16-bit words of memory, and used a dedicated 1 megabyte hard disk.
+ APL gained its foothold on mainframe timesharing systems from the late 1960s through the early 1980s, in part because it would run on lower-specification systems that had no dynamic address translation hardware. Additional improvements in performance for selected IBM System/370 mainframe systems included the APL Assist Microcode in which some support for APL execution was included in the processor's firmware, versus APL being a software product exclusively. Somewhat later, as suitably performing hardware was finally growing available in the mid- to late-1980s, many users migrated their applications to the personal computer environment.
+ Early IBM APL interpreters for IBM 360 and IBM 370 hardware implemented their own multi-user management instead of relying on the host services, thus they were their own timesharing systems. First introduced in 1966, the APL\360 system was a multi-user interpreter. The ability to programmatically communicate with the operating system for information and setting interpreter system variables was done through special privileged "I-beam" functions, using both monadic and dyadic operations.
+ In 1973, IBM released APL.SV, which was a continuation of the same product, but which offered shared variables as a means to access facilities outside of the APL system, such as operating system files. In the mid-1970s, the IBM mainframe interpreter was even adapted for use on the IBM 5100 desktop computer, which had a small CRT and an APL keyboard, when most other small computers of the time only offered BASIC. In the 1980s, the VSAPL program product enjoyed wide use with Conversational Monitor System (CMS), Time Sharing Option (TSO), VSPC, MUSIC/SP, and CICS users.
+ In 1973-1974, Dr. Patrick E. Hagerty directed the implementation of the University of Maryland APL interpreter for the 1100 line of the Sperry UNIVAC 1100/2200 series mainframe computers. At the time, Sperry had nothing. In 1974, student Alan Stebbens was assigned the task of implementing an internal function.
+ In the 1960s and 1970s, several timesharing firms arose that sold APL services using modified versions of the IBM APL\360 interpreter. In North America, the better-known ones were I. P. Sharp Associates, Scientific Time Sharing Corporation (STSC), Time Sharing Resources (TSR), and The Computer Company (TCC). CompuServe also entered the market in 1978 with an APL Interpreter based on a modified version of Digital Equipment Corp and Carnegie Mellon's, which ran on DEC's KI and KL 36-bit machines. CompuServe's APL was available both to its commercial market and the consumer information service. With the advent first of less expensive mainframes such as the IBM 4300, and later the personal computer, by the mid-1980s, the timesharing industry was all but gone.
+ Sharp APL was available from I. P. Sharp Associates, first as a timesharing service in the 1960s, and later as a program product starting around 1979. Sharp APL was an advanced APL implementation with many language extensions, such as packages (the ability to put one or more objects into a single variable), file system, nested arrays, and shared variables.
+ APL interpreters were available from other mainframe and mini-computer manufacturers also, notably Burroughs, Control Data Corporation (CDC), Data General, Digital Equipment Corporation (DEC), Harris, Hewlett-Packard (HP), Siemens AG, Xerox, and others.
+ Garth Foster of Syracuse University sponsored regular meetings of the APL implementers' community at Syracuse's Minnowbrook Conference Center in Blue Mountain Lake, New York. In later years, Eugene McDonnell organized similar meetings at the Asilomar Conference Grounds near Monterey, California, and at Pajaro Dunes near Watsonville, California. The SIGAPL special interest group of the Association for Computing Machinery continues to support the APL community.
+ In 1979, Iverson received the Turing Award for his work on APL.
+ Filmography, Videos: Over the years APL has been the subject of more than a few films and videos. Some of these include:
+ "Chasing Men Who Stare at Arrays" Catherine Lathwell's Film Diaries; 2014, film synopsis – "people who accept significantly different ways of thinking, challenge the status quo and as a result, created an invention that subtly changes the world. And no one knows about it. And a Canadian started it all… I want everyone to know about it."
+ "The Origins of APL – 1974 – YouTube", YouTube video, 2012, uploaded by Catherine Lathwell; a talk show style interview with the original developers of APL.
+ "50 Years of APL", YouTube, 2009, by Graeme Robertson, uploaded by MindofZiggi, history of APL, quick introduction to APL, a powerful programming language currently finding new life due to its ability to create and implement systems, web-based or otherwise.
+ "APL demonstration 1975", YouTube, 2013, uploaded by Imperial College London; 1975 live demonstration of the computer language APL (A Programming Language) by Professor Bob Spence, Imperial College London.
+ 
+ 
+ === APL2 ===
+ Starting in the early 1980s, IBM APL development, under the leadership of Dr Jim Brown, implemented a new version of the APL language that contained as its primary enhancement the concept of nested arrays, where an array can contain other arrays, and new language features which facilitated integrating nested arrays into program workflow. Ken Iverson, no longer in control of the development of the APL language, left IBM and joined I. P. Sharp Associates, where one of his major contributions was directing the evolution of Sharp APL to be more in accord with his vision.
+ As other vendors were busy developing APL interpreters for new hardware, notably Unix-based microcomputers, APL2 was almost always the standard chosen for new APL interpreter developments. Even today, most APL vendors or their users cite APL2 compatibility, as a selling point for those products.
+ APL2 for IBM mainframe computers is still available. IBM cites its use for problem solving, system design, prototyping, engineering and scientific computations, expert systems, for teaching mathematics and other subjects, visualization and database access and was first available for CMS and TSO in 1984. The APL2 Workstation edition (Windows, OS/2, AIX, Linux, and Solaris) followed much later in the early 1990s.
+ 
+ 
+ === Microcomputers ===
+ The first microcomputer implementation of APL was on the Intel 8008-based MCM/70, the first general purpose personal computer, in 1973. Size of arrays along any dimension could be no larger than 255 and the machine was quite slow, but very convenient for use in education. Interestingly, a significant part of sales were to small businesses, who found it more cost effective and accessible than the time sharing services then available, and for whom the array size limits were no barrier.
+ IBM's own IBM 5100 microcomputer (1975) offered APL as one of two built-in ROM-based interpreted languages for the computer, complete with a keyboard and display that supported all the special symbols used in the language. While the 5100 was very slow and operated its screen only like a typewriter, its successor the 5110 had more acceptable performance and a read-write addressable text screen. Graphics could be printed on an external matrix printer.
+ In 1976 DNA Systems introduced an APL interpreter for their TSO Operating System, which ran timesharing on the IBM 1130, Digital Scientific Meta-4, General Automation GA 18/30 and Computer Hardware CHI 21/30.
+ The VideoBrain Family Computer, released in 1977, only had one programming language available for it, and that was a dialect of APL called APL/S.
+ A Small APL for the Intel 8080 called EMPL was released in 1977, and Softronics APL, with most of the functions of full APL, for 8080-based CP/M systems was released in 1979.
+ In 1977, the Canadian firm Telecompute Integrated Systems, Inc. released a business-oriented APL interpreter named TIS APL, for Z80-based systems. It featured the full set of file functions for APL, plus a full screen input and switching of right and left arguments for most dyadic operators by introducing the ~. prefix to all single character dyadic functions such as - or /.
+ Vanguard APL was available for Zilog Z80 CP/M-based processors in the late 1970s. The Computer Company (TCC) released APL.68000 in the early 1980s for Motorola 68000-based processors, this system being the basis for MicroAPL Limited's APLX product. I. P. Sharp Associates released a version of their APL interpreter for the IBM PC and PC-XT/370. For the IBM PC, an emulator was written that facilitated reusing much of the IBM 370 mainframe code. Arguably, the best known APL interpreter for the IBM Personal Computer was Scientific Time Sharing Corporation's (STSC) APL*Plus/PC.
+ The Commodore SuperPET, introduced in 1981, included an APL interpreter developed by the University of Waterloo.
+ In the early 1980s, the Analogic Corporation developed The APL Machine, which was an array processing computer designed to be programmed only in APL. There were three processing units, the user's workstation, an IBM PC, where programs were entered and edited, a Motorola 68000 processor that ran the APL interpreter, and the Analogic array processor that executed the primitives. At the time of its introduction, The APL Machine was likely the fastest APL system available. Although a technological success, The APL Machine was a marketing failure. The initial version supported a single process at a time. At the time the project was discontinued, the design had been completed to allow multiple users. As an aside, an unusual aspect of The APL Machine was that the library of workspaces was organized such that a single function or variable that was shared by many workspaces existed only once in the library. Several of the members of The APL Machine project had formerly spent several years with Burroughs implementing APL\700.
+ At one time, Bill Gates claimed in his Open Letter to Hobbyists, that Microsoft Corporation planned to release a version of APL, but that never occurred.
+ An early 1978 publication of Rodnay Zaks from Sybex was A microprogrammed APL implementation ISBN 0-89588-005-9, which is the complete source listing for the microcode for a Digital Scientific Corporation Meta 4 microprogrammable processor implementing APL. This topic was also the subject of his PhD thesis.
+ In 1979, William Yerazunis wrote a partial version of APL in Prime Computer FORTRAN, extended it with graphics primitives, and released it. This was also the subject of his Masters thesis.
+ 
+ 
+ === Extensions ===
+ Various implementations of APL by APLX, Dyalog, et al., include extensions for object-oriented programming, support for .NET Framework, XML-array conversion primitives, graphing, operating system interfaces, and lambda calculus expressions.
+ 
+ 
+ == Design ==
+ Unlike traditionally structured programming languages, APL code is typically structured as chains of monadic or dyadic functions, and operators acting on arrays. APL has many nonstandard primitives (functions and operators) that are indicated by a single symbol or a combination of a few symbols. All primitives are defined to have the same precedence, and always associate to the right. Thus, APL is read or best understood from right-to-left.
+ Early APL implementations (circa 1970 or so) had no programming loop-flow control structures, such as do or while loops, and if-then-else constructs. Instead, they used array operations, and use of structured programming constructs was often not necessary, since an operation could be performed on a full array in one statement. For example, the iota function (ι) can replace for-loop iteration: ιN when applied to a scalar positive integer yields a one-dimensional array (vector), 1 2 3 ... N. More recent implementations of APL generally include comprehensive control structures, so that data structure and program control flow can be clearly and cleanly separated.
+ The APL environment is called a workspace. In a workspace the user can define programs and data, i.e., the data values exist also outside the programs, and the user can also manipulate the data without having to define a program. In the examples below, the APL interpreter first types six spaces before awaiting the user's input. Its own output starts in column one.
+ The user can save the workspace with all values, programs, and execution status.
+ APL is well known for its use of a set of non-ASCII symbols, which are an extension of traditional arithmetic and algebraic notation. Having single character names for single instruction, multiple data (SIMD) vector functions is one way that APL enables compact formulation of algorithms for data transformation such as computing Conway's Game of Life in one line of code. In nearly all versions of APL, it is theoretically possible to express any computable function in one expression, that is, in one line of code.
+ Because of the unusual character set, many programmers use special keyboards with APL keytops to write APL code. Although there are various ways to write APL code using only ASCII characters, in practice it is almost never done. (This may be thought to support Iverson's thesis about notation as a tool of thought.) Most if not all modern implementations use standard keyboard layouts, with special mappings or input method editors to access non-ASCII characters. Historically, the APL font has been distinctive, with uppercase italic alphabetic characters and upright numerals and symbols. Most vendors continue to display the APL character set in a custom font.
+ Advocates of APL claim that the examples of so-called write-only code (badly written and almost incomprehensible code) are almost invariably examples of poor programming practice or novice mistakes, which can occur in any language. Advocates also claim that they are far more productive with APL than with more conventional computer languages, and that working software can be implemented in far less time and with far fewer programmers than using other technology.
+ They also may claim that because it is compact and terse, APL lends itself well to larger-scale software development and complexity, because the number of lines of code can be reduced greatly. Many APL advocates and practitioners also view standard programming languages such as COBOL and Java as being comparatively tedious. APL is often found where time-to-market is important, such as with trading systems.
+ Iverson later designed the programming language J, which uses ASCII with digraphs instead of special symbols.
+ 
+ 
+ == Execution ==
+ Because APL's core objects are arrays, it lends itself well to parallelism, parallel computing, massively parallel applications, and very-large-scale integration or VLSI.
+ 
+ 
+ === Interpreters ===
+ APLNext (formerly APL2000) offers an advanced APL interpreter that operates on Linux, Unix, and Windows. It supports Windows automation, calls to operating system and user defined dynamic-link librarys (DLL), has an advanced APL File System, and represents the current level of APL language development. APL2000's product is an advanced continuation of Scientific Time Sharing Corporation's (STSC) successful APL*Plus/PC and APL*Plus/386 product line.
+ Dyalog APL is an advanced APL interpreter that operates on AIX, Linux (including on the Raspberry Pi), macOS and Microsoft Windows. Dyalog has extensions to the APL language, which include new object-oriented programming features, many language enhancements, plus a consistent namespace model used for both its Microsoft Automation interface, and native namespaces. For the Windows platform, Dyalog APL offers tight integration with .NET, plus limited integration with the Microsoft Visual Studio development platform.
+ IBM offers a version of IBM APL2 for IBM AIX, Linux, Sun Solaris and Windows systems. This product is a continuation of APL2 offered for IBM mainframes. IBM APL2 was arguably the most influential APL system, which provided a solid implementation standard for the next set of extensions to the language, focusing on nested arrays.
+ NARS2000 is an open-source APL interpreter written by Bob Smith, a well-known APL developer and implementor from STSC in the 1970s and 1980s. NARS2000 contains advanced features and new datatypes, runs natively on Windows (32- and 64-bit versions), and runs on Linux and Apple macOS with Wine.
+ MicroAPL Limited offers APLX, a full-featured 64-bit interpreter for Linux, Microsoft Windows, and macOS systems. The core language is closely modelled on IBM's APL2 with various enhancements. APLX includes close integration with .NET Framework, Java, Ruby, and R. Effective July 11, 2016, MicroAPL withdrew APLX from commercial sale. Dyalog began hosting the APLX website including the download area and documentation.
+ Soliton Incorporated offers the Sharp APL for UniX (SAX) interpreter, for Unix and Linux systems. This is a further development of I. P. Sharp Associates' Sharp APL product. Unlike most other APL interpreters, Kenneth E. Iverson had some influence in the way nested arrays were implemented in Sharp APL and SAX. Nearly all other APL implementations followed the course set by IBM with APL2, thus some important details in Sharp APL differ from other implementations.
+ OpenAPL is an open-source software implementation of APL, published by Branko Bratkovic. It is based on code by Ken Thompson of Bell Laboratories, together with contributions by others. It is licensed under the GNU General Public License, and runs on Unix systems including Linux on x86, SPARC, and other central processing units (CPU).
+ GNU APL is a free implementation of ISO Standard 13751 and thus similar to APL2. It runs on GNU/Linux, and on Windows using Cygwin. It uses Unicode internally. It was written by Jürgen Sauermann.
+ 
+ 
+ === Compilers ===
+ APL programs are normally interpreted and less often compiled. In reality, most APL compilers translated source APL to a lower level intermediate language such as C, leaving the machine-specific details to the lower level compiler. Compiling APL programs was a topic discussed often at conferences. Although some of the newer enhancements to the APL language such as nested arrays have rendered the language increasingly difficult to compile, the idea of APL compiling is still under development today.
+ In the past, APL compiling was regarded as a means to achieve execution speed comparable to other mainstream languages, especially on mainframe computers. Several APL compilers achieved some successes, though comparatively little of the development effort spent on APL over the years went to perfecting compiling into machine code.
+ As is the case when moving APL programs from one vendor's APL interpreter to another, APL programs invariably will require changes to their content. Depending on the compiler, variable declarations might be needed, some language features would need to be removed or avoided, or the APL programs would need to be cleaned up in some way. Some features of the language, such as the execute function (an expression evaluator) and the various reflection and introspection functions from APL, such as the ability to return a function's text or to materialize a new function from text, are simply not practical to implement in machine code compiling.
+ A commercial compiler was brought to market by STSC in the mid-1980s as an add-on to IBM's VSAPL Program Product. Unlike more modern APL compilers, this product produced machine code that would execute only in the interpreter environment, it was not possible to eliminate the interpreter component. The compiler could compile many scalar and vector operations to machine code, but it would rely on the APL interpreter's services to perform some more advanced functions, rather than attempt to compile them. However, dramatic speedups did occur, especially for heavily iterative APL code.
+ Around the same time, the book An APL Compiler by Timothy Budd appeared in print. This book detailed the construction of an APL translator (aplc), written in C, which performed some optimizations such as loop fusion specific to the needs of an array language. The source language was APL-like in that a few rules of the APL language were changed or relaxed to permit more efficient compiling. The translator would emit C code which could then be compiled and run outside of the APL workspace. Another compiler, also named aplc, was later created by Samuel W. Sirlin, based on Budd's work.
+ The Burroughs/Unisys APLB interpreter (1982) was the first to use dynamic incremental compiling to produce code for an APL-specific virtual machine. It recompiled on-the-fly as identifiers changed their functional meanings. In addition to removing parsing and some error checking from the main execution path, such compiling also streamlines the repeated entry and exit of user-defined functional operands. This avoids the stack setup and take-down for function calls made by APL's built-in operators such as Reduce and Each.
+ APEX, a research APL compiler, is available under the GNU Public License, per Snake Island Research Inc. APEX compiles flat APL (a subset of ISO N8485) into SAC, a functional array language with parallel semantics, and currently runs on Linux. APEX-generated code uses loop fusion and 'array contraction', special-case algorithms not generally available to interpreters (e.g., upgrade of permutation matrix/vector), to achieve a level of performance comparable to that of Fortran.
+ The APLNext VisualAPL system is a departure from a conventional APL system in that VisualAPL is a true .NET language which is fully interoperable with other .NET languages such as VB.NET and C#. VisualAPL is also object-oriented and Unicode-based. While it incorporates most of the features of standard APL implementations, the language extends standard APL to be .NET-compliant. VisualAPL is hosted in the standard Microsoft Visual Studio IDE and as such, invokes compiling in the same way as other .NET languages. By producing Common Intermediate Language (CIL) code, it uses the Microsoft just-in-time compiler (JIT) to support 32-bit or 64-bit hardware. Substantial performance speed-ups over standard APL have been reported, especially when (optional) strong typing of function arguments is used.
+ An APL-to-C# translator is available from Causeway Graphical Systems. This compiler is designed to allow APL code, translated to equivalent C#, to run fully outside of an APL environment. It requires a run-time library of array functions. Some speedup, sometimes dramatic, is visible, but is via optimisations occurring in the .NET Framework.
+ 
+ 
+ === Matrix optimizations ===
+ APL was unique in the speed with which it could perform complicated matrix operations. For example, a very large matrix multiplication would take only a few seconds on a machine that was much less powerful than those today, ref. history of supercomputing and "because it operates on arrays and performs operations like matrix inversion internally, well written APL can be surprisingly fast." This advantage occurred for both technical and economic reasons:
+ Commercial interpreters delivered highly tuned linear algebra library routines.
+ Very low interpretive overhead was incurred per-array, not per-element.
+ APL response time compared favorably to the runtimes of early optimizing compilers.
+ IBM provided microcode assist for APL on several IBM370 mainframes.
+ Phil Abrams' much-cited paper An APL Machine illustrated how APL could make effective use of lazy evaluation where calculations are not performed until the results are needed, and then only those calculations strictly required. An obvious (and easy to implement) lazy evaluation is the J-vector: when a monadic iota is encountered in the code, it is kept as a representation instead of being expanded in memory; in future operations, a J-vectors contents are the loop's induction register, not reads from memory.
+ Although such methods were seldom used by commercial interpreters, they exemplify the language's best survival mechanism: not specifying the order of scalar operations or the exact contents of memory. As standardized, in 1983 by ANSI working group X3J10, APL remains highly data-parallel. This gives language implementers great freedom to schedule operations as efficiently as possible. As computer innovations such as cache memory, and single instruction, multiple data (SIMD) execution became commercially available, APL programs are ported with almost no extra effort spent re-optimizing low-level details.
+ 
+ 
+ == Terminology ==
+ APL makes a clear distinction between functions and operators. Functions take arrays (variables or constants or expressions) as arguments, and return arrays as results. Operators (similar to higher-order functions) take functions or arrays as arguments, and derive related functions. For example, the sum function is derived by applying the reduction operator to the addition function. Applying the same reduction operator to the maximum function (which returns the larger of two numbers) derives a function which returns the largest of a group (vector) of numbers. In the J language, Iverson substituted the terms verb for function and adverb or conjunction for operator.
+ APL also identifies those features built into the language, and represented by a symbol, or a fixed combination of symbols, as primitives. Most primitives are either functions or operators. Coding APL is largely a process of writing non-primitive functions and (in some versions of APL) operators. However a few primitives are considered to be neither functions nor operators, most noticeably assignment.
+ Some words used in APL literature have meanings that differ from those in both mathematics and the generality of computer science.
+ 
+ 
+ == Syntax ==
+ 
+ APL has explicit representations of functions, operators, and syntax, thus providing a basis for the clear and explicit statement of extended facilities in the language, and tools to experiment on them.
+ 
+ 
+ == Examples ==
+ 
+ 
+ === Hello, World ===
+ This displays "Hello, world":
+ 
+ 'Hello World,' sample user session on YouTube
+ A design theme in APL is to define default actions in some cases that would produce syntax errors in most other programming languages.
+ The 'Hello, world' string constant above displays, because display is the default action on any expression for which no action is specified explicitly (e.g. assignment, function parameter).
+ 
+ 
+ === Exponentiation ===
+ Another example of this theme is that exponentiation in APL is written as "2⋆3", which indicates raising 2 to the power 3 (this would be written as "2^3" in some other languages and "2**3" in FORTRAN and Python). However, if no base is specified (as with the statement "⋆3" in APL, or "^3" in other languages), most other programming languages one would have a syntax error. APL however assumes the missing base to be the natural logarithm constant e (2.71828....), and so interpreting "⋆3" as "2.71828⋆3".
+ 
+ 
+ === Pick 6 lottery numbers ===
+ This following immediate-mode expression generates a typical set of Pick 6 lottery numbers: six pseudo-random integers ranging from 1 to 40, guaranteed non-repeating, and displays them sorted in ascending order:
+ 
+ The above does a lot, concisely; although it seems complex to a new APLer. It combines the following APL functions (also called primitives and glyphs):
+ The first to be executed (APL executes from rightmost to leftmost) is dyadic function ? (named deal when dyadic) that returns a vector consisting of a select number (left argument: 6 in this case) of random integers ranging from 1 to a specified maximum (right argument: 40 in this case), which, if said maximum ≥ vector length, is guaranteed to be non-repeating; thus, generate/create 6 random integers ranging from 1-40.
+ This vector is then assigned (←) to the variable x, because it is needed later.
+ This vector is then sorted in ascending order by a monadic ⍋ function, which has as its right argument everything to the right of it up to the next unbalanced close-bracket or close-parenthesis. The result of ⍋ is the indices that will put its argument into ascending order.
+ Then the output of ⍋ is applied to the variable x, which we saved earlier, and it puts the items of x into ascending sequence.
+ Since there is no function to the left of the left-most x to tell APL what to do with the result, it simply outputs it to the display (on a single line, separated by spaces) without needing any explicit instruction to do that.
+ ? also has a monadic equivalent called roll, which simply returns one random integer between 1 and its sole operand [to the right of it], inclusive. Thus, a role-playing game program might use the expression ?20 to roll a twenty-sided die.
+ 
+ 
+ === Prime numbers ===
+ The following expression finds all prime numbers from 1 to R. In both time and space, the calculation complexity is 
+   
+     
+       
+         O
+         (
+         
+           R
+           
+             2
+           
+         
+         )
+         
+         
+       
+     
+     {\displaystyle O(R^{2})\,\!}
+    (in Big O notation).
+ 
+ Executed from right to left, this means:
+ Iota ι creates a vector containing integers from 1 to R (if R= 6 at the start of the program, ιR is 1 2 3 4 5 6)
+ Drop first element of this vector (↓ function), i.e., 1. So 1↓ιR is 2 3 4 5 6
+ Set R to the new vector (←, assignment primitive), i.e., 2 3 4 5 6
+ The / reduction operator is dyadic (binary) and the interpreter first evaluates its left argument (fully in parentheses):
+ Generate outer product of R multiplied by R, i.e., a matrix that is the multiplication table of R by R (°.× operator), i.e.,
+ Build a vector the same length as R with 1 in each place where the corresponding number in R is in the outer product matrix (∈, set inclusion or element of or Epsilon operator), i.e., 0 0 1 0 1
+ Logically negate (not) values in the vector (change zeros to ones and ones to zeros) (∼, logical not or Tilde operator), i.e., 1 1 0 1 0
+ Select the items in R for which the corresponding element is 1 (/ reduction operator), i.e., 2 3 5
+ (Note, this assumes the APL origin is 1, i.e., indices start with 1. APL can be set to use 0 as the origin, so that ι6 is 0 1 2 3 4 5, which is convenient for some calculations.)
+ 
+ 
+ === Sorting ===
+ The following expression sorts a word list stored in matrix X according to word length:
+ 
+ 
+ === Game of Life ===
+ The following function "life", written in Dyalog APL, takes a boolean matrix and calculates the new generation according to Conway's Game of Life. It demonstrates the power of APL to implement a complex algorithm in very little code, but it is also very hard to follow unless one has advanced knowledge of APL.
+ 
+ 
+ === HTML tags removal ===
+ In the following example, also Dyalog, the first line assigns some HTML code to a variable txt and then uses an APL expression to remove all the HTML tags (explanation):
+ 
+ This returns the text This is emphasized text.
+ 
+ 
+ == Character set ==
+ 
+ APL has been both criticized and praised for its choice of a unique, non-standard character set. Some who learn it become ardent adherents, suggesting that there is some weight behind Iverson's idea that the notation used does make a difference. In the 1960s and 1970s, few terminal devices and even display monitors could reproduce the APL character set. The most popular ones employed the IBM Selectric print mechanism used with a special APL type element. One of the early APL line terminals (line-mode operation only, not full screen) was the Texas Instruments TI Model 745 (circa 1977) with the full APL character set which featured half and full duplex telecommunications modes, for interacting with an APL time-sharing service or remote mainframe to run a remote computer job, called an RJE.
+ Over time, with the universal use of high-quality graphic displays, printing devices and Unicode support, the APL character font problem has largely been eliminated. However, entering APL characters requires the use of input method editors, keyboard mappings, virtual/on-screen APL symbol sets, or easy-reference printed keyboard cards which can frustrate beginners accustomed to other programming languages. With beginners who have no prior experience with other programming languages, a study involving high school students found that typing and using APL characters did not hinder the students in any measurable way.
+ In defense of APL use, APL requires less coding to type in, and keyboard mappings become memorized over time. Also, special APL keyboards are manufactured and in use today, as are freely available downloadable fonts for operating systems such as Microsoft Windows. The reported productivity gains assume that one will spend enough time working in APL to make it worthwhile to memorize the symbols, their semantics, and keyboard mappings.
+ 
+ 
+ == Use ==
+ APL has long had a select, mathematically inclined and curiosity-driven user base, who reference its powerful and symbolic nature. For example, one symbol/character can perform an entire sort; another can perform regression. It was and still is popular in financial, pre-modeling applications, and insurance applications, in simulations, and in mathematical applications. APL has been used in a wide variety of contexts and for many and varied purposes, including artificial intelligence and robotics. A newsletter titled "Quote-Quad" dedicated to APL was published from the 1970s until 2007 by the SIGAPL section of the Association for Computing Machinery (Quote-Quad is the name of the APL character used for text input and output).
+ Before the advent of full-screen systems and until as late as the mid-1980s, systems were written such that instructions were entered in various field-specific (e.g., science, business) vocabularies. APL time-sharing vendors delivered applications in this form. On the I. P. Sharp Associates timesharing system, a workspace called 39 MAGIC offered access to financial and airline data plus sophisticated (for the time) graphing and reporting. Another example is the GRAPHPAK workspace supplied with IBM's APL, then APL2.
+ Because of its matrix operations, APL was for some time quite popular for computer graphics programming, where graphic transformations could be encoded as matrix multiplications. One of the first commercial computer graphics houses, Digital Effects, based in New York City, produced an APL graphics product named Visions, which was used to create television commercials and, reportedly, animation for the 1982 film Tron. Digital Effects' use of APL was informally described at several SIGAPL conferences in the late 1980s; examples discussed included the early UK Channel 4 TV logo/ident.
+ Interest in APL has declined from a peak in the mid-1980s. This appears partly due to lack of smooth migration pathways from higher performing memory-intensive mainframe implementations to low-cost personal computer alternatives. APL implementations for computers before the Intel 80386 released in the late 1980s were only suitable for small applications. Another important reason for the decline is the lack of low cost, standardized and robust, compiled APL executables, usable across multiple computer hardware and OS platforms. There are several APL version permutations across various APL implementations, particularly differences between IBM's APL2 and APL2000's APL+ versions. Another practical limit is that APL has fallen behind modern integrated development environments in debugging abilities and test-driven development (TDD). Thus, while APL remains very suitable for small-to-medium-sized programs, productivity gains for larger projects involving teams of developers would be questionable.
+ The growth of end-user computing tools such as Microsoft Excel and Microsoft Access has indirectly eroded potential APL use. These are frequently appropriate platforms for what may have been APL applications in the 1970s and 1980s. Some APL users migrated to the programming language J, which offers some advanced features. Lastly, the decline was also due in part to the growth of MATLAB, GNU Octave, and Scilab. These scientific computing array-oriented platforms provide an interactive computing experience similar to APL, but more closely resemble conventional programming languages such as Fortran, and use standard ASCII characters. Other APL users continue to wait for a very low-cost, standardized, broad-hardware-usable APL implementation.
+ Despite this decline, APL finds continued use in some fields, such as accounting research, pre-hardcoded modeling, DNA identification technology, symbolic mathematical expression and learning. It remains an inspiration to its current user base, and to the design of other languages.
+ 
+ 
+ == Standards ==
+ APL has been standardized by the American National Standards Institute (ANSI) working group X3J10 and International Organization for Standardization (ISO) and International Electrotechnical Commission (IEC), ISO/IEC Joint Technical Committee 1 Subcommittee 22 Working Group 3. The Core APL language is specified in ISO 8485:1989, and the Extended APL language is specified in ISO/IEC 13751:2001.
+ 
+ 
+ == See also ==
+ TK Solver
+ IBM Type-III Library
+ IBM 1130
+ Iverson Award
+ J (programming language)
+ K (programming language)
+ Q (programming language from Kx Systems)
+ LYaPAS
+ RPL (programming language)
+ 
+ 
+ == References ==
+ 
+ 
+ == Further reading ==
+ An APL Machine (1970 Stanford doctoral dissertation by Philip Abrams)
+ A Personal History Of APL (1982 article by Michael S. Montalbano)
+ McIntyre, Donald B. (1991). "Language as an intellectual tool: From hieroglyphics to APL" (PDF). IBM Systems Journal. 30 (4): 554–581. doi:10.1147/sj.304.0554. Archived from the original (PDF) on May 4, 2006. 
+ Iverson, Kenneth E. (1991). "A Personal view of APL" (PDF). IBM Systems Journal. 30 (4): 582–593. doi:10.1147/sj.304.0582. Archived from the original (PDF) on February 27, 2008. 
+ A Programming Language by Kenneth E. Iverson
+ APL in Exposition by Kenneth E. Iverson
+ Brooks, Frederick P.; Kenneth Iverson (1965). Automatic Data Processing, System/360 Edition. ISBN 0-471-10605-4.
+ Askoolum, Ajay (August 2006). System Building with APL + Win. Wiley. ISBN 978-0-470-03020-2. 
+ Falkoff, Adin D.; Iverson, Kenneth E.; Sussenguth, Edward H. (1964). "A Formal Description of System/360" (PDF). IBM Systems Journal. New York. 3 (3): 198–261. doi:10.1147/sj.32.0198. Archived from the original (PDF) on February 27, 2008. 
+ History of Programming Languages, chapter 14
+ Banon, Gerald Jean Francis (1989). Bases da Computacao Grafica. Rio de Janeiro: Campus. p. 141. 
+ LePage, Wilbur R. (1978). Applied A.P.L. Programming. Prentice Hall. 
+ Mougin, Philippe; Ducasse, Stephane (November 2003). "OOPAL: Integrating Array Programming in ObjectOriented Programming" (PDF). Proceeding OOPSLA '03 Proceedings of the 18th annual ACM SIGPLAN conference on Object-oriented programing, systems, languages, and applications. 38 (11): 65–77. doi:10.1145/949343.949312. Archived from the original (PDF) on November 14, 2006. 
+ Dyalog Limited (September 2006). An Introduction to Object Oriented Programming For APL Programmers (PDF). Dyalog Limited. Archived from the original (PDF) on 2007-10-04. 
+ Shustek, Len (2012-10-10). "The APL Programming Language Source Code". Computer History Museum (CHM). Archived from the original on 2017-09-06. Retrieved 2017-09-06. 
+ 
+ 
+ == External links ==
+ SIGAPL – SIGPLAN chapter on array programming languages
+ APL Wiki
+ APL2C, a source of links to APL compilers
+ TryAPL.org, an online APL primer
+ Vector, the journal of the British APL Association
+ APL at Curlie (based on DMOZ)
+ Dyalog APL
+ IBM APL2
+ APL2000
+ NARS2000
+ GNU APL
+ OpenAPL An embedded style language is a kind of computer language whose commands appear intermixed with those of a base language. Such languages can either have their own syntax, which is translated into that of the base language, or can provide an API with which to invoke the behaviors of the language. Embedded domain-specific languages are common examples of embedded style languages that rely upon translation. Posix threads is an example of an embedded style language that uses only an API to invoke its behaviors. Embedded style languages that are invoked via an API are distinguished from software libraries by the existence of a runtime system. Cypher is a declarative graph query language that allows for expressive and efficient querying and updating of a property graph. Cypher is a relatively simple but still very powerful language. Very complicated database queries can easily be expressed through Cypher. This allows users to focus on their domain instead of getting lost in database access.
+ Cypher was originally created by Neo4j, Inc.(formerly Neo Technology) for its graph database Neo4j, but was opened up through the openCypher project in October 2015 and has since been adopted by several other graph database vendors, including SAP HANA and AgensGraph.
+ 
+ 
+ == Graph Model ==
+ Cypher is based on the Property Graph Model, which in addition to the standard graph elements of nodes and edges (which are called relationships in Cypher) adds labels and properties as concepts. Nodes may have zero or more labels, while each relationship has exactly one relationship type. Nodes and relationships also have zero or more properties, where a property is a key-value binding of a string key and some value from the Cypher type system.
+ 
+ 
+ === Type System ===
+ The Cypher type system is detailed in a Cypher Improvement Proposal (CIP), and contains the following types: nodes, relationships, paths, maps, lists, integers, floating-point numbers, booleans, and strings.
+ 
+ 
+ == Syntax ==
+ Cypher contains a variety of clauses. Among the most common are: MATCH and WHERE. These functions are slightly different than in SQL. MATCH is used for describing the structure of the pattern searched for, primarily based on relationships. WHERE is used to add additional constraints to patterns. For example, the below query will return all movies where an actor named 'Nicole Kidman' have acted, and that was produced before a certain year (sent by parameter):
+ 
+ Cypher additionally contains clauses for writing, updating, and deleting data. CREATE and DELETE are used to create and delete nodes and relationships. SET and REMOVE are used to set values to properties and add labels on nodes. Nodes can only be deleted when they have no other relationships still existing. For example:
+ 
+ 
+ == Standardisation ==
+ With the openCypher project, an effort was started to standardise Cypher as the query language for graph processing. One part of this process is the First openCypher Implementers Meeting (oCIM), which was first announced in December 2016.
+ 
+ 
+ == See also ==
+ SPARQL, another declarative query language for querying graph data
+ OpenCypher, an initiative by Neo4j, Inc. and others to extend the use of Cypher to other graph databases
+ Another graph database applied Cypher Query Language : AgensGraph
+ 
+ 
+ == References == AspectJ is an aspect-oriented programming (AOP) extension created at PARC for the Java programming language. It is available in Eclipse Foundation open-source projects, both stand-alone and integrated into Eclipse. AspectJ has become a widely used de facto standard for AOP by emphasizing simplicity and usability for end users. It uses Java-like syntax, and included IDE integrations for displaying crosscutting structure since its initial public release in 2001.
+ 
+ 
+ == Simple language description ==
+ All valid Java programs are also valid AspectJ programs, but AspectJ lets programmers define special constructs called aspects. Aspects can contain several entities unavailable to standard classes. These are:
+ Extension methods
+ Allow a programmer to add methods, fields, or interfaces to existing classes from within the aspect. This example adds an acceptVisitor (see visitor pattern) method to the Point class:
+ 
+ Pointcuts
+ Allow a programmer to specify join points (well-defined moments in the execution of a program, like method call, object instantiation, or variable access). All pointcuts are expressions (quantifications) that determine whether a given join point matches. For example, this point-cut matches the execution of any instance method in an object of type Point whose name begins with set:
+ 
+ Advices
+ Allow a programmer to specify code to run at a join point matched by a pointcut. The actions can be performed before, after, or around the specified join point. Here, the advice refreshes the display every time something on Point is set, using the pointcut declared above:
+ 
+ AspectJ also supports limited forms of pointcut-based static checking and aspect reuse (by inheritance). See the AspectJ Programming Guide for a more detailed description of the language.
+ 
+ 
+ == AspectJ compatibility and implementations ==
+ AspectJ can be implemented in many ways, including source-weaving or bytecode-weaving, and directly in the virtual machine (VM). In all cases, the AspectJ program becomes a valid Java program that runs in a Java VM. Classes affected by aspects are binary-compatible with unaffected classes (to remain compatible with classes compiled with the unaffected originals). Supporting multiple implementations allows the language to grow as technology changes, and being Java-compatible ensures platform availability.
+ Key to its success has been engineering and language decisions that make the language usable and programs deployable. The original Xerox AspectJ implementation used source weaving, which required access to source code. When Xerox contributed the code to Eclipse, AspectJ was reimplemented using the Eclipse Java compiler and a bytecode weaver based on BCEL, so developers could write aspects for code in binary (.class) form. At this time the AspectJ language was restricted to support a per-class model essential for incremental compilation and load-time weaving. This made IDE integrations as responsive as their Java counterparts, and it let developers deploy aspects without altering the build process. This led to increased adoption, as AspectJ became usable for impatient Java programmers and enterprise-level deployments. Since then, the Eclipse team has increased performance and correctness, upgraded the AspectJ language to support Java 5 language features like generics and annotations, and integrated annotation-style pure-java aspects from AspectWerkz.
+ The Eclipse project supports both command-line and Ant interfaces. A related Eclipse project has steadily improved the Eclipse IDE support for AspectJ (called AspectJ Development Tools (AJDT)) and other providers of crosscutting structure. IDE support for emacs, NetBeans, and JBuilder foundered when Xerox put them into open source, but support for Oracle's JDeveloper did appear. IDE support has been key to Java programmers using AspectJ and understanding crosscutting concerns.
+ BEA has offered limited VM support for aspect-oriented extensions, but for extensions supported in all Java VM's would require agreement through Sun's Java Community Process (see also the java.lang.instrument package available since Java SE 5 — which is a common ground for JVM load-time instrumentation).
+ Academic interest in the semantics and implementation of aspect-oriented languages has surrounded AspectJ since its release. The leading research implementation of AspectJ is the AspectBench Compiler, or abc; it supports extensions for changing the syntax and semantics of the language and forms the basis for many AOP experiments that the AspectJ team can no longer support, given its broad user base.
+ Many programmers discover AspectJ as an enabling technology for other projects, most notably Spring AOP. A sister Spring project, Spring Roo, automatically maintains AspectJ inter-type declarations as its principal code generation output.
+ 
+ 
+ == History and contributors ==
+ Gregor Kiczales started and led the Xerox PARC team that eventually developed AspectJ. He coined the term crosscutting. Fourth on the team, Chris Maeda coined the term aspect-oriented programming. Jim Hugunin and Erik Hilsdale (Xerox PARC team members 12 and 13) were the original compiler and weaver engineers, Mik Kersten implemented the IDE integration and started the Eclipse AJDT project with Adrian Colyer (current lead of the AspectJ project) and Andrew Clement (current compiler engineer).
+ The AspectBench Compiler was developed and is maintained as a joint effort of the Programming Tools Group at the Oxford University Computing Laboratory, the Sable Research Group at McGill University, and the Institute for Basic Research in Computer Science (BRICS).
+ 
+ 
+ === AspectWerkz ===
+ AspectWerkz is a dynamic, lightweight and high-performance AOP/AOSD framework for Java. It has been merged with the AspectJ project, which supports AspectWerkz functionality since AspectJ 5.
+ Jonas Boner and Alex Vasseur engineered the AspectWerkz project, and later contributed to the AspectJ project when it merged in the AspectWerkz annotation style and load-time weaving support.
+ Unlike AspectJ prior to version 5, AspectWerkz did not add any new language constructs to Java, but instead supported declaration of aspects within Java annotations. It utilizes bytecode modification to weave classes at project build-time, class load time, as well as runtime. It uses standardized JVM level APIs. Aspects can be defined using either Java annotations (introduced with Java 5), Java 1.3/1.4 custom doclet or a simple XML definition file.
+ AspectWerkz provides an API to use the very same aspects for proxies, hence providing a transparent experience, allowing a smooth transition for users familiar with proxies.
+ AspectWerkz is free software. The LGPL-style license allows the use of AspectWerkz 2.0 in both commercial and open source projects.
+ 
+ 
+ == See also ==
+ Aspect-oriented programming
+ Spring AOP (part of the Spring Framework)
+ Aspect-oriented software development
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ AJDT
+ Aspect bench : http://www.sable.mcgill.ca/abc
+ AspectJ Home Page
+ AspectWerkz Project homepage
+ Improve modularity with aspect-oriented programming
+ Spring AOP and AspectJ Introduction
+ The AspectJTM Programming Guide
+ Xerox has U.S. Patent 6,467,086 for AOP/AspectJ, but published AspectJ source code under the Common Public License, which grants some patent rights. Bubble is a visual programming language and Application Platform as a Service (aPaaS) developed by Bubble Group that enables non technical people to build web applications without needing to type code. Instead, users draw the interface by dragging and dropping elements onto a canvas and defining workflows to control the logic. Bubble's vision is to make handcoding largely obsolete.
+ While it is visual it does require some learning, and can be used to create more advanced functionality than what is possible with template oriented application builders such as Wix. It is used in schools for education purposes, and by other organizations for commercial purposes.
+ 
+ 
+ == History ==
+ Bubble was founded by Emmanuel Straschnov and Josh Haas in 2012.
+ 
+ 
+ == References ==
+ 
+ 
+ == External links ==
+ Bubble.is

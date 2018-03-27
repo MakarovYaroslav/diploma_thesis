@@ -1,0 +1,27 @@
+DiBOL or Digital's Business Oriented Language is a general-purpose, procedural, imperative programming language, designed for use in Management Information Systems (MIS) software development. It has a syntax similar to FORTRAN and BASIC, along with BCD arithmetic. It shares the COBOL program structure of data and procedure divisions.
+
+
+== History ==
+DIBOL was originally marketed by Digital Equipment Corporation (DEC) in 1970.
+The original version, DIBOL-8, was produced for PDP-8 systems running COS-300. The PDP-8-like DECmate II, supports the COS-310 Commercial Operating System, featuring DIBOL.
+DIBOL-11 was developed for the PDP-11 running COS-350 operating system. It also ran on RSX-11, RT-11, and from 1978 on RSTS/E. DIBOL-32 runs on VAX/VMS systems, although it can also be used on other systems through emulators.
+ANSI Standards were released in 1983, 1988 and 1992 (ANSI X3.165-1992). The 1992 standard was revised in 2002.
+DIBOL compilers were developed by several other companies, including DBL from DISC (later Synergex), Softbol from Omtool, and Unibol from Software Ireland, Ltd. Development of DIBOL effectively ceased after 1993, when an agreement between DEC and DISC replaced DIBOL with DBL on OpenVMS, OSF/1, and SCO Unix.
+
+
+== See also ==
+Timeline of programming languages
+
+
+== References ==
+
+
+== External links ==
+Synergex DIBOL site
+ANSI INCITS 165-1992 (R2002) Programming Language DIBOL (Downloadable PDF Standard for purchase from ANSI)
+Synergex Synergy/DE features the Synergy/DBL DIBOL compiler.
+
+
+== Reading ==
+American National Standards Institute; Computer and Business Equipment Manufacturers Association (CBEMA) (1988). American National Standard for Information Systems- Programming Language, DIBOL. New York, NY: American National Standards Institute. OCLC 23056850. 
+American National Standards Institute; Computer and Business Equipment Manufacturers Association (CBEMA) (1992). American National Standard for Information Systems- Programming Language, DIBOL. New York, NY: American National Standards Institute. OCLC 27058852.

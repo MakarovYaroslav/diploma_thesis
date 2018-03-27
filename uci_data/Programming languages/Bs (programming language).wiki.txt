@@ -1,0 +1,25 @@
+bs was a programming language from Apple Inc. that shipped with A/UX. It was described by Apple as "a compiler/interpreter for modest-sized programs". It provides an interactive prompt or accepts a file containing commands.
+
+
+== History ==
+The original man page is dated January 1992 and describes bs as "a language that is a remote descendant of BASIC, SNOBOL4, and C". The "Semi-Official FAQ List for A/UX" page corroborates this claim by describing bs as a "kinda-BASIC interpreter".
+
+
+== Design and Features ==
+"The language is designed for programming tasks where program development time is as important as the resulting speed of execution. The language minimizes the formalities of data declaration and file manipulation. Line-at-a-time debugging, the trace and dump keywords, and useful run-time error messages simplify program testing. Furthermore, you can debug incomplete programs, test inner functions before outer functions have been written, and test outer functions before inner functions have been written."
+
+
+== Syntax Examples ==
+The following examples are derived from the original man page.
+This example uses bs as a calculator:
+
+This example is the outline of a typical bs program:
+
+This example demonstrates I/O:
+
+This command line shows a way of running bs:
+
+The example compiles and executes the file named program as well as any statements typed from standard input. The arguments 1, 2, and 3 are passed as arguments to the program when it executes.
+
+
+== References ==

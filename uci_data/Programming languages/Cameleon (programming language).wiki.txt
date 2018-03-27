@@ -1,0 +1,42 @@
+Cameleon is a free and open source graphical language for functional programming, released under an MIT License.
+Cameleon language is a graphical data flow language following a two-scale paradigm. It allows an easy up-scale, that is, the integration of any library writing in C++ into the data flow language. Cameleon language aims to democratize macro-programming by an intuitive interaction between the human and the computer where building an application based on a data-process and a GUI is a simple task to learn and to do. Cameleon language allows conditional execution and repetition to solve complex macro-problems.
+Cameleon is built on an extension of the petri net model for the description of how the Cameleon language executes a composition.
+
+
+== Features ==
+Graphical Algorithm Editor,
+Real time calibration,
+Dynamic building,
+Multi-Scale approach,
+XML-based model for data definition and manipulation based on XML Schema, XPath and XQuery,
+Easy integaration of new algorithm with the dev kit.
+
+
+== See also ==
+
+Bioinformatics workflow management system
+Business Process Management
+CEITON
+Dataflow
+Petri net
+Programming language
+Visual programming language
+Workflow
+Workflow patterns
+YAWL
+
+
+== References ==
+JM Pereira, Modern Trends in Geomechanics, 2016
+Kenichi Soga, Krishna Kumar, Giovanna Biscontin, Geomechanics from Micro to Macro, Technology & Engineering, 2014
+Nasser Khalili, Adrian Russell, Arman Khoshghalb, Unsaturated Soils: Research & Applications, Technology & Engineering, 2014
+J.-F. Bruchon, Effondrement capillaire, 2014
+J.-F. Bruchon, J.-M. Pereira, M. Vandamme, N. Lenoir, P. Delage, M. Bornert, Full 3D investigation and characterisation of capillary collapse of a loose unsaturated sand using X-ray CT. Granular Matter, 2013 SegSand
+J.-F Bruchon., Pereira J.-M., M., Vandamme, N. Lenoir, P. Delage and M. Bornert X-ray microtomography characterisation of the changes in statistical homogeneity of an unsaturated sand during imbibition Géotechnique letter, 2013
+IPOL communication, 2012
+Programmation par propriétés : application au traitement d’images, 2010
+Cameleon language Part 1: Processor O. Cugnon de Sevricourt, V. Tariel, 2011
+
+
+== External links ==
+Official Web Site

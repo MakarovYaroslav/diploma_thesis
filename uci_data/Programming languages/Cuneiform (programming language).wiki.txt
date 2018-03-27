@@ -1,0 +1,47 @@
+Cuneiform is an open-source workflow language for large-scale scientific data analysis. It is a workflow DSL in the form of a functional programming language promoting parallelizable algorithmic skeletons. External tools and libraries, in, e.g., R or Python, can be integrated via a foreign function interface. Cuneiform's data-driven evaluation model and integration of external software originate in scientific workflow languages like Taverna, KNIME, or Galaxy while its algorithmic skeletons (second-order functions) for parallel execution originate in data-parallel programming models like MapReduce or Pig Latin. Cuneiform is implemented in Erlang, and therefore must run on an Erlang virtual machine (BEAM) similar to the way Java must run on a JVM (Java virtual machine). Cuneiform scripts can be executed on top of Hadoop.
+
+
+== External software integration ==
+External tools and libraries are integrated in a Cuneiform script through its foreign function interface. By defining a task in a foreign language it is possible to use the API of an external tool or library. This way, tools can be integrated directly without the need of writing a wrapper or reimplementing the tool.
+Currently supported foreign programming languages are:
+Bash
+Perl
+Python
+R
+
+
+== Parallel execution ==
+The task applications in a Cuneiform script form a data dependency graph. This dependency graph constrains the order in which tasks can be evaluated. Apart from data dependencies tasks can be evaluated in any order, assuming tasks are always side effect-free and deterministic.
+Map
+Applies a task to each element in a list. Each task applications can run in parallel.
+Cartesian product
+Takes the Cartesian product of several lists and applies a task to each combination. Each task application can run in parallel.
+Dot product
+Given a pair of lists of equal sizes, each element of the first list is combined with its corresponding element in the second list. A task is applied to each combination. Each task application can run in parallel.
+Aggregate
+Applies a task to the list as a whole without decomposing it. Since the task is applied only once for the whole list, this skeleton leaves the parallelism potential unchanged.
+Conditional
+Evaluates a program branch, depending on a condition computed at runtime. This skeleton leaves the parallelism potential unchanged.
+By partitioning input data and using parallelizable skeletons to process partitions the interpreter can exploit data parallelism even if the integrated tools are single-threaded. Workflows can be executed also in distributed compute environments.
+
+
+== Examples ==
+A hello-world script:
+
+deftask greet( out : person )in python *{
+  out = "Hello "+person
+}*
+
+greet( person: "Peter" "Robert" );
+
+This script defines a task greet in Python which prepends the string "Hello " to its argument person. The task has one output variable out. Applying the task greet, binding the argument person to the two-element list "Peter" "Robert" implicitly maps the task greet to each element of the input list. The workflow result is the two-element list "Hello Peter" "Hello Robert".
+Command line tools can be integrated by defining a task in Bash:
+
+deftask samtools-view( bam( File ) : sam( File ) )in bash *{
+  samtools view -bS $sam > $bam
+}*
+
+In this example a task samtools-view is defined. It calls the tool SAMtools, consuming an input file in SAM format and producing an output file in BAM format. If this task is applied, binding the argument sam to a list of SAM files, the task is mapped to each element of that list.
+
+
+== References ==

@@ -1,0 +1,57 @@
+Elixir is a functional, concurrent, general-purpose programming language that runs on the Erlang virtual machine (BEAM). Elixir builds on top of Erlang and shares the same abstractions for building distributed, fault-tolerant applications. Elixir also provides a productive tooling and an extensible design. The latter is supported by compile-time metaprogramming with macros and polymorphism via protocols.
+Elixir is used by companies such as E-MetroTel, Pinterest and Moz. Elixir is also used for web development, by companies such as Bleacher Report, Discord, and Inverse, and for building embedded systems. The community organizes yearly events in United States, Europe and Japan as well as minor local events and conferences.
+
+
+== History ==
+José Valim is the creator of the Elixir programming language, an R&D project of Plataformatec. His goals were to enable higher extensibility and productivity in the Erlang VM while keeping compatibility with Erlang's ecosystem. 
+
+
+== Features ==
+A language that compiles to bytecode for the Erlang Virtual Machine (BEAM)
+Everything is an expression
+Erlang functions can be called from Elixir without run time impact, due to compilation to Erlang bytecode, and vice versa
+Meta programming allowing direct manipulation of AST
+Polymorphism via a mechanism called protocols. Like in Clojure, protocols provide a dynamic dispatch mechanism. However, this is not to be confused with multiple dispatch as Elixir protocols dispatch on a single type.
+Support for documentation via Python-like docstrings in the Markdown formatting language
+Shared nothing concurrent programming via message passing (Actor model)
+Emphasis on recursion and higher-order functions instead of side-effect-based looping
+Lightweight concurrency utilizing Erlang's mechanisms.
+Lazy and async collections with streams
+Pattern matching
+Unicode support and UTF-8 strings
+
+
+== Examples ==
+The following examples can be run in an iex shell or saved in a file and run from the command line by typing elixir <filename>.
+Classic Hello world example:
+
+Comprehensions
+
+Pattern Matching
+
+Modules
+
+Sequentially spawning a thousand processes
+
+Asynchronously performing a task
+
+
+== Noteworthy Elixir projects ==
+Phoenix is a web framework built on Elixir
+Ecto is a database wrapper and language integrated query for Elixir
+Cowboy is a small, fast and modern HTTP server for Erlang/OTP.
+Plug is a specification and conveniences for composable modules between web applications
+Absinthe is a GraphQL implementation for Elixir.
+
+
+== References ==
+
+
+== External links ==
+
+Elixir language website
+Code on GitHub
+Elixir - A modern approach to programming for the Erlang VM (video presentation)
+Dave Thomas: "Programming Elixir 1.2: Functional → Concurrent → Pragmatic → Fun" (book)
+Simon St. Laurent, J. David Eisenberg: "Introducing Elixir" (book)
+Chris McCord: "Metaprogramming Elixir " (book)

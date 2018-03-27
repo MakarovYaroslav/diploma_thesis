@@ -1,0 +1,13 @@
+Behavioral Description Language (BDL) is a programming language based on ANSI C with extensions for hardware description, developed to describe hardware at levels ranging from the algorithm level to the functional level.
+Although the term Behavioral Description Language is a generic term and can refer to multiple high level description languages, NEC Corporation has developed a C-subset called BDL for High Level Synthesis. This C-subset includes its own data types (called var-class), special constants for hardware design e.g. high impedance, timing descriptors and control statements.
+As BDL is meant for Hardware synthesis, the complete ANSI-C syntax is not supported. The principal unsupported operations are: (i) Floating point data types (ii) Sizeof operator (iii) unions and (iv) Recursive functions.
+BDL is sometimes also known as Cyber C because it is synthesized using NEC's High Level Synthesis tool called CyberWorkBench [1].
+
+
+== References ==
+
+Wakabayashi, K.; Okamoto, T. (2006). "C-based SoC design flow and EDA tools: an ASIC and system vendor perspective". Trans. Comp.-Aided Des. Integ. Cir. Sys. 19 (12): 1507–1522. doi:10.1109/43.898829. 
+
+
+== External links ==
+cyberworkbench.com

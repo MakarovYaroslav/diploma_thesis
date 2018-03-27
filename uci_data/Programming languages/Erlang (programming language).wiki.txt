@@ -1,0 +1,142 @@
+Erlang ( ER-lang) is a general-purpose, concurrent, functional programming language, as well as a garbage-collected runtime system.
+The term Erlang is used interchangeably with Erlang/OTP, or OTP, which consists of the Erlang runtime system, a number of ready-to-use components mainly written in Erlang, and a set of design principles for Erlang programs.
+The Erlang runtime system is known for its designs that are well suited for systems with the following characteristics:
+Distributed
+Fault-tolerant
+Soft real-time,
+Highly available, non-stop applications
+Hot swapping, where code can be changed without stopping a system.
+The Erlang programming language is known for the following properties:
+Immutable data
+Pattern matching
+Functional programming
+The sequential subset of the Erlang language supports eager evaluation, single assignment, and dynamic typing.
+It was originally a proprietary language within Ericsson, developed by Joe Armstrong, Robert Virding and Mike Williams in 1986, but was released as open source in 1998. Erlang/OTP is supported and maintained by the OTP product unit at Ericsson.
+
+
+== History ==
+The name "Erlang", attributed to Bjarne Däcker, has been presumed by those working on the telephony switches (for whom the language was designed) to be a reference to Danish mathematician and engineer Agner Krarup Erlang as well as a syllabic abbreviation of "Ericsson Language".
+Erlang was designed with the aim of improving the development of telephony applications. The initial version of Erlang was implemented in Prolog and was influenced by the programming language PLEX used in earlier Ericsson exchanges. By 1988 Erlang had proven that it was suitable for prototyping telephone exchanges, but the Prolog interpreter was far too slow. One group within Ericsson estimated that it would need to be 40 times faster in order to be suitable for production use. In 1992 work began on the BEAM virtual machine which compiles Erlang to C using a mix of natively compiled code and threaded code to strike a balance between performance and disk space. According to Armstrong, the language went from lab product to real applications following the collapse of the next-generation AXE exchange named AXE-N in 1995. As a result, Erlang was chosen for the next ATM exchange AXD.
+In 1998 Ericsson announced the AXD301 switch, containing over a million lines of Erlang and reported to achieve a high availability of nine "9"s. Shortly thereafter, Ericsson Radio Systems banned the in-house use of Erlang for new products, citing a preference for non-proprietary languages. The ban caused Armstrong and others to leave Ericsson. The implementation was open-sourced at the end of the year. Ericsson eventually lifted the ban; it re-hired Armstrong in 2004.
+In 2006, native symmetric multiprocessing support was added to the runtime system and virtual machine.
+
+
+=== Erlang Worldview ===
+The Erlang view of the world, as Joe Armstrong, co-inventor of Erlang, summarized in his PhD thesis:
+Everything is a process.
+Processes are strongly isolated.
+Process creation and destruction is a lightweight operation.
+Message passing is the only way for processes to interact.
+Processes have unique names.
+If you know the name of a process you can send it a message.
+Processes share no resources.
+Error handling is non-local.
+Processes do what they are supposed to do or fail.
+Joe Armstrong remarked in an interview with Rackspace in 2013: “If Java is 'write once, run anywhere', then Erlang is 'write once, run forever'.”
+
+
+=== Usage ===
+Erlang has now been adopted by companies worldwide, including Nortel and T-Mobile. Erlang is used in Ericsson’s support nodes, and in GPRS, 3G and LTE mobile networks worldwide.
+As Tim Bray, director of Web Technologies at Sun Microsystems, expressed in his keynote at OSCON in July 2008:
+
+If somebody came to me and wanted to pay me a lot of money to build a large scale message handling system that really had to be up all the time, could never afford to go down for years at a time, I would unhesitatingly choose Erlang to build it in.
+
+
+== Functional programming examples ==
+An Erlang function that uses recursion to count to ten:
+
+A factorial algorithm implemented in Erlang:
+
+A Fibonacci algorithm implemented in Erlang (Note: This is only for demonstrating the Erlang syntax. This algorithm is rather slow.):
+
+Quicksort in Erlang, using list comprehension:
+
+The above example recursively invokes the function qsort until nothing remains to be sorted. The expression [Front || Front <- Rest, Front < Pivot] is a list comprehension, meaning "Construct a list of elements Front such that Front is a member of Rest, and Front is less than Pivot." ++ is the list concatenation operator.
+A comparison function can be used for more complicated structures for the sake of readability.
+The following code would sort lists according to length:
+
+Here again, a Pivot is taken from the first parameter given to qsort() and the rest of Lists is named Rest. Note that the expression
+
+is no different in form from
+
+(in the previous example) except for the use of a comparison function in the last part, saying "Construct a list of elements X such that X is a member of Rest, and Smaller is true", with Smaller being defined earlier as
+
+Note also that the anonymous function is named Smaller in the parameter list of the second definition of qsort so that it can be referenced by that name within that function. It is not named in the first definition of qsort, which deals with the base case of an empty list and thus has no need of this function, let alone a name for it.
+
+
+== Data types ==
+Erlang has eight primitive data types:
+Integers
+Integers are written as sequences of decimal digits, for example, 12, 12375 and -23427 are integers. Integer arithmetic is exact and only limited by available memory on the machine. (This is called arbitrary-precision arithmetic.)
+Atoms
+Atoms are used within a program to denote distinguished values. They are written as strings of consecutive alphanumeric characters, the first character being lowercase. Atoms can contain any character if they are enclosed within single quotes and an escape convention exists which allows any character to be used within an atom. Atoms are never garbage collected and should be used with caution, specially if using dynamic atom generation.
+Floats
+Floating point numbers use the IEEE 754 64-bit representation.
+References
+References are globally unique symbols whose only property is that they can be compared for equality. They are created by evaluating the Erlang primitive make_ref().
+Binaries
+A binary is a sequence of bytes. Binaries provide a space-efficient way of storing binary data. Erlang primitives exist for composing and decomposing binaries and for efficient input/output of binaries.
+Pids
+Pid is short for process identifier – a Pid is created by the Erlang primitive spawn(...) Pids are references to Erlang processes.
+Ports
+Ports are used to communicate with the external world. Ports are created with the built-in function open_port. Messages can be sent to and received from ports, but these messages must obey the so-called "port protocol."
+Funs
+Funs are function closures. Funs are created by expressions of the form: fun(...) -> ... end.
+And three compound data types:
+Tuples
+Tuples are containers for a fixed number of Erlang data types. The syntax {D1,D2,...,Dn} denotes a tuple whose arguments are D1, D2, ... Dn. The arguments can be primitive data types or compound data types. Any element of a tuple can be accessed in constant time.
+Lists
+Lists are containers for a variable number of Erlang data types. The syntax [Dh|Dt] denotes a list whose first element is Dh, and whose remaining elements are the list Dt. The syntax [] denotes an empty list. The syntax [D1,D2,..,Dn] is short for [D1|[D2|..|[Dn|[]]]]. The first element of a list can be accessed in constant time. The first element of a list is called the head of the list. The remainder of a list when its head has been removed is called the tail of the list.
+Maps
+Maps contain a variable number of key-value associations. The syntax is#{Key1=>Value1,...,KeyN=>ValueN}.
+Two forms of syntactic sugar are provided:
+Strings
+Strings are written as doubly quoted lists of characters. This is syntactic sugar for a list of the integer ASCII codes for the characters in the string. Thus, for example, the string "cat" is shorthand for [99,97,116]. It has partial support for Unicode strings.
+Records
+Records provide a convenient way for associating a tag with each of the elements in a tuple. This allows one to refer to an element of a tuple by name and not by position. A pre-compiler takes the record definition and replaces it with the appropriate tuple reference.
+Erlang has no method of defining classes, although there are external libraries available.
+
+
+== Concurrency and distribution orientation ==
+Erlang's main strength is support for concurrency. It has a small but powerful set of primitives to create processes and communicate among them. Erlang is conceptually similar to the occam programming language, though it recasts the ideas of communicating sequential processes (CSP) in a functional framework and uses asynchronous message passing. Processes are the primary means to structure an Erlang application. They are neither operating system processes nor operating system threads, but lightweight processes that are scheduled by Erlang's BEAM VM. Like operating system processes (but unlike operating system threads), they share no state with each other. The estimated minimal overhead for each is 300 words. Thus, many processes can be created without degrading performance. A benchmark with 20 million processes has been successfully performed. Erlang has supported symmetric multiprocessing since release R11B of May 2006.
+While threads require external library support in most languages, Erlang provides language-level features for creating and managing processes with the aim of simplifying concurrent programming. Though all concurrency is explicit in Erlang, processes communicate using message passing instead of shared variables, which removes the need for explicit locks (a locking scheme is still used internally by the VM).
+Inter-process communication works via a shared-nothing asynchronous message passing system: every process has a "mailbox", a queue of messages that have been sent by other processes and not yet consumed. A process uses the receive primitive to retrieve messages that match desired patterns. A message-handling routine tests messages in turn against each pattern, until one of them matches. When the message is consumed and removed from the mailbox the process resumes execution. A message may comprise any Erlang structure, including primitives (integers, floats, characters, atoms), tuples, lists, and functions.
+The code example below shows the built-in support for distributed processes:
+
+As the example shows, processes may be created on remote nodes, and communication with them is transparent in the sense that communication with remote processes works exactly as communication with local processes.
+Concurrency supports the primary method of error-handling in Erlang. When a process crashes, it neatly exits and sends a message to the controlling process which can then take action, such as for instance starting a new process that takes over the old process's task.
+
+
+== Implementation ==
+The official reference implementation of Erlang is called BEAM. It is included in the official distribution of Erlang, which is called Erlang/OTP. BEAM loads virtual machine bytecode which is converted to threaded code at load time. It also includes a native code compiler on most platforms, developed by the High Performance Erlang Project (HiPE) at Uppsala University. Since October 2001 the HiPE system is fully integrated in Ericsson's Open Source Erlang/OTP system. It also supports interpreting, directly from source code via abstract syntax tree, via script as of R11B-5 release of Erlang.
+
+
+== Hot code loading and modules ==
+Erlang supports language-level Dynamic Software Updating. To implement this, code is loaded and managed as "module" units; the module is a compilation unit. The system can keep two versions of a module in memory at the same time, and processes can concurrently run code from each. The versions are referred to as the "new" and the "old" version. A process will not move into the new version until it makes an external call to its module.
+An example of the mechanism of hot code loading:
+
+For the second version, we add the possibility to reset the count to zero.
+
+Only when receiving a message consisting of the atom 'code_switch' will the loop execute an external call to codeswitch/1 (?MODULE is a preprocessor macro for the current module). If there is a new version of the "counter" module in memory, then its codeswitch/1 function will be called. The practice of having a specific entry-point into a new version allows the programmer to transform state to what is required in the newer version. In our example we keep the state as an integer.
+In practice, systems are built up using design principles from the Open Telecom Platform which leads to more code upgradable designs. Successful hot code loading is a tricky subject; Code needs to be written with care to make use of Erlang's facilities.
+
+
+== Distribution ==
+In 1998, Ericsson released Erlang as open source to ensure its independence from a single vendor and to increase awareness of the language. Erlang, together with libraries and the real-time distributed database Mnesia, forms the Open Telecom Platform (OTP) collection of libraries. Ericsson and a few other companies offer commercial support for Erlang.
+Since the open source release, Erlang has been used by several firms worldwide, including Nortel and T-Mobile. Although Erlang was designed to fill a niche and has remained an obscure language for most of its existence, its popularity is growing due to demand for concurrent services. Erlang has found some use in fielding MMORPG servers.
+
+
+== Variants ==
+Elixir: a functional, concurrent, general-purpose programming language that runs on the Erlang Virtual Machine (BEAM).
+Lisp Flavored Erlang: a LISP based programming language that runs on the Erlang Virtual Machine (BEAM).
+
+
+== References ==
+
+
+== Further reading ==
+
+
+== External links ==
+Official website
+Inside Erlang – creator Joe Armstrong tells his story – Ericsson

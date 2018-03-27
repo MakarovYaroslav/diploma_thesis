@@ -1,0 +1,14 @@
+Darwin is a closed source programming language developed by Gaston Gonnet and colleagues at ETH Zurich.  It is used to develop the OMA orthology inference software, which was also initially developed by Gonnet. The language backend consists of the kernel, responsible for performing simple mathematical calculations, for transporting and storing data and for interpreting the user's commands, and the library, a set of programs which can perform more complicated calculations. The target audience for the language is the biosciences, so the library consisted of routines such as those to compute pairwise alignments, phylogenetic trees, multiple sequence alignments, and to make secondary structure predictions.
+
+
+== Example Code ==
+One would write the Hello World program as:
+
+The following procedure calculates the factorial of a number:
+
+
+== See also ==
+List of programming languages
+
+
+== References ==

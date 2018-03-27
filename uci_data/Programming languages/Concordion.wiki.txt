@@ -1,0 +1,60 @@
+Concordion is an specification by example framework originally developed by David Peterson, and now maintained by a team of contributors, led by Nigel Charman.
+Inspired by the Fit Framework, David states the following aims were behind Concordion:
+Improved readability of documents
+More "opinionated" (scripting is actively discouraged)
+Easier to use
+
+
+== How it works ==
+Concordion specifications are written in Markdown, HTML or Excel and then instrumented with special links, attributes or comments respectively. When the corresponding test fixture class is run, Concordion interprets the instrumentation to execute the test. Rather than forcing product owners to specify requirements in a specially structured language, Concordion lets you write them in normal language using paragraphs, tables and proper punctuation. This makes the specifications much more natural to read and write, and helps everyone to understand and agree about what a feature is supposed to do.
+The Markdown, HTML or Excel files are typically stored with the source code, which has the benefit that they can be under the same version control system as the rest of the code ensuring the specification and tests are branched and merged along with the main source code.
+Concordion includes a flexible extension mechanism for adding functionality, for example implementing new commands, listening to events, or modifying the output documentation. By providing functionality such as embedding screenshots, storyboards or logging output, extensions provide confidence in what the test is doing without locking the test into a specific implementation.
+Concordion enriches agile processes and has been successfully applied in industrial context.
+
+
+== Example ==
+
+
+=== Markdown format specification ===
+HelloWorld.md
+Before instrumentation
+
+The greeting for World is Hello World!
+
+HelloWorld.md
+After instrumentation
+
+The greeting for [World](- "#name") is [Hello World!](- "?=greetingFor(#name)")
+
+
+=== HTML format specification ===
+HelloWorld.html
+Before instrumentation
+
+HelloWorld.html
+After instrumentation
+
+HelloWorldTest.java
+The fixture that works with the instrumentation
+
+
+== Integrated Development Environment Support ==
+The Concordion Support plugin for the IntelliJ IDEA Integrated development environment (IDE) simplifies development of fixtures and specifications with features including autocompletion, navigation between spec and test fixture, renaming, running tests, inspections and quick fixes.
+The Eclipse (software) Concordion plugin is much more limited and hasn't been updated since 2011. The original author has stopped using Concordion and Eclipse and is unable to accommodate the necessary time to extend and maintain the plugin.
+
+
+== Ports ==
+Concordion has been ported to other languages including:
+C# (Concordion.NET)
+Python (PyConcordion)
+Ruby (Ruby-Concordion)
+
+
+== References ==
+
+
+== External links ==
+Official website
+David Peterson
+Github repository
+Free Web Test

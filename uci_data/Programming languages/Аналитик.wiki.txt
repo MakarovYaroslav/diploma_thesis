@@ -1,0 +1,8 @@
+Аналитик is a programming language, developed in 1968 (in USSR) at the Institute of Cybernetics of the Academy of Sciences of the Ukrainian SSR. It is the development of the АЛМИР-65 language, keeping compatibility with it.
+A distinctive feature of the language are abstract data types, calculations in arbitrary algebras, and analytic transformations.
+It was implemented on МИР-2 machines.
+Later a version of Аналитик-74 was developed, implemented on МИР-3 machines.
+At the moment the language АНАЛИТИК exists as a computer algebra system Аналитик-2010, which is being developed jointly by the Institute of Mathematical Machines and Systems of the National Academy of Sciences of Ukraine and the Poltava National Technical University.
+
+
+== References ==

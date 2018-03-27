@@ -1,0 +1,62 @@
+C++17 (or, informally, C++1z) is the name for the most recent revision of the ISO/IEC 14882 standard for the C++ programming language. The C++17 specification reached the Draft International Standard (DIS) stage in March 2017. This DIS was unanimously approved, with only editorial comments, and the final standard was published in December 2017.
+
+
+== New features ==
+C++17 introduces many new features. The following lists may not be complete.
+
+
+=== Language ===
+Making the text message for static_assert optional
+Removal of trigraphs
+Allow typename (as an alternative to class) in a template template parameter
+New rules for auto deduction from braced-init-list
+Nested namespace definitions, e.g., namespace X::Y { … } instead of namespace X { namespace Y { … }}
+Allowing attributes for namespaces and enumerators
+New standard attributes [[fallthrough]], [[maybe_unused]] and [[nodiscard]]
+UTF-8 (u8) character literals (UTF-16 and UTF-32 string literals have existed since C++11)
+Hexadecimal floating-point literals
+Constant evaluation for all non-type template arguments
+Fold expressions, for variadic templates
+A compile-time static if with the form if constexpr(expression)
+Structured binding declarations, allowing auto [a, b] = getTwoReturnValues();
+Initializers in if and switch statements
+copy-initialization and direct-initialization of objects of type T from prvalue expressions of type T (ignoring top-level cv-qualifiers) shall result in no copy or move constructors from the prvalue expression.
+Some extensions on over-aligned memory allocation
+Template deduction of constructors, allowing std::pair(5.0, false) instead of std::pair<double,bool>(5.0, false)
+Inline variables, which allows the definition of variables in header files
+__has_include, allowing the availability of a header to be checked by preprocessor directives
+Value of __cplusplus changed to 201703L
+
+
+=== Library ===
+Most of Library Fundamentals TS I, including:std::string_view, a read-only non-owning reference to a character sequence or string-slice
+std::optional, for representing optional objects
+std::any, for holding single values of any type
+
+std::uncaught_exceptions, as a replacement of std::uncaught_exception
+New insertion functions try_emplace and insert_or_assign for std::map and std::unordered_map 
+Uniform container access: std::size, std::empty and std::data
+Definition of "contiguous iterators"
+Removal of some deprecated types and functions, including std::auto_ptr, std::random_shuffle, and old function adaptors
+A file system library based on boost::filesystem
+Parallel versions of STL algorithms
+Additional mathematical special functions, including elliptic integrals and Bessel functions
+std::variant, a tagged union container
+std::byte
+Logical operator traits: std::conjunction, std::disjunction and std::negation
+
+
+== Next standard ==
+C++20
+
+
+== See also ==
+C++
+C++98
+C++03
+C++11
+C++14
+C++ compilers
+
+
+== References ==

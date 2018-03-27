@@ -1,0 +1,109 @@
+Clojure ( , like "closure") is a dialect of the Lisp programming language. Clojure is a general-purpose programming language with an emphasis on functional programming. It runs on the Java virtual machine and the Common Language Runtime. There is a dialect, developed in lockstep with Clojure, called ClojureScript, that compiles to ECMAScript 3. Like other Lisps, Clojure treats code as data and has a macro system. The current development process is community-driven, overseen by Rich Hickey as its benevolent dictator for life (BDFL).
+Clojure encourages immutability and immutable data structures. While its type system is entirely dynamic, recent efforts have also sought the implementation of gradual typing. Clojure encourages programmers to be explicit about managing state and identity. This focus on programming with immutable values and explicit progression-of-time constructs is intended to facilitate developing more robust programs, especially multithreaded ones.
+Clojure is used in industry by firms such as Funding Circle, Walmart, Puppet, and other large software firms. Commercial support for Clojure is provided by Cognitect. Annual Clojure conferences are organised every year across the globe, the most famous of them being Clojure/conj (US east coast), Clojure/West (US west coast), and EuroClojure (Europe).
+The latest stable version of Clojure is 1.9, released on December 8, 2017. The first stable release was version 1.0, released on May 4, 2009. Clojure is free software released under the Eclipse Public License.
+
+
+== History and development process ==
+
+Rich Hickey is the creator of the Clojure language. Before Clojure, he developed dotLisp, a similar project based on the .NET Framework, and three earlier attempts to provide interoperability between Lisp and Java: a Java foreign language interface for Common Lisp (jfli), A Foreign Object Interface for Lisp (FOIL), and a Lisp-friendly interface to Java Servlets (Lisplets).
+Hickey spent about 2½ years working on Clojure before releasing it publicly, much of that time working exclusively on Clojure with no outside funding. At the end of this time, Hickey sent an email announcing the language to some friends in the Common Lisp community.
+The development process is community-driven and is managed at the Clojure Community website. The website contains planning documents and an issue tracker where bugs may be filed. General development discussion occurs at the Clojure Dev Google Group. While anyone can submit bug reports and ideas, to contribute patches one must sign the Clojure Contributor agreement. JIRA tickets are processed by a team of screeners and finally Rich Hickey approves the changes.
+
+
+== Design philosophy ==
+Rich Hickey developed Clojure because he wanted a modern Lisp for functional programming, symbiotic with the established Java platform, and designed for concurrency.
+Clojure's approach to state is characterized by the concept of identities, which are represented as a series of immutable states over time. Since states are immutable values, any number of workers can operate on them in parallel, and concurrency becomes a question of managing changes from one state to another. For this purpose, Clojure provides several mutable reference types, each having well-defined semantics for the transition between states.
+
+
+== Features ==
+Clojure runs on the Java virtual machine and as a result integrates with Java and fully supports calling Java code from Clojure, and Clojure code can be called from Java also. The community uses Leiningen for project automation, providing support for Maven integration. Leiningen handles project package management and dependencies and is configured using Clojure syntax.
+Like most other Lisps, Clojure's syntax is built on S-expressions that are first parsed into data structures by a reader before being compiled. Clojure's reader supports literal syntax for maps, sets and vectors in addition to lists, and these are compiled to the mentioned structures directly. Clojure is a Lisp-1 and is not intended to be code-compatible with other dialects of Lisp, since it uses its own set of data structures incompatible with other Lisps.
+As a Lisp dialect, Clojure supports functions as first-class objects, a read–eval–print loop (REPL), and a macro system. Clojure's macro system is very similar to that in Common Lisp with the exception that Clojure's version of the backquote (called "syntax quote") qualifies symbols with their namespace. This helps prevent unintended name capture, as binding to namespace-qualified names is forbidden. It is possible to force a capturing macro expansion, but it must be done explicitly. Clojure does not allow user-defined reader macros, but the reader supports a more constrained form of syntactic extension. Clojure supports multimethods and for interface-like abstractions has a protocol based polymorphism and data type system using records, providing high-performance and dynamic polymorphism designed to avoid the expression problem.
+Clojure has support for lazy sequences and encourages the principle of immutability and persistent data structures. As a functional language, emphasis is placed on recursion and higher-order functions instead of side-effect-based looping. Automatic tail call optimization is not supported as the JVM does not support it natively; it is possible to do so explicitly by using the recur keyword. For parallel and concurrent programming Clojure provides software transactional memory, a reactive agent system, and channel-based concurrent programming.
+Clojure 1.7 introduced reader conditionals by allowing the embedding of Clojure and ClojureScript code in the same namespace. Transducers were added as a method for composing transformations. Transducers enable higher-order functions such as map and fold to generalize over any source of input data. While traditionally these functions operate on sequences, transducers allow them to work on channels and let the user define their own models for transduction.
+
+
+== Platforms and popularity ==
+The primary platform of Clojure is the JVM, but other target implementations exist. The most notable of these are ClojureScript, which compiles to JavaScript, and ClojureCLR, a full port to the Common Language Runtime, interoperable with the .NET ecosystem. A survey of the Clojure community with 1,060 respondents conducted in 2013 found that 47% of respondents used both Clojure and ClojureScript when working with Clojure. In 2014 this number had increased to 55%, in 2015, based on 2,445 respondents, to 66%. Popular ClojureScript projects include implementations of the React library such as Reagent and Om.
+Clojure has also been used for creative computing, including visual art, music, games, and poetry.
+Variant implementations of the Clojure language have been developed for platforms other than the above:
+las3r, a subset of Clojure that runs on the ActionScript Virtual Machine (the Adobe Flash Player platform)
+clojure-py, Clojure in pure Python
+rouge, Clojure atop YARV in Ruby
+CljPerl, Clojure atop Perl
+Pixie, Clojure-inspired Lisp dialect written in RPython
+
+
+== Examples ==
+"Hello, World!" program:
+
+Defining a function:
+
+GUI "Hello world" by calling the Java Swing library:
+
+Using Unicode (Hello 世 ("World") using the CJK code point for that word):
+
+A thread-safe generator of unique serial numbers (though, like many other Lisp dialects, Clojure has a built-in gensym function that it uses internally):
+
+An anonymous subclass of java.io.Writer that doesn't write to anything, and a macro using it to silence all prints within it:
+
+10 threads manipulating one shared data structure, which consists of 100 vectors each one containing 10 (initially sequential) unique numbers. Each thread then repeatedly selects two random positions in two random vectors and swaps them. All changes to the vectors occur in transactions by making use of Clojure's software transactional memory system.
+
+Output of prior example:
+
+([0 1 2 3 4 5 6 7 8 9] [10 11 12 13 14 15 16 17 18 19] ...
+[990 991 992 993 994 995 996 997 998 999])
+Distinct: 1000
+
+([382 318 466 963 619 22 21 273 45 596] [808 639 804 471 394 904 952 75 289 778] ...
+[484 216 622 139 651 592 379 228 242 355])
+Distinct: 1000
+
+Threading macro provides of the abstraction of piping a collection of data through a series of transformations
+
+Outputs:
+
+(2 4 6 8 10)
+
+This can also be achieved more efficiently using tranducers
+
+Outputs:
+
+[2 4 6 8 10]
+
+Like other LISPs, one of the best features of Clojure is interactive development at the REPL.
+
+Unlike other runtimes where your names get compiled away, Clojure's runtime is easily introspectable using normal Clojure data structures.
+
+Similar to other LISPs Clojure is homoiconic. In the below example we can see how easy it is to write code that modifies code itself.
+
+
+== See also ==
+List of JVM languages
+List of CLI languages
+Hy
+Pixie (programming language)
+
+
+== References ==
+
+
+== Further reading ==
+
+
+== External links ==
+Official website
+GitHub code repository for Clojure
+A comprehensive overview of Clojure
+An overview of Clojure 1.2 in reference format
+Full Disclojure – Screencast
+Clojure talks on Youtube
+Clojure talks on Blip.tv
+clojuredocs.org – Community-powered documentation and examples
+clojure-doc.org – Community-driven documentation site for the Clojure programming language
+4clojure.com – Interactive Clojure Problems
+TryClojure – An online REPL for Clojure
+Clojure on infoq.com
+Clojure community and resources on Facebook
+R.Hickey presentation "Are We There Yet?" where he advocates for the reexamination of basic principles like state, identity, value, time, types, genericity, complexity, as they are used by OOP. 2009
