@@ -6,7 +6,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from models.models import db, RedditComments, TwitterComments,\
     User, AnalysisResults
 from sqlalchemy import func
-from config import DevelopmentConfig
+from config import ProductionConfig
 from flask_admin import Admin
 from main.views import main_blueprint
 from user.views import user_blueprint
@@ -14,7 +14,7 @@ from models.models_views import UserView, CommentView, ResultView
 
 app = Flask(__name__)
 
-app.config.from_object(DevelopmentConfig)
+app.config.from_object(ProductionConfig)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -37,17 +37,17 @@ def load_user(user_id):
 
 
 @app.errorhandler(403)
-def forbidden_page():
+def forbidden_page(error):
     return render_template("errors/403.html"), 403
 
 
 @app.errorhandler(404)
-def page_not_found():
+def page_not_found(error):
     return render_template("errors/404.html"), 404
 
 
 @app.errorhandler(500)
-def server_error_page():
+def server_error_page(error):
     return render_template("errors/500.html"), 500
 
 
