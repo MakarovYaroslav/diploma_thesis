@@ -25,3 +25,4 @@ rauth==0.7.0
 uWSGI==2.0.17
 Fabric==1.14.0
 py-bcrypt==0.4
+envtpl==0.5.3
