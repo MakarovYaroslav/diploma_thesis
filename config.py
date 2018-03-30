@@ -33,14 +33,8 @@ class BaseConfig(object):
     # mail accounts
     MAIL_DEFAULT_SENDER = 'from@example.com'
 
-
-class DevelopmentConfig(BaseConfig):
-    """Development configuration."""
-    DEBUG = True
-    WTF_CSRF_ENABLED = False
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_DATABASE_URI = 'postgresql://%(user)s:%(pw)s@%(host)s:%(port)s/%(db)s' % POSTGRES
-    DEBUG_TB_ENABLED = True
+
     OAUTH_CREDENTIALS = {
         'facebook': {
             'id': os.getenv('FACEBOOK_ID'),
@@ -57,7 +51,16 @@ class DevelopmentConfig(BaseConfig):
     }
 
 
+class DevelopmentConfig(BaseConfig):
+    """Development configuration."""
+    DEBUG = True
+    WTF_CSRF_ENABLED = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    DEBUG_TB_ENABLED = True
+
+
 class ProductionConfig(BaseConfig):
     """Production configuration."""
     DEBUG = False
     DEBUG_TB_ENABLED = False
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
