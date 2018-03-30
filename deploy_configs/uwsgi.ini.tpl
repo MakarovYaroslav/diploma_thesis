@@ -5,7 +5,7 @@ master = true
 processes = 5
 
 socket-timeout = 65
-socket = diploma_thesis.sock
+socket = {{ PROJECT_NAME }}.sock
 chmod-socket = 666
 vacuum = true
 callable = app

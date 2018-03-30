@@ -9,12 +9,12 @@ http{
 
     server {
         listen 80;
-        server_name localhost;
+        server_name {{ HOST }};
         charset utf-8;
         client_max_body_size 75M;
 
         location / {
-            uwsgi_pass  unix://var/www/diploma_thesis/diploma_thesis.sock;
+            uwsgi_pass  unix:/{{ PROJECT_PATH }}/{{ PROJECT_NAME }}/{{ PROJECT_NAME }}.sock;
             include     uwsgi_params;
         }
     }
