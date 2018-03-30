@@ -13,7 +13,13 @@ dataset_folder = config['tone_analyse']['dataset_folder_name']
 
 dataset_url = "https://archive.ics.uci.edu/ml/machine-learning-databases/" \
               "00331/sentiment%20labelled%20sentences.zip"
-os.mkdir('./%s/' % dataset_folder)
+
+try:
+    os.mkdir('./%s/' % dataset_folder)
+except FileExistsError:
+    print("Данные для обучения тонального анализатора уже скачаны!")
+    exit()
+
 urllib.request.urlretrieve(dataset_url, "./%s/dataset.zip" % dataset_folder)
 
 with zipfile.ZipFile("./%s/dataset.zip" % dataset_folder, "r") as zip_ref:
