@@ -1,8 +1,0 @@
-Clascal was an object-oriented programming language developed in 1983 by the Personal Office Systems (POS) division (later renamed The Lisa Division, then later The 32-Bit Systems Division) of then Apple Computer, later renamed Apple Inc.
-It was an extension of Lisa Pascal, which in turn harked back to the UCSD Pascal model originally implemented on the Apple II. It was strongly influenced by the Xerox Palo Alto Research Center (PARC) release of Smalltalk-80, v1 (which had been formerly ported to the Lisa), and by Modula.
-Clascal was the inspiration for Object Pascal on the Apple Macintosh in 1985. With the demise of the Lisa in 1986, Pascal and Object Pascal continued to be used in the Macintosh Programmer's Workshop for systems and application development for several more years, until it was finally supplanted by the languages C and C++. The MacApp application template was based on sample programs originally written in Clascal, and on the Toolkit, or class library.
-Ultimately Object Pascal evolved into the language of Borland Delphi.
-
-
-== References ==
-Keohan, Susan. "An Introduction to Clascal – Alpha Draft". September 15, 1983. Lisa Division, Apple Computer. Cupertino, California.
