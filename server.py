@@ -6,7 +6,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from models.models import db, RedditComments, TwitterComments,\
     User, AnalysisResults
 from sqlalchemy import func
-from config import ProductionConfig
+from config import ProductionConfig, DevelopmentConfig
 from flask_admin import Admin
 from main.views import main_blueprint
 from user.views import user_blueprint
@@ -14,7 +14,7 @@ from models.models_views import UserView, CommentView, ResultView
 
 app = Flask(__name__)
 
-app.config.from_object(ProductionConfig)
+app.config.from_object(DevelopmentConfig)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
