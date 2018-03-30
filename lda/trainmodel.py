@@ -119,5 +119,7 @@ if __name__ == '__main__':
     else:
         LdaForTrain.train_model()
     LdaForTrain.get_topic_names()
+    while len(set(LdaForTrain.topic_names)) < len(categories):
+        LdaForTrain.get_topic_names()
     LdaForTrain.print_model_topics()
     LdaForTrain.test_model()
