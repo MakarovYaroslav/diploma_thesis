@@ -39,11 +39,11 @@
                 <label>Enter Username:</label>
             </div>
             <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-1 text-right">
+                <div class="col-lg-2 col-xs-0"></div>
+                <div class="col-lg-1 col-xs-2 text-right">
                     <img src="/static/img/username.png" class="username-clipart">
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6 col-xs-10">
                     {% if user_error %}
                     <div class="form-group has-error">
                         <input name="username" class="form-control" placeholder="Username for analysis" maxlength="20" autofocus/>
@@ -55,7 +55,7 @@
                     </div>
                     {% endif %}
                 </div>
-                <div class="col-lg-4"></div>
+                <div class="col-lg-4 col-xs-0"></div>
             </div>
             <div class="text-center topic-select">
                 <label>Select topics for analysis:</label>
