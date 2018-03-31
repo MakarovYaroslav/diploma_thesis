@@ -11,10 +11,13 @@ from flask_admin import Admin
 from main.views import main_blueprint
 from user.views import user_blueprint
 from models.models_views import UserView, CommentView, ResultView
+from raven.contrib.flask import Sentry
 
 app = Flask(__name__)
 
 app.config.from_object(DevelopmentConfig)
+
+sentry = Sentry(app)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -38,16 +41,19 @@ def load_user(user_id):
 
 @app.errorhandler(403)
 def forbidden_page(error):
+    sentry.captureException()
     return render_template("errors/403.html"), 403
 
 
 @app.errorhandler(404)
 def page_not_found(error):
+    sentry.captureException()
     return render_template("errors/404.html"), 404
 
 
 @app.errorhandler(500)
 def server_error_page(error):
+    sentry.captureException()
     return render_template("errors/500.html"), 500
 
 
