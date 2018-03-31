@@ -84,7 +84,7 @@ def create_uwsgi_config_from_tpl(tpl_filename):
         PROJECT_NAME, os.path.join('deploy_configs', tpl_filename)))
     with settings(warn_only=True):
         sudo('killall -9 uwsgi')
-    run('uwsgi --ini deploy_configs/uwsgi.ini')
+    run('uwsgi --ini deploy_configs/uwsgi.ini --logto /tmp/mylog.log')
 
 
 def initialize_env_vars():
@@ -112,7 +112,8 @@ def initialize_env_vars():
         TWITTER_CONSUMER_KEY=os.getenv('TWITTER_CONSUMER_KEY'),
         TWITTER_CONSUMER_SECRET=os.getenv('TWITTER_CONSUMER_SECRET'),
         TWITTER_ACCESS_KEY=os.getenv('TWITTER_ACCESS_KEY'),
-        TWITTER_ACCESS_SECRET=os.getenv('TWITTER_ACCESS_SECRET'))
+        TWITTER_ACCESS_SECRET=os.getenv('TWITTER_ACCESS_SECRET'),
+        SENTRY_DSN=os.getenv('SENTRY_DSN'))
 
 
 @task
